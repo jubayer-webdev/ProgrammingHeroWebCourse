@@ -1,0 +1,86 @@
+/* header style */
+.header {
+  background-image: url("../images/Banner\ Image.png");
+  width: 1320px;
+  height: 700px;
+  background-repeat: no-repeat;
+  margin: auto;
+  border-radius: 16px;
+}
+.header .top {
+  text-align: center;
+  color: #ffffff;
+}
+.text-des1 {
+  color: #fff;
+  font-family: Merriweather;
+  font-size: 32px;
+  padding: 185px 100px 0px 100px;
+  margin: 0px;
+}
+.text-des2 {
+  color: #fff;
+  font-family: Merriweather;
+  font-size: 72px;
+  margin: 0px;
+}
+
+/* main style start */
+/* section1 */
+.section1 {
+  text-align: center;
+  font-family: Inter;
+}
+.off {
+  color: #f00;
+  font-size: 88px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+.section1text2 {
+  color: #f00;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 10px;
+}
+.section1text3 {
+  color: #070211;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* section2 */
+.section2 {
+  background-image: url("../images/Group 70.png"), url("../images/Vectorrr.png");
+  background-position: bottom right;
+  width: 1320px;
+  height: 600px;
+  background-repeat: no-repeat;
+  margin: 120px auto;
+}
+.section2div {
+  padding: 126px 552px 298px 126px;
+}
+.section2text1 {
+  color: #fff;
+  font-family: Merriweather;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 7.04px;
+}
+.section2text2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px;
+}
+.btn {
+  color: #fff;
+  background-color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 48px;
+}
