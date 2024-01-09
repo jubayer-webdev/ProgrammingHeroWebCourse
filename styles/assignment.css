@@ -30,7 +30,7 @@
   background: linear-gradient(180deg, #070211 0%, rgba(7, 2, 17, 0) 100%);
 }  */
 .header {
-  background-image: url("../images/Banner\ Image.png");
+  background-image:linear-gradient(180deg, #070211 0%, rgba(7, 2, 17, 0.00) 100%), url("../images/Banner\ Image.png");
   width: 1320px;
   height: 700px;
   background-repeat: no-repeat;
@@ -77,7 +77,7 @@
   /* background: linear-gradient(90deg, #070211 0%, rgba(7, 2, 17, 0.00) 100%); */
 }
 .section2 {
-  background-image: url("../images/Group 70.png"), url("../images/Vectorrr.png");
+  background-image:linear-gradient(90deg, #070211 0%, rgba(7, 2, 17, 0.00) 100%), url("../images/Group 70.png"), url("../images/Vectorrr.png");
   background-position: bottom right;
   width: 1320px;
   height: 600px;
@@ -139,7 +139,7 @@
   /* justify-content: center; */
 }
 .section3image div {
-  max-width: 300px;
+  max-width: 33%;
 }
 .section3image img {
   width: 100%;
