@@ -3,11 +3,32 @@
   padding: 0;
 } */
 
+/* Common shared styles */
+
+.section1text2,
+.section3text1 h4,
+.bonusSection .part1text1 {
+  font-family: Inter;
+  color: #f00;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.section1text3,
+.section3text1 h1,
+.section4text2 {
+  font-family: Merriweather;
+  color: #070211;
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
 /* header style */
 /* .headerparent {
   border-radius: 16px;
   background: linear-gradient(180deg, #070211 0%, rgba(7, 2, 17, 0) 100%);
-} */
+}  */
 .header {
   background-image: url("../images/Banner\ Image.png");
   width: 1320px;
@@ -48,15 +69,7 @@
   margin-bottom: 48px;
 }
 .section1text2 {
-  color: #f00;
-  font-size: 24px;
-  font-weight: 500;
   padding: 10px;
-}
-.section1text3 {
-  color: #070211;
-  font-size: 48px;
-  font-weight: 700;
 }
 
 /* section2 */
@@ -99,19 +112,14 @@
 }
 /* section3 style */
 
+.section3div{
+  margin-top: 100px;
+}
+
 .section3text1 h4 {
-  color: #f00;
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 500;
   margin-bottom: 0px;
 }
 .section3text1 h1 {
-  color: #070211;
-  font-family: Merriweather;
-  font-size: 48px;
-  font-weight: 900;
-  text-transform: capitalize;
   margin-top: 16px;
   margin-bottom: 0px;
 }
@@ -160,13 +168,7 @@
   text-align: center;
   padding: 80px 212px 200px 212px;
 }
-.section4text2 {
-  color: #070211;
-  font-family: Merriweather;
-  font-size: 48px;
-  font-weight: 900;
-  text-transform: capitalize;
-}
+
 .section4text3 {
   color: rgba(7, 2, 17, 0.6);
   font-family: Inter;
@@ -235,4 +237,32 @@
   font-family: Inter;
   font-size: 24px;
   font-weight: 500;
+}
+
+/* bouusSection Style */
+.bonusSection .part1text3,
+.bonusSection .part3 p {
+  color: rgba(7, 2, 17, 0.6);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+}
+.round {
+  border-radius: 463px;
+  border: 15px solid #f00;
+  padding: 49px;
+}
+.bonusSection .part3 h3 {
+  color: #f00;
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.bonusSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 120px;
 }
