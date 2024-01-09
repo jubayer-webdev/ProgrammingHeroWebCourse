@@ -136,7 +136,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-  /* justify-content: center; */
+  justify-content: center;
 }
 .section3image div {
   max-width: 33%;
@@ -240,6 +240,9 @@
 }
 
 /* bouusSection Style */
+.bonusSection .part1text1{
+  margin-bottom: 0px;
+}
 .bonusSection .part1text3,
 .bonusSection .part3 p {
   color: rgba(7, 2, 17, 0.6);
@@ -258,6 +261,7 @@
   font-family: Inter;
   font-size: 48px;
   font-weight: 700;
+  margin-bottom: 0px;
 }
 
 .bonusSection{
