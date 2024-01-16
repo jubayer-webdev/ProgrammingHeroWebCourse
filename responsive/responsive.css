@@ -1,6 +1,6 @@
 /* for mobile device 600px */
 @media screen and (max-width: 600px) {
-  /* nav and banner section */
+  /********************* nav and banner section ************************/
   .banner-container {
     border: 2px solid brown;
     max-width: 82%;
@@ -34,7 +34,7 @@
     width: 274px;
   }
 
-  /* popular-tour-container */
+  /***************************** popular-tour-container *******************/
   .popular-tour-container {
     display: flex;
     /* justify-content: space-between; */
@@ -51,5 +51,18 @@
   .popular-tour-container .tour-right{
     width: 100%;
     padding-top: 10px;
+  }
+
+  /********************** why-choose-us-container *************************/
+  .why-choose-us-container div.coose-us-up *{
+    width: 100%;
+  }
+  .why-choose-us-container .coose-us-up p{
+    padding: 0px 32px;
+    width: 80%;
+  }
+  .why-choose-us-container .card-container .card{
+    width: 100%;
+    padding: 32px;
   }
 }
