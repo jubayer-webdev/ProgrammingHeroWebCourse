@@ -1,5 +1,6 @@
 /* for mobile device 600px */
 @media screen and (max-width: 600px) {
+  /* nav and banner section */
   .banner-container {
     border: 2px solid brown;
     max-width: 82%;
@@ -31,5 +32,24 @@
   .banner-container .btn-container .input-field input,
   button {
     width: 274px;
+  }
+
+  /* popular-tour-container */
+  .popular-tour-container {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    margin: 0px auto;
+  }
+  .popular-tour-container .tour-left {
+    width: 100%;
+    padding: 0px 15px;
+  }
+  .popular-tour-container .tour-left button{
+    width: 40%;
+  }
+  .popular-tour-container .tour-right{
+    width: 100%;
+    padding-top: 10px;
   }
 }
