@@ -52,7 +52,6 @@
     width: 100%;
     padding-top: 10px;
   }
-
   /********************** why-choose-us-container *************************/
   .why-choose-us-container div.coose-us-up *{
     width: 100%;
@@ -65,4 +64,14 @@
     width: 100%;
     padding: 32px;
   }
+/*************************** newsletter-container *************************/
+.newsletter-container{
+    flex-wrap: wrap;
+  }
+.newsletter-container .newsletter-input-container{
+    max-width: 100%;
+  }
+  .newsletter-container .newsletter-picture-container{
+    max-width: 100%;
+}
 }
