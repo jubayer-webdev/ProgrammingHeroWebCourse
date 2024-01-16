@@ -313,6 +313,7 @@ p ~ li {
 footer {
   max-width: 82%;
   /* border: 3px solid red; */
+  background-color: #1313180d;
   display: flex;
   justify-content: center;
   margin: 50px auto 0px;
@@ -324,7 +325,6 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: #1313180d;
 }
 footer .footer-lft h1 {
   font-size: 22px;
