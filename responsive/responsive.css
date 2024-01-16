@@ -74,4 +74,10 @@
   .newsletter-container .newsletter-picture-container{
     max-width: 100%;
 }
+
+/************************************** footer ****************************/
+.footer-container {
+    width: 100%;
+    padding: 20px;
+  }
 }
