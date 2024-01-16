@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --heading-color-black: #131318;
+  --heading-color-white: #fff;
+  --pragrph-color: #5a5a5d;
+  --btn-color: #ff5400;
+}
+body {
+  max-width: 1440px;
+  /* max-width: 100vw; */
+  font-family: "Mulish", sans-serif;
+  /* width: 100vw; */
+}
+
+/* nav styles start */
+nav {
+  max-width: 82%;
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0px auto;
+}
+.nav-lft .travel-text {
+  color: var(--btn-color);
+  font-size: 2.25rem;
+}
+.nav-lft {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.menu {
+  border: 2px solid blue;
+  display: flex;
+  align-items: center;
+}
+.menu .list-item {
+  border: 2px solid aqua;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 44px;
+}
+
+/****************************** banner styles start ************************************/
+.banner-container {
+  border: 2px solid brown;
+  max-width: 82%;
+  height: 500px;
+  margin: 48px auto;
+  background-image: linear-gradient(
+      180deg,
+      rgba(19, 19, 24, 0.8) 0%,
+      rgba(19, 19, 24, 0) 100%
+    ),
+    url("../images/banner.png");
+  border-radius: 16px;
+}
+.up-and-btn-container{
+    border: 5px solid tomato;
+    max-width: 100%;
+    max-height: 100%;
+}
+.banner-container .banner-up {
+  text-align: center;
+  border: 2px solid black;
+  margin-top: 40px;
+}
+.banner-container .banner-up h1 {
+  border: 2px solid blue;
+  width: 51%;
+  color: var(--heading-color-white);
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 106px auto 15px;
+}
+.banner-container .banner-up p {
+  border: 2px solid red;
+  color: var(--heading-color-white);
+  width: 58%;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 0px auto;
+}
+
+.banner-container .btn-container {
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  gap: 24px;
+  max-width: 758px;
+  padding: 16px;
+  margin: 0 auto;
+  margin-top: 5%;
+  background: rgba(255, 255, 255, 0.3);
+}
+.banner-container .btn-container .input-field input,
+button {
+  border: 2px solid blue;
+  width: 154px;
+  height: 40px;
+  border-radius: 8px;
+}
+.banner-container .btn-container button{
+    background-color: var(--btn-color);
+}
