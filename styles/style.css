@@ -17,10 +17,10 @@ body {
   /* width: 100vw; */
 }
 
-/* nav styles start */
+/********************************************* nav styles start **************************/
 nav {
   max-width: 82%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -30,7 +30,7 @@ nav {
   display: flex;
   gap: 16px;
   align-items: center;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 .nav-lft h1 {
   font-weight: 800;
@@ -41,12 +41,12 @@ nav {
 }
 
 .menu {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
 }
 .menu .list-item {
-  border: 2px solid aqua;
+  /* border: 2px solid aqua; */
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -55,7 +55,7 @@ nav {
 
 /****************************** banner styles start ************************************/
 .banner-container {
-  border: 2px solid brown;
+  /* border: 2px solid brown; */
   max-width: 82%;
   height: 500px;
   margin: 48px auto;
@@ -68,17 +68,17 @@ nav {
   border-radius: 16px;
 }
 .up-and-btn-container {
-  border: 5px solid tomato;
+  border: 1px solid rgba(255, 255, 255, 0.01); /* This have to fix*/
   max-width: 100%;
   max-height: 100%;
 }
 .banner-container .banner-up {
   text-align: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin-top: 40px;
 }
 .banner-container .banner-up h1 {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 51%;
   color: var(--heading-color-white);
   font-size: 2rem;
@@ -86,7 +86,7 @@ nav {
   margin: 106px auto 15px;
 }
 .banner-container .banner-up p {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   color: var(--heading-color-white);
   width: 58%;
   font-weight: 400;
@@ -95,7 +95,7 @@ nav {
 }
 
 .banner-container .btn-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +110,7 @@ nav {
 }
 .banner-container .btn-container .input-field input,
 .banner-container .btn-container .btn button {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 154px;
   height: 40px;
   border-radius: 8px;
@@ -120,10 +120,10 @@ nav {
   color: var(--heading-color-white);
 }
 
-/****************** popular-tour-container start **********************/
+/************************************* popular-tour-container start **********************/
 .popular-tour-container {
   max-width: 82%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
@@ -131,13 +131,13 @@ nav {
 }
 
 .popular-tour-container .tour-left {
-  border: 2px solid aqua;
+  /* border: 2px solid aqua; */
   width: 50%;
   padding: 0px 15px;
 }
 .popular-tour-container .tour-left p,
 p + li {
-  border: 5px solid red;
+  /* border: 5px solid red; */
   margin-top: 14px;
 }
 .popular-tour-container .tour-left h1 {
@@ -157,13 +157,13 @@ p ~ li {
   height: 52px;
   border-radius: 8px;
   margin-top: 32px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   color: var(--heading-color-white);
   font-weight: 700;
   background-color: var(--btn-color);
 }
 .popular-tour-container .tour-right {
-  border: 5px solid rgb(44, 42, 165);
+  /* border: 5px solid rgb(44, 42, 165); */
   width: 50%;
 }
 .popular-tour-container .tour-right img {
@@ -171,10 +171,10 @@ p ~ li {
   height: 100%; /*if i don't give it then bottom will empty*/
 }
 
-/******** why-choose-us-container styles start  *************************/
+/************************ why-choose-us-container styles start  *************************/
 .why-choose-us-container {
   max-width: 82%;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   /* display: flex; */
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
@@ -185,7 +185,7 @@ p ~ li {
 }
 
 .why-choose-us-container .coose-us-up h1 {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 51%;
   color: var(--heading-color-black);
   font-size: 2rem;
@@ -193,7 +193,7 @@ p ~ li {
   margin: 0px auto 15px;
 }
 .why-choose-us-container .coose-us-up p {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   color: var(--pragrph-color);
   width: 58%;
   font-weight: 400;
@@ -202,7 +202,7 @@ p ~ li {
 }
 
 .why-choose-us-container .card-container {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -231,23 +231,23 @@ p ~ li {
 .why-choose-us-container .card-container .card1 {
   border: 1px solid rgba(251, 181, 99, 0.2);
   background: rgba(251, 181, 99, 0.05);
-  border: 2px solid tomato;
+  /* border: 2px solid tomato; */
 }
 .why-choose-us-container .card-container .card2 {
   border: 1px solid rgba(41, 206, 246, 0.2);
   background: rgba(41, 206, 246, 0.05);
-  border: 2px solid tomato;
+  /* border: 2px solid tomato; */
 }
 .why-choose-us-container .card-container .card3 {
   border: 1px solid rgba(233, 68, 68, 0.2);
   background: rgba(233, 68, 68, 0.05);
-  border: 2px solid tomato;
+  /* border: 2px solid tomato; */
 }
 
-/*************************** newsletter-container styles  *************************/
+/********************************* newsletter-container styles  *************************/
 .newsletter-container {
   max-width: 82%;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   display: flex;
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
@@ -255,7 +255,7 @@ p ~ li {
 }
 .newsletter-container .newsletter-input-container {
   max-width: 40%;
-  border: 3px solid brown;
+  /* border: 3px solid brown; */
   padding: 40px;
 }
 .newsletter-container .newsletter-input-container h4 {
@@ -271,7 +271,7 @@ p ~ li {
 }
 .newsletter-container .newsletter-input-container input,
 .newsletter-container .newsletter-input-container button {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 82%;
   height: 52px;
   border-radius: 8px;
@@ -284,7 +284,7 @@ p ~ li {
 }
 .newsletter-container .newsletter-picture-container {
   position: relative;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   max-width: 57%;
 }
 .newsletter-container .newsletter-picture-container img {
@@ -309,16 +309,16 @@ p ~ li {
   font-weight: 800;
 }
 
-/***************** footer  ********************/
+/************************************************************ footer  ********************/
 footer {
   max-width: 82%;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   display: flex;
   justify-content: center;
   margin: 50px auto 0px;
 }
 .footer-container {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -336,23 +336,23 @@ footer hr {
   width: 100%;
 }
 
-/******************** destinati-container ************************/
+/************************************* destinati-container ************************/
 .destination-container {
   max-width: 82%;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   /* display: flex; */
   /* justify-content: center; */
   margin: 50px auto 0px;
 }
 .destination-container .text-up {
-  border: 2px solid aqua;
+  /* border: 2px solid aqua; */
   text-align: center;
   margin-bottom: 20px;
 }
 
 .destination-container .row1 {
   position: relative;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -362,7 +362,7 @@ footer hr {
   height: 100%;
 }
 .destination-container .row1 h3 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   position: absolute;
   color: #fff;
   translate: 130% 250%;
@@ -372,7 +372,7 @@ footer hr {
 .destination-container .row2 {
     margin-top: 10px;
     position: relative;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -382,7 +382,7 @@ footer hr {
     height: 100%;
   }
   .destination-container .row2 h3 {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     position: absolute;
     color: #fff;
     translate: 50% 250%;
@@ -393,7 +393,7 @@ footer hr {
   .destination-container .row3 {
     margin-top: 10px;
     position: relative;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -403,7 +403,7 @@ footer hr {
     height: 100%;
   }
   .destination-container .row3 h3 {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     position: absolute;
     color: #fff;
     translate: 70% 250%;
