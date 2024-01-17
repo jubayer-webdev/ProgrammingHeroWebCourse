@@ -261,6 +261,38 @@ p ~ li {
   /* border: 2px solid tomato; */
 }
 
+/*****************************  Some Booking Features styles  *****************************/
+.booking-feature{
+  max-width: 82%;
+  border: 3px solid red;
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+  margin: 50px auto 0px;
+}
+.booking-feature h1{
+  color: var(--heading-color-black);
+  font-weight: 800;
+}
+.booking-feature .booking-photo-container{
+  border: 2px solid aqua;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.80);
+}
+.booking-feature .booking-photo-container img{
+  border: 2px solid blue;
+  width: 70%;
+}
+.booking-feature .booking-photo-container div{
+  border: 2px solid red;
+  color: var(--heading-color-black);
+  width: 30%;
+}
 /*****************************  newsletter-container styles  *****************************/
 .newsletter-container {
   max-width: 82%;
@@ -320,6 +352,7 @@ p ~ li {
   /* translate: 90% -155%; */
   top: 70%;
   right: 0;
+  /* top: 265px; */
   transform: rotate(-19.628deg);
   background-color: var(--btn-color);
   color: var(--heading-color-white);
