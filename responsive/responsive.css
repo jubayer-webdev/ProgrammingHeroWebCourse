@@ -19,18 +19,16 @@
   }
   .up-and-btn-container {
     /* border: 5px solid tomato; */
-    margin: 0px 24px;
+    /* margin: 0px 24px; */
     height: 500px;
   }
   .banner-container .banner-up {
     text-align: center;
-    /* border: 2px solid black; */
-    margin: 0px;
   }
   .banner-container .banner-up h1,
   .banner-container .banner-up p {
     width: auto;
-    margin: 32px;
+    /* margin: 32px; */
     margin-bottom: 10px;
   }
   .banner-container .btn-container {
@@ -39,9 +37,10 @@
     margin: 32px;
     gap: 10px;
   }
-  .banner-container .btn-container .input-field input,
-  button {
-    width: 274px;
+  .banner-container .btn-container .input-field,
+  .banner-container .btn-container .btn{
+    /* border: 2px solid red; */
+    width: 100%;
   }
 
   /********************************************** popular-tour-container *******************/
