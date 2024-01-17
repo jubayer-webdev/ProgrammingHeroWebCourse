@@ -17,7 +17,7 @@ body {
   /* width: 100vw; */
 }
 
-/*********************************  nav styles start  *********************************/
+/************************************  nav styles  ************************************/
 nav {
   max-width: 82%;
   /* border: 2px solid red; */
@@ -53,7 +53,7 @@ nav {
   gap: 44px;
 }
 
-/*********************************  banner styles start  *********************************/
+/************************************  banner styles  ************************************/
 .banner-container {
   /* border: 4px solid rgb(22, 237, 7); */
   display: flex;
@@ -136,7 +136,7 @@ nav {
   color: var(--heading-color-white);
 }
 
-/*************************  popular-tour-container start  *************************/
+/*************************  popular-tour-container styles *************************/
 .popular-tour-container {
   max-width: 82%;
   /* border: 2px solid red; */
@@ -188,7 +188,7 @@ p ~ li {
   height: 100%; /*if i don't give it then bottom will empty*/
 }
 
-/*************************  why-choose-us-container styles start  *************************/
+/****************************  why-choose-us-container styles  ****************************/
 .why-choose-us-container {
   max-width: 82%;
   /* border: 3px solid red; */
@@ -260,137 +260,7 @@ p ~ li {
   background: rgba(233, 68, 68, 0.05);
   /* border: 2px solid tomato; */
 }
-
-/*****************************  Some Booking Features styles  *****************************/
-.booking-feature{
-  max-width: 82%;
-  border: 3px solid red;
-  text-align: center;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* flex-wrap: wrap; */
-  margin: 50px auto 0px;
-}
-.booking-feature h1{
-  color: var(--heading-color-black);
-  font-weight: 800;
-}
-.booking-feature .booking-photo-container{
-  border: 2px solid aqua;
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  background: rgba(255, 255, 255, 0.80);
-}
-.booking-feature .booking-photo-container img{
-  border: 2px solid blue;
-  width: 70%;
-}
-.booking-feature .booking-photo-container div{
-  border: 2px solid red;
-  color: var(--heading-color-black);
-  width: 30%;
-}
-/*****************************  newsletter-container styles  *****************************/
-.newsletter-container {
-  max-width: 82%;
-  /* border: 3px solid red; */
-  display: flex;
-  /* justify-content: space-between; */
-  /* flex-wrap: wrap; */
-  margin: 50px auto 0px;
-}
-.newsletter-container .newsletter-input-container {
-  max-width: 40%;
-  /* border: 3px solid brown; */
-  padding: 40px;
-}
-.newsletter-container .newsletter-input-container h4 {
-  color: var(--heading-color-black);
-  font-size: 24px;
-  font-weight: 800;
-}
-.newsletter-container .newsletter-input-container p {
-  color: var(--pragrph-color);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 26px; /* 162.5% */
-}
-.newsletter-container .newsletter-input-container input,
-.newsletter-container .newsletter-input-container button {
-  /* border: 2px solid blue; */
-  width: 82%;
-  height: 52px;
-  border-radius: 8px;
-  border: 0px;
-  background: rgba(19, 19, 24, 0.05);
-  margin-top: 20px;
-}
-.newsletter-container .newsletter-input-container button {
-  background-color: var(--btn-color);
-  color: var(--heading-color-white);
-  font-weight: 800;
-}
-.newsletter-container .newsletter-picture-container {
-  position: relative;
-  /* border: 2px solid red; */
-  max-width: 57%;
-}
-.newsletter-container .newsletter-picture-container img {
-  width: 100%;
-  height: 100%;
-}
-.newsletter-container .newsletter-picture-container .sticker {
-  position: absolute;
-  width: 48%;
-  height: 15%;
-  text-align: center;
-  padding: 1.78%;
-  border-radius: 16px;
-  /* translate: 90% -155%; */
-  top: 70%;
-  right: 0;
-  /* top: 265px; */
-  transform: rotate(-19.628deg);
-  background-color: var(--btn-color);
-  color: var(--heading-color-white);
-}
-.newsletter-container .newsletter-picture-container .sticker h3 {
-  color: var(--heading-color-white);
-  font-size: 20px;
-  font-weight: 800;
-}
-
-/***************************************  footer  ***************************************/
-footer {
-  max-width: 82%;
-  /* border: 3px solid red; */
-  background-color: #1313180d;
-  display: flex;
-  justify-content: center;
-  margin: 50px auto 0px;
-}
-.footer-container {
-  /* border: 2px solid blue; */
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-footer .footer-lft h1 {
-  font-size: 22px;
-}
-footer .footer-lft {
-  margin-top: 110px;
-}
-footer hr {
-  width: 100%;
-}
-
-/********************************  destination-container  ********************************/
+/******************************  destination-container styles  ******************************/
 .destination-container {
   max-width: 82%;
   /* border: 3px solid red; */
@@ -463,4 +333,139 @@ footer hr {
   translate: 70% 250%;
   font-size: 28px;
   font-weight: 800;
+}
+/*****************************  Some Booking Features styles  *****************************/
+.booking-feature{
+  max-width: 82%;
+  /* border: 3px solid red; */
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+  margin: 50px auto 0px;
+  background: rgb(232, 243, 237);
+}
+.booking-feature h1{
+  color: var(--heading-color-black);
+  font-weight: 700;
+}
+.booking-feature .booking-photo-container{
+  /* border: 2px solid aqua; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 15px;
+}
+.booking-feature .booking-photo-container img{
+  /* border: 2px solid blue; */
+  width: 70%;
+}
+.booking-feature .booking-photo-container h3{
+  /* border: 2px solid red; */
+  color: var(--heading-color-black);
+  font-weight: 600px;
+}
+.booking-feature .booking-photo-container p{
+  /* border: 2px solid blue; */
+  color: var(--pragrph-color);
+}
+/*****************************  newsletter-container styles  *****************************/
+.newsletter-container {
+  max-width: 82%;
+  /* border: 3px solid red; */
+  display: flex;
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+  margin: 50px auto 0px;
+}
+.newsletter-container .newsletter-input-container {
+  max-width: 40%;
+  /* border: 3px solid brown; */
+  padding: 40px;
+}
+.newsletter-container .newsletter-input-container h4 {
+  color: var(--heading-color-black);
+  font-size: 24px;
+  font-weight: 800;
+}
+.newsletter-container .newsletter-input-container p {
+  color: var(--pragrph-color);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+}
+.newsletter-container .newsletter-input-container input,
+.newsletter-container .newsletter-input-container button {
+  /* border: 2px solid blue; */
+  width: 82%;
+  height: 52px;
+  border-radius: 8px;
+  border: 0px;
+  background: rgba(19, 19, 24, 0.05);
+  margin-top: 20px;
+}
+.newsletter-container .newsletter-input-container button {
+  background-color: var(--btn-color);
+  color: var(--heading-color-white);
+  font-weight: 800;
+}
+.newsletter-container .newsletter-picture-container {
+  position: relative;
+  /* border: 2px solid red; */
+  max-width: 57%;
+}
+.newsletter-container .newsletter-picture-container img {
+  width: 100%;
+  height: 100%;
+}
+.newsletter-container .newsletter-picture-container .sticker {
+  position: absolute;
+  width: 48%;
+  height: 15%;
+  text-align: center;
+  padding: 1.78%;
+  border-radius: 16px;
+  /* translate: 90% -155%; */
+  top: 70%;
+  right: 0;
+  /* top: 265px; */
+  transform: rotate(-19.628deg);
+  background-color: var(--btn-color);
+  color: var(--heading-color-white);
+}
+.newsletter-container .newsletter-picture-container .sticker h3 {
+  color: var(--heading-color-white);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/************************************  footer styles  ************************************/
+footer {
+  max-width: 82%;
+  /* border: 3px solid red; */
+  background-color: #1313180d;
+  display: flex;
+  justify-content: center;
+  margin: 50px auto 0px;
+}
+.footer-container {
+  /* border: 2px solid blue; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+footer .footer-lft h1 {
+  font-size: 22px;
+}
+footer .footer-lft {
+  margin-top: 110px;
+}
+footer hr {
+  width: 100%;
 }

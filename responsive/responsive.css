@@ -1,6 +1,6 @@
-/* for mobile device 600px */
+/* for mobile device <= 600px */
 @media screen and (max-width: 600px) {
-  /*************************************** nav and banner section ************************/
+  /*******************************  nav and banner section  *******************************/
   .menu .list-item{
         display: none;
     }
@@ -43,7 +43,7 @@
     width: 100%;
   }
 
-  /********************************************** popular-tour-container *******************/
+  /*****************************  popular-tour-container  *****************************/
   .popular-tour-container {
     display: flex;
     /* justify-content: space-between; */
@@ -61,7 +61,7 @@
     width: 100%;
     padding-top: 10px;
   }
-  /********************************** why-choose-us-container *************************/
+  /*******************************  why-choose-us-container  *******************************/
   .why-choose-us-container div.coose-us-up *{
     width: 100%;
   }
@@ -73,7 +73,7 @@
     width: 100%;
     padding: 32px;
   }
-  /*****************************************  destination-container    ******************/
+  /*******************************  destination-container  *******************************/
   .destination-container{
 
   }
@@ -89,14 +89,15 @@
     display: flex;
     flex-direction: column;
   }
-  /* ******************************************  feature  ****************************/
+  /***************************************  feature  ***************************************/
   .booking-feature .booking-photo-container{
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .booking-feature .booking-photo-container div{
     width: 100%;
+    margin-bottom: 25px;
   }
-/************************************** newsletter-container *************************/
+/********************************  newsletter-container  ********************************/
 .newsletter-container{
     flex-wrap: wrap;
   }
@@ -107,7 +108,7 @@
     max-width: 100%;
 }
 
-/************************************* footer  *************************************/
+/*************************************  footer  *************************************/
 .footer-container {
     width: 100%;
     padding: 20px;
