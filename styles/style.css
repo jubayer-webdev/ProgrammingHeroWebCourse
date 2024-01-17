@@ -9,6 +9,7 @@
   --heading-color-white: #fff;
   --pragrph-color: #5a5a5d;
   --btn-color: #ff5400;
+  font-size: 14px;
 }
 body {
   max-width: 1440px;
@@ -16,7 +17,10 @@ body {
   font-family: "Mulish", sans-serif;
   /* width: 100vw; */
 }
-
+/**************************************  shared styles  *******************************/
+#all-button:hover{
+  cursor: pointer;
+}
 /************************************  nav styles  ************************************/
 nav {
   max-width: 82%;
@@ -51,6 +55,10 @@ nav {
   flex-wrap: wrap;
   list-style: none;
   gap: 44px;
+}
+.menu .list-item li:hover{
+  background-color: #c2aba0;
+  cursor:pointer;
 }
 
 /************************************  banner styles  ************************************/
