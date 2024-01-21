@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Landing with Tailwind</title>
+    <!-- Tailwind added -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .border-custom{
+            border: 3px solid rgb(255, 25, 0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-[#0E1133] py-6 text-red">
+        <div class="border-custom container mx-auto lg:px-24 px-8">
+            <div class="text-white flex justify-between">
+                <div class="flex justify-center items-center space-x-8">
+                    <div>
+                        <img src="./assets/logo-3.png" alt="">
+                    </div>
+                    <div class="border-custom space-x-4 text-lg font-semibold hidden lg:flex">
+                        <a class="hover:text-orange-600 duration-300" href="#">Home</a>
+                        <a class="hover:text-orange-600 duration-300" href="#">About</a>
+                        <a class="hover:text-orange-600 duration-300" href="#">Services</a>
+                        <a class="hover:text-orange-600 duration-300" href="#">Blog</a>
+                        <a class="hover:text-orange-600 duration-300" href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="border-custom space-x-6 font-semibold hidden lg:flex">
+                    <button>Login</button>
+                    <button class="bg-orange-600 px-6 py-3 rounded-md border-2 duration-300 border-orange-600 hover:bg-transparent">Get Started</button>
+                </div>
+                <div class="lg:hidden">
+                    <img class="w-8 h-8" src="./assets/more.png" alt="">
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
