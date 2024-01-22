@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS show text on image when hovering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    .border-custom{
+        border: 3px solid rgb(255, 25, 0);
+    }
+</style>
+
+  <body>
+    <div class="border-custom space-x-4 text-lg font-semibold ">
+        <div class="block">
+        <a class="hover:text-orange-600 duration-300" href="#">Home</a>
+        <a class="hover:text-orange-600 duration-300" href="#">About</a>
+        <a class="hover:text-orange-600 duration-300" href="#">Services</a>
+        <a class="hover:text-orange-600 duration-300" href="#">Blog</a>
+        <a class="hover:text-orange-600 duration-300" href="#">Contact</a>
+        </div>
+    </div>
+  </body>
+
+</html>
