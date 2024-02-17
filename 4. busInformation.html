@@ -1,0 +1,82 @@
+<!-- 12:43 AM 18-Feb-24 -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Banner Section</title>
+
+        <!-- Add Tailwind CDN and daisyUI-->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Add fontwesome link  -->
+        <script src="https://kit.fontawesome.com/21261eb6e6.js" crossorigin="anonymous"></script>
+
+        <!-- CSS link -->
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- =================  Bus Information  =============== -->
+        <div class="dbg-red container mx-auto mb-24">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-5">P.H Paribahan</h1>
+                <p class="dbg-red mx-auto text-xl font-normal w-3/5">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+            </div>
+        </div>
+
+        <div class="dbg-red container mx-auto flex justify-between p-8">
+            <!-- left -->
+            <div class="dbg-blue flex flex-col w-4/5 pr-16 border-r-4 border-green-600 border-dashed">
+                <!-- 1st part -->
+                <div class="flex justify-between">
+                    <div class="dbg-blue flex gap-2">
+                        <div>
+                            <img src="./images/bus-logo.png" alt="" />
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold">Greenline Paribahan</h1>
+                            <p>Coach-009-WEB ! AC_Business</p>
+                        </div>
+                    </div>
+
+                    <div class="dbg-blue bg-[#1DD10040] flex flex-col lg:flex-row justify-center items-center rounded-xl px-7 py-4">
+                        <div class="dbg-red">
+                            <img class="h-6 w-6" src="./images/seat-green.png" alt="" />
+                        </div>
+
+                        <button class="dbg-red px-4 text-green-400 text-base font-bold"><span id="remain-seat">40</span> Seats left</button>
+                    </div>
+                </div>
+
+                <!-- 2nd part -->
+                <div class="flex justify-between my-8 text-lg">
+                    <p>Route</p>
+                    <p class="font-bold">Dhaka - Sylhet</p>
+                </div>
+                <!-- 3rd part -->
+                <div class="flex justify-between text-lg">
+                    <p>Departure Time</p>
+                    <p class="font-bold">9:00 PM</p>
+                </div>
+                <!-- 4th part -->
+                <div class="text-base font-medium bg-[#0307120A] flex justify-between p-4 my-8">
+                    <button>Boarding Point - Laxmipur</button>
+                    <button>Dropping Point - Bogura</button>
+                    <button>Est. Time - 11 Hour</button>
+                </div>
+            </div>
+            <!-- right -->
+            <div class="dbg-red flex flex-col justify-center items-center flex-1">
+                <div>
+                    <img src="./images/fare.png" alt="" />
+                </div>
+                <h1 class="text-3xl font-bold">550 Taka</h1>
+                <p>Per Seat</p>
+            </div>
+        </div>
+
+        <!-- =================  Bus Information  =============== -->
+    </body>
+</html>
