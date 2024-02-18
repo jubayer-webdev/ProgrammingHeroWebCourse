@@ -35,23 +35,12 @@ function setBtnDisableClass(elementId) {
     const element = document.getElementById(elementId);
     element.classList.add('btn-disabled');
 }
-//* to set the total-price or total-grand-price or offer-price
-function setTotal(element, totalTaka) {
-    element.innerText = totalTaka;
+function removeBtnDisableClass(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.remove('btn-disabled');
 }
-
-//* update total-seat
-function setTotalSeatNumber() {
-    const element = document.getElementById('total-select-seat');
-    console.log(element);
-    element.innerText = totalSeatCount;
-}
-//* check the phone number to remove btn-disabled class
-function removeBtnDisableClass() {
-    //?Phone number in the input field
-    console.log('in function removeBtnDisableClass pnoneNumber.length = ', phoneNumber.length);
-    if (phoneNumber.length != 0) {
-        const nextBtn = document.getElementById('next-button');
-        nextBtn.classList.remove('btn-disabled');
-    }
+//* to set total-seat or total-price or total-grand-price or offer-price
+function setTotal(elementID, totalValue) {
+    const element = document.getElementById(elementID);
+    element.innerText = totalValue;
 }

@@ -27,11 +27,11 @@ for (let i = 0; i < allSeatId.length; i++) {
         }
         //*count the seat
         totalSeatCount++;
-        setTotalSeatNumber();
+        //* update total-seat
+        setTotal('total-select-seat', totalSeatCount);
         //?apply-button enable
         if (totalSeatCount >= 4) {
-            const applyBtnElement = document.getElementById('apply-btn');
-            applyBtnElement.classList.remove('btn-disabled');
+            removeBtnDisableClass('apply-btn');
         }
 
 
@@ -39,12 +39,14 @@ for (let i = 0; i < allSeatId.length; i++) {
         setTitleContainerValue(seatId);
         setBtnDisableClass(seatId);
 
-        const totalElement = document.getElementById('total-price');
-        setTotal(totalElement, totalSeatCount * 550);
-        const grandElement = document.getElementById('grand-total');
-        setTotal(grandElement, totalSeatCount * 550);
+        setTotal('total-price', totalSeatCount * 550);
+        setTotal('grand-total', totalSeatCount * 550);
 
-        removeBtnDisableClass();
+        //?Phone number in the input field
+        console.log('pnoneNumber.length = ', phoneNumber.length);
+        if (phoneNumber.length != 0) {
+            removeBtnDisableClass('next-button');
+        }
     });
 }
 
@@ -61,8 +63,7 @@ phoneNumberInput.addEventListener('keypress', function (event) {
     }
     console.log('phoneNumber = ', phoneNumber.length);
     if (totalSeatCount > 0 && phoneNumber.length > 0) {
-        const nextBtn = document.getElementById('next-button');
-        nextBtn.classList.remove('btn-disabled');
+        removeBtnDisableClass('next-button');
     }
 });
 
@@ -83,8 +84,6 @@ applyBtnElement.addEventListener('click', function () {
     }
 
     //*here totalSeatCount will always be 4
-    const grandElement = document.getElementById('grand-total');
-    const offerElement = document.getElementById('offer-price');
     const totalTaka = totalSeatCount * 550;
     const applyBtnContainer = document.getElementById('apply-btn-container');
     const offerContainer = document.getElementById('offer-container');
@@ -97,10 +96,17 @@ applyBtnElement.addEventListener('click', function () {
         offerValue = (totalTaka * 0.2).toFixed(2);
     }
     // Grand Total:
-    setTotal(grandElement, totalTaka - offerValue);
+    setTotal('grand-total', totalTaka - offerValue);
     // offer value
-    setTotal(offerElement, offerValue);
+    setTotal('offer-price', offerValue);
     //hidden the apply-button and show the offer price
     applyBtnContainer.classList.add('hidden');
     offerContainer.classList.remove('hidden');
+});
+
+//*Modal
+const nextBtnElement = document.getElementById('next-button');
+nextBtnElement.addEventListener('click', function (event) {
+    event.preventDefault();
+    my_modal_5.showModal();
 });
