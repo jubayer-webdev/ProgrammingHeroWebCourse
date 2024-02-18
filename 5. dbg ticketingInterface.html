@@ -16,44 +16,46 @@
         <link rel="stylesheet" href="./styles/style.css" />
     </head>
     <body>
+        <!--! =================  Ticket Booking Starts  =============== -->
+        <section>
+            <div class="md:flex lg:col-span-1 mt-32">
+                <div class="dbg-red">
+                    <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
+                        <div class="text-black text-base font-medium py-2 flex justify-between">
+                            <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
+                            <p>Class</p>
+                            <p>Price</p>
+                        </div>
 
-        <div class="md:flex lg:col-span-1 mt-32">
-            <div class="dbg-red">
-                <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
-                    <div class="text-black text-base font-medium py-2 flex justify-between">
-                        <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
-                        <p>Class</p>
-                        <p>Price</p>
+                        <div class="dbg-blue text-base font-medium text-[#0307127F] flex justify-between">
+                            <p>C2</p>
+                            <p>Economy</p>
+                            <div id="title-container" class="dbg-red"></div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="dbg-blue text-black text-base font-medium py-2 flex justify-between">
+                            <p>Total Price:</p>
+                            <p>BDT <span id="total-price"></span></p>
+                        </div>
                     </div>
 
-                    <div class="dbg-blue text-base font-medium text-[#0307127F] flex justify-between">
-                        <p>C2</p>
-                        <p>Economy</p>
-                        <div id="title-container" class="dbg-red"></div>
+                    <!-- apply button -->
+                    <div class="dbg-blue bg-white p-6 rounded-md">
+                        <div class="join">
+                            <input id="input-field" class="input input-bordered join-item w-40" placeholder="Have any copupon?" />
+                            <button id="apply-btn" class="btn join-item rounded-md bg-[#1DD100] text-white font-bold">Apply</button>
+                        </div>
                     </div>
-
-                    <hr class="my-4" />
-
-                    <div class="dbg-blue text-black text-base font-medium py-2 flex justify-between">
-                        <p>Total Price:</p>
-                        <p>BDT <span id="total-price"></span></p>
+                    <!-- grand total -->
+                    <div class="dbg-blue text-black text-base font-medium p-4 flex justify-between">
+                        <p>Grand Total</p>
+                        <p>BDT <span id="grand-total"></span></p>
                     </div>
-                </div>
-
-                <!-- apply button -->
-                <div class="dbg-blue bg-white p-6 rounded-md">
-                    <div class="join">
-                        <input id="input-field" class="input input-bordered join-item w-40" placeholder="Have any copupon?" />
-                        <button id="apply-btn" class="btn join-item rounded-md bg-[#1DD100] text-white font-bold">Apply</button>
-                    </div>
-                </div>
-                <!-- grand total -->
-                <div class="dbg-blue text-black text-base font-medium p-4 flex justify-between">
-                    <p>Grand Total</p>
-                    <p>BDT <span id="grand-total"></span></p>
                 </div>
             </div>
-        </div>
-        
+        </section>
+        <!--! =================  Ticket Booking End  =============== -->
     </body>
 </html>

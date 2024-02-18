@@ -1,3 +1,5 @@
+console.log('connected utility.js');
+
 function setBackgroundColorById(elementId) {
     const element = document.getElementById(elementId);
     console.log('element = ', element);
@@ -6,6 +8,7 @@ function setBackgroundColorById(elementId) {
     element.style.backgroundColor = '#1DD100';
 }
 
+//* create and set the clicked seat on chart
 function setTitleContainerValue(elementId) {
     const parent = document.getElementById('title-container');
 
@@ -21,39 +24,29 @@ function setTitleContainerValue(elementId) {
     newParagraph3.innerHTML = `<p>550<p>`;
     newDiv.appendChild(newParagraph3);
 
-    //to show them side by side
+    //*to show them side by side
     newDiv.classList.add('flex', 'justify-between')
 
     parent.appendChild(newDiv);
-
 }
 
-//! prevent to buy one seat in more than one times
+//! prevent to buy a specific seat in more than one times
 function setBtnDisableClass(elementId) {
     const element = document.getElementById(elementId);
     element.classList.add('btn-disabled');
 }
-
-function setTotalPriceValue() {
-    const element = document.getElementById('total-price');
-
-    const totalTaka = totalSeatCount * 550;
+//* to set the total-price or total-grand-price or offer-price
+function setTotal(element, totalTaka) {
     element.innerText = totalTaka;
 }
 
-function setTotalGrantPriceValue() {
-    const element = document.getElementById('grand-total');
-    console.log(element);
-    const totalGrantPrice = totalSeatCount * 550;
-    element.innerText = totalGrantPrice;
-}
-
+//* update total-seat
 function setTotalSeatNumber() {
     const element = document.getElementById('total-select-seat');
     console.log(element);
     element.innerText = totalSeatCount;
 }
-
+//* check the phone number to remove btn-disabled class
 function removeBtnDisableClass() {
     //?Phone number in the input field
     console.log('in function removeBtnDisableClass pnoneNumber.length = ', phoneNumber.length);

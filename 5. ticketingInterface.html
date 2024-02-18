@@ -14,218 +14,230 @@
         <!-- Add fontwesome link  -->
         <script src="https://kit.fontawesome.com/21261eb6e6.js" crossorigin="anonymous"></script>
 
-        <!-- CSS link -->
+        <!-- CSS Link -->
         <link rel="stylesheet" href="./styles/style.css" />
     </head>
     <body>
         <!--! =================  Ticketing Interface Starts  =============== -->
-        <div class="dbg-red container mx-auto mb-24 flex">
-            <!-- left side sit display -->
-            <div class="border-r-4 border-green-600 border-dashed w-[70%] p-8">
-                <!--* 1st part start -->
-                <div>
-                    <h1 class="text-2xl font-bold mb-5">Select Your Seat</h1>
-                </div>
-                <!--* 2nd part start -->
-                <div class="flex justify-between">
-                    <!-- 2nd part left -->
+        <section>
+            <div class="dbg-red container mx-auto mb-24 flex">
+                <!--* left side sit display -->
+                <div class="border-r-4 border-green-600 border-dashed w-[70%] p-8">
+                    <!-- 1st part start -->
                     <div>
-                        <div class="flex flex-col lg:flex-row rounded-xl py-4">
-                            <div class="dbg-red">
-                                <img class="h-6 w-6" src="./images/seat-gray.png" alt="" />
+                        <h1 class="text-2xl font-bold mb-5">Select Your Seat</h1>
+                    </div>
+                    <!-- 2nd part start -->
+                    <div class="flex justify-between">
+                        <!-- 2nd part left -->
+                        <div>
+                            <div class="flex flex-col lg:flex-row rounded-xl py-4">
+                                <div class="dbg-red">
+                                    <img class="h-6 w-6" src="./images/seat-gray.png" alt="" />
+                                </div>
+                                <p class="dbg-red px-4 text-base font-medium">Available</p>
                             </div>
-                            <p class="dbg-red px-4 text-base font-medium">Available</p>
+                        </div>
+                        <!-- 2nd part right -->
+                        <div class="dbg-blue flex flex-col lg:flex-row rounded-xl px-7 py-4">
+                            <div class="dbg-red">
+                                <img class="h-6 w-6" src="./images/seat-green.png" alt="" />
+                            </div>
+                            <p class="dbg-red px-4 text-green-400 text-base font-medium">Selected</p>
                         </div>
                     </div>
-                    <!-- 2nd part right -->
-                    <div class="dbg-blue flex flex-col lg:flex-row rounded-xl px-7 py-4">
+                    <!-- 3rd part starts -->
+                    <div class="text-end mb-6">
+                        <button class="btn"><img src="./images/steering-wheel.svg" alt="" /></button>
+                    </div>
+                    <!-- 4th part start -->
+                    <div class="text-[#0307127F] flex justify-between">
+                        <!-- * 4th part left part start -->
                         <div class="dbg-red">
-                            <img class="h-6 w-6" src="./images/seat-green.png" alt="" />
+                            <!-- A1 A2 -->
+                            <div>
+                                <button class="mr-6 text-lg">A</button>
+                                <button id="A1" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">A1</button>
+                                <button id="A2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">A2</button>
+                            </div>
+                            <!-- B1 B2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">B</button>
+                                <button id="B1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">B1</button>
+                                <button id="B2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">B2</button>
+                            </div>
+                            <!-- C1 C2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">C</button>
+                                <button id="C1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">C1</button>
+                                <button id="C2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">C2</button>
+                            </div>
+                            <!-- D1 D2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">D</button>
+                                <button id="D1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">D1</button>
+                                <button id="D2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">D2</button>
+                            </div>
+                            <!-- E1 E2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">E</button>
+                                <button id="E1" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">E1</button>
+                                <button id="E2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">E2</button>
+                            </div>
+                            <!-- F1 F2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">F</button>
+                                <button id="F1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">F1</button>
+                                <button id="F2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">F2</button>
+                            </div>
+                            <!-- G1 G2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">G</button>
+                                <button id="G1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">G1</button>
+                                <button id="G2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G2</button>
+                            </div>
+                            <!-- H1 H2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">H</button>
+                                <button id="H1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">H1</button>
+                                <button id="H2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">H2</button>
+                            </div>
+                            <!-- I1 I2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">I</button>
+                                <button id="I1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">I1</button>
+                                <button id="I2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">I2</button>
+                            </div>
+                            <!-- J1 J2 -->
+                            <div class="mt-8">
+                                <button class="mr-6 text-lg">J</button>
+                                <button id="J1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">J1</button>
+                                <button id="J2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">J2</button>
+                            </div>
                         </div>
-                        <p class="dbg-red px-4 text-green-400 text-base font-medium">Selected</p>
-                    </div>
-                </div>
-                <!-- 2nd part end -->
-                <!-- ! 3rd part krte hobe -->
-                <!--* 4th part start -->
-                <div class="text-[#0307127F] flex justify-between">
-                    <!-- * 4th part left part start -->
-                    <div class="dbg-red">
-                        <!-- A1 A2 -->
-                        <div>
-                            <button class="mr-6 text-lg">A</button>
-                            <button id="A1" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">A1</button>
-                            <button id="A2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">A2</button>
-                        </div>
-                        <!-- B1 B2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">B</button>
-                            <button id="B1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">B1</button>
-                            <button id="B2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">B2</button>
-                        </div>
-                        <!-- C1 C2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">C</button>
-                            <button id="C1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">C1</button>
-                            <button id="C2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">C2</button>
-                        </div>
-                        <!-- D1 D2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">D</button>
-                            <button id="D1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">D1</button>
-                            <button id="D2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">D2</button>
-                        </div>
-                        <!-- E1 E2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">E</button>
-                            <button id="E1" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">E1</button>
-                            <button id="E2" class="seat bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">E2</button>
-                        </div>
-                        <!-- F1 F2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">F</button>
-                            <button id="F1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">F1</button>
-                            <button id="F2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">F2</button>
-                        </div>
-                        <!-- G1 G2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">G</button>
-                            <button id="G1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">G1</button>
-                            <button id="G2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G2</button>
-                        </div>
-                        <!-- H1 H2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">H</button>
-                            <button id="H1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">H1</button>
-                            <button id="H2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">H2</button>
-                        </div>
-                        <!-- I1 I2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">I</button>
-                            <button id="I1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">I1</button>
-                            <button id="I2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">I2</button>
-                        </div>
-                        <!-- J1 J2 -->
-                        <div class="mt-8">
-                            <button class="mr-6 text-lg">J</button>
-                            <button id="J1" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">J1</button>
-                            <button id="J2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">J2</button>
-                        </div>
-                    </div>
-                    <!-- * 4th part right part start -->
-                    <div class="dbg-blue">
-                        <!-- A3 A4 -->
-                        <div>
-                            <button id="A3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">A3</button>
-                            <button id="A4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">A4</button>
-                        </div>
-                        <!-- B3 B4 -->
-                        <div class="mt-8">
-                            <button id="B3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">B3</button>
-                            <button id="B4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">B4</button>
-                        </div>
-                        <!-- C3 C4 -->
-                        <div class="mt-8">
-                            <button id="C3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">C3</button>
-                            <button id="C4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">C4</button>
-                        </div>
-                        <!-- D3 D4 -->
-                        <div class="mt-8">
-                            <button id="D3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">D3</button>
-                            <button id="D4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">D4</button>
-                        </div>
-                        <!-- E3 E4 -->
-                        <div class="mt-8">
-                            <button id="E3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">E3</button>
-                            <button id="E4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">E4</button>
-                        </div>
-                        <!-- F3 F4 -->
-                        <div class="mt-8">
-                            <button id="F3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">F3</button>
-                            <button id="F4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G4</button>
-                        </div>
-                        <!-- G3 G4 -->
-                        <div class="mt-8">
-                            <button id="G3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">G3</button>
-                            <button id="G4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G4</button>
-                        </div>
-                        <!-- H3 H4 -->
-                        <div class="mt-8">
-                            <button id="H3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">H3</button>
-                            <button id="H4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">H4</button>
-                        </div>
-                        <!-- I3 I4 -->
-                        <div class="mt-8">
-                            <button id="I3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">I3</button>
-                            <button id="I4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">I4</button>
-                        </div>
-                        <!-- J3 J4 -->
-                        <div class="mt-8">
-                            <button id="J3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">J3</button>
-                            <button id="J4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">J4</button>
+                        <!-- 4th part right part start -->
+                        <div class="dbg-blue">
+                            <!-- A3 A4 -->
+                            <div>
+                                <button id="A3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">A3</button>
+                                <button id="A4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">A4</button>
+                            </div>
+                            <!-- B3 B4 -->
+                            <div class="mt-8">
+                                <button id="B3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">B3</button>
+                                <button id="B4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">B4</button>
+                            </div>
+                            <!-- C3 C4 -->
+                            <div class="mt-8">
+                                <button id="C3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">C3</button>
+                                <button id="C4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">C4</button>
+                            </div>
+                            <!-- D3 D4 -->
+                            <div class="mt-8">
+                                <button id="D3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">D3</button>
+                                <button id="D4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">D4</button>
+                            </div>
+                            <!-- E3 E4 -->
+                            <div class="mt-8">
+                                <button id="E3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">E3</button>
+                                <button id="E4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">E4</button>
+                            </div>
+                            <!-- F3 F4 -->
+                            <div class="mt-8">
+                                <button id="F3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">F3</button>
+                                <button id="F4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G4</button>
+                            </div>
+                            <!-- G3 G4 -->
+                            <div class="mt-8">
+                                <button id="G3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">G3</button>
+                                <button id="G4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">G4</button>
+                            </div>
+                            <!-- H3 H4 -->
+                            <div class="mt-8">
+                                <button id="H3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">H3</button>
+                                <button id="H4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">H4</button>
+                            </div>
+                            <!-- I3 I4 -->
+                            <div class="mt-8">
+                                <button id="I3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">I3</button>
+                                <button id="I4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">I4</button>
+                            </div>
+                            <!-- J3 J4 -->
+                            <div class="mt-8">
+                                <button id="J3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">J3</button>
+                                <button id="J4" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">J4</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- right side form display -->
-            <div class="dbg-blue w-1/2 p-8">
-                <div class="dbg-red w-[90%]">
-                    <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
-                        <div class="text-black text-base font-medium py-2 flex justify-between">
-                            <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
-                            <p>Class</p>
-                            <p>Price</p>
+                <!--* right side form display -->
+                <div class="dbg-blue w-1/2 p-8">
+                    <div class="dbg-red w-[90%]">
+                        <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
+                            <div class="text-black text-base font-medium py-2 flex justify-between">
+                                <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
+                                <p>Class</p>
+                                <p>Price</p>
+                            </div>
+
+                            <div id="title-container" class="dbg-blue text-base font-medium text-[#0307127F] flex flex-col">
+                                <!--! to show dynamically the selected bus chart -->
+                            </div>
+
+                            <hr class="my-4" />
+                            <!-- total price -->
+                            <div class="dbg-blue text-black text-base font-medium py-2 flex justify-between">
+                                <p>Total Price:</p>
+                                <p>BDT <span id="total-price">0</span></p>
+                            </div>
                         </div>
 
-                        <div id="title-container" class="dbg-blue text-base font-medium text-[#0307127F] flex flex-col">
-                            <!--! to show dynamically -->
+                        <!-- apply button -->
+                        <div  class="dbg-blue bg-white p-6 rounded-md">
+                            <div id="apply-btn-container" class="join">
+                                <input id="apply-btn-input-field" class="input input-bordered join-item w-40" placeholder="Have any copupon?" />
+                                <button id="apply-btn" class="btn btn-disabled join-item rounded-md bg-[#1DD100] text-white font-bold">Apply</button>
+                            </div>
+                            <!-- to show the offer price -->
+                            <div id="offer-container" class="hidden text-black text-base font-medium py-2 flex justify-between">
+                                <p>Getting Offer:</p>
+                                <p>BDT <span id="offer-price">0</span></p>
+                            </div>
                         </div>
 
-                        <hr class="my-4" />
-
-                        <div class="dbg-blue text-black text-base font-medium py-2 flex justify-between">
-                            <p>Total Price:</p>
-                            <p>BDT <span id="total-price">0</span></p>
+                        <!-- grand total -->
+                        <div class="dbg-blue text-black text-base font-medium p-4 flex justify-between">
+                            <p>Grand Total</p>
+                            <p>BDT <span id="grand-total">0</span></p>
                         </div>
                     </div>
 
-                    <!--* apply button -->
-                    <div class="dbg-blue bg-white p-6 rounded-md">
-                        <div class="join">
-                            <input id="input-field" class="input input-bordered join-item w-40" placeholder="Have any copupon?" />
-                            <button id="apply-btn" class="btn btn-disabled join-item rounded-md bg-[#1DD100] text-white font-bold">Apply</button>
-                        </div>
+                    <!-- form -->
+                    <div class="w-[90%] dbg-blue p-8">
+                        <form class="text-base font-bold text-black m-6 flex flex-col gap-4">
+                            <label for="" class="">Passenger Name*</label>
+                            <input id="name" class="p-6 w-full rounded-3xl" type="text" name="name" placeholder="Enter your name" />
+
+                            <label for="">Phone Number*</label>
+                            <input id="phone-number" class="p-6 w-full rounded-3xl" type="number" name="number" placeholder="Enter your phone number" />
+
+                            <label for="">Email ID</label>
+                            <input id="email" class="p-6 w-full rounded-3xl" type="text" name="email" placeholder="Enter your email id" />
+
+                            <button id="next-button" class="btn btn-lg btn-disabled bg-[#1DD100] w-full text-xl text-white font-extrabold rounded-2xl" type="next" name="next">Next</button>
+                        </form>
                     </div>
-                    <!-- grand total -->
-                    <div class="dbg-blue text-black text-base font-medium p-4 flex justify-between">
-                        <p>Grand Total</p>
-                        <p>BDT <span id="grand-total">0</span></p>
+
+                    <!-- terms and condition -->
+                    <div class="text-base font-medium text-[#0307127F] flex justify-between w-[80%]">
+                        <p>Terms and Conditions</p>
+                        <p>Cancellation Policy</p>
                     </div>
-                </div>
-                <!-- form -->
-                <div class="w-[90%] dbg-blue p-8">
-                    <form class="text-base font-bold text-black m-6 flex flex-col gap-4">
-                        <label for="" class="">Passenger Name*</label>
-                        <input id="name" class="p-6 w-full rounded-3xl" type="text" name="name" placeholder="Enter your name" />
-
-                        <label for="">Phone Number*</label>
-                        <input id="phone-number" class="p-6 w-full rounded-3xl" type="number" name="number" placeholder="Enter your phone number" />
-
-                        <label for="">Email ID</label>
-                        <input id="email" class="p-6 w-full rounded-3xl" type="text" name="email" placeholder="Enter your email id" />
-
-                        <button id="next-button" class="btn btn-lg btn-disabled bg-[#1DD100] w-full text-xl text-white font-extrabold rounded-2xl" type="next" name="next">Next</button>
-                    </form>
-                </div>
-
-                <div class="text-base font-medium text-[#0307127F] flex justify-between w-[80%]">
-                    <p>Terms and Conditions</p>
-                    <p>Cancellation Policy</p>
                 </div>
             </div>
-        </div>
-
+        </section>
         <!--! =================  Ticketing Interface End  =============== -->
+        <!-- JS Link -->
         <script src="./scripts/script.js"></script>
         <script src="./scripts/utility.js"></script>
     </body>
