@@ -20,38 +20,40 @@
     <body>
         <!--! =================  Ticketing Interface Starts  =============== -->
         <section>
-            <div class="dbg-red container mx-auto mb-24 flex">
+            <div class="container mx-auto mt-14 mb-24 flex">
                 <!--* left side sit display -->
                 <div class="border-r-4 border-green-600 border-dashed w-[70%] p-8">
-                    <!-- 1st part start -->
+                    <!-- Select Your Seat -->
                     <div>
                         <h1 class="text-2xl font-bold mb-5">Select Your Seat</h1>
                     </div>
-                    <!-- 2nd part start -->
+                    <hr />
+                    <!-- Available & Selected -->
                     <div class="flex justify-between">
-                        <!-- 2nd part left -->
+                        <!-- Available -->
                         <div>
                             <div class="flex flex-col lg:flex-row rounded-xl py-4">
-                                <div class="dbg-red">
+                                <div>
                                     <img class="h-6 w-6" src="./images/seat-gray.png" alt="" />
                                 </div>
-                                <p class="dbg-red px-4 text-base font-medium">Available</p>
+                                <p class="px-4 text-base font-medium">Available</p>
                             </div>
                         </div>
-                        <!-- 2nd part right -->
-                        <div class="dbg-blue flex flex-col lg:flex-row rounded-xl px-7 py-4">
-                            <div class="dbg-red">
+                        <!-- Selected-->
+                        <div class="flex flex-col lg:flex-row rounded-xl px-7 py-4">
+                            <div>
                                 <img class="h-6 w-6" src="./images/seat-green.png" alt="" />
                             </div>
-                            <p class="dbg-red px-4 text-green-400 text-base font-medium">Selected</p>
+                            <p class="px-4 text-green-400 text-base font-medium">Selected</p>
                         </div>
                     </div>
-                    <!-- 3rd part starts -->
-                    <div class="text-end mb-6">
+                    <hr />
+                    <!-- Wheel -->
+                    <div class="text-end mt-10 mb-6">
                         <button class="btn"><img src="./images/steering-wheel.svg" alt="" /></button>
                     </div>
-                    <!-- 4th part start -->
-                    <div class="text-[#0307127F] flex justify-between">
+                    <!-- 4th part ALL Seat -->
+                    <div id="seat-container" class="text-[#0307127F] flex justify-between">
                         <!-- * 4th part left part start -->
                         <div class="dbg-red">
                             <!-- A1 A2 -->
@@ -115,7 +117,7 @@
                                 <button id="J2" class="bg-[#F7F8F8] rounded-2xl pr-8 text-base font-medium px-10 py-3 mr-8">J2</button>
                             </div>
                         </div>
-                        <!-- 4th part right part start -->
+                        <!--* 4th part right part start -->
                         <div class="dbg-blue">
                             <!-- A3 A4 -->
                             <div>
@@ -170,8 +172,14 @@
                         </div>
                     </div>
                 </div>
+
                 <!--* right side form display -->
                 <div class="dbg-blue w-1/2 p-8">
+                    <!-- Select Your Seat -->
+                    <div>
+                        <h1 class="text-2xl font-bold mb-5">Select Your Seat</h1>
+                    </div>
+                    <!-- Dynamic Chart -->
                     <div class="dbg-red w-[90%]">
                         <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
                             <div class="text-black text-base font-medium py-2 flex justify-between">
@@ -179,10 +187,8 @@
                                 <p>Class</p>
                                 <p>Price</p>
                             </div>
-
-                            <div id="title-container" class="dbg-blue text-base font-medium text-[#0307127F] flex flex-col">
-                                <!--! to show dynamically the selected bus chart -->
-                            </div>
+                            <!--! to show dynamically the selected bus chart -->
+                            <div id="title-container" class="dbg-blue text-base font-medium text-[#0307127F] flex flex-col"></div>
 
                             <hr class="my-4" />
                             <!-- total price -->
@@ -193,12 +199,12 @@
                         </div>
 
                         <!-- apply button -->
-                        <div  class="dbg-blue bg-white p-6 rounded-md">
+                        <div class="dbg-blue bg-white p-6 rounded-md">
                             <div id="apply-btn-container" class="join">
-                                <input id="apply-btn-input-field" class="input input-bordered join-item w-40" placeholder="Have any copupon?" />
+                                <input id="apply-btn-input-field" class="input input-bordered join-item w-40 focus:outline-none focus:ring-2 focus:ring-[#1DD100]" placeholder="Have any copupon?" />
                                 <button id="apply-btn" class="btn btn-disabled join-item rounded-md bg-[#1DD100] text-white font-bold">Apply</button>
                             </div>
-                            <!-- to show the offer price -->
+                            <!-- to show the offer price dynamically -->
                             <div id="offer-container" class="hidden text-black text-base font-medium py-2 flex justify-between">
                                 <p>Getting Offer:</p>
                                 <p>BDT <span id="offer-price">0</span></p>
@@ -216,13 +222,13 @@
                     <div class="w-[90%] dbg-blue p-8">
                         <form class="text-base font-bold text-black m-6 flex flex-col gap-4">
                             <label for="" class="">Passenger Name*</label>
-                            <input id="name" class="p-6 w-full rounded-3xl" type="text" name="name" placeholder="Enter your name" />
+                            <input id="name" class="p-6 w-full rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1DD100]" type="text" name="name" placeholder="Enter your name" />
 
                             <label for="">Phone Number*</label>
-                            <input id="phone-number" class="p-6 w-full rounded-3xl" type="number" name="number" placeholder="Enter your phone number" />
+                            <input id="phone-number" class="p-6 w-full rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1DD100]" type="number" name="number" placeholder="Enter your phone number" />
 
                             <label for="">Email ID</label>
-                            <input id="email" class="p-6 w-full rounded-3xl" type="text" name="email" placeholder="Enter your email id" />
+                            <input id="email" class="p-6 w-full rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1DD100]" type="text" name="email" placeholder="Enter your email id" />
 
                             <button id="next-button" class="btn btn-lg btn-disabled bg-[#1DD100] w-full text-xl text-white font-extrabold rounded-2xl" type="next" name="next">Next</button>
                         </form>
@@ -237,6 +243,7 @@
             </div>
         </section>
         <!--! =================  Ticketing Interface End  =============== -->
+
         <!--! =================  Modal Starts  =============== -->
         <section>
             <!-- https://daisyui.com/components/modal/ -->
@@ -265,6 +272,7 @@
             </dialog>
         </section>
         <!--! =================  Modal End  =============== -->
+        
         <!-- JS Link -->
         <script src="./scripts/script.js"></script>
         <script src="./scripts/utility.js"></script>

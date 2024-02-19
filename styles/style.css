@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
-*{
-    font-family: 'Manrope', sans-serif;
+* {
+    font-family: "Manrope", sans-serif;
 }
 /* My Custom Debugging class */
 .dbg-red {
-  border: 2px solid red;
+    border: 2px solid red;
 }
-.dbg-blue{
+.dbg-blue {
     border: 2px solid blue;
 }
-.dbg-tomato{
+.dbg-tomato {
     border: 2px solid tomato;
+}
+
+/* for hover on seat */
+#seat-container button:hover {
+    background-color: rgb(185, 243, 184);
 }
