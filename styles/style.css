@@ -17,4 +17,9 @@
 /* for hover on seat */
 #seat-container button:hover {
     background-color: rgb(185, 243, 184);
+    transition-duration: 300ms;
+}
+
+#seat-container div div {
+    display: flex;
 }

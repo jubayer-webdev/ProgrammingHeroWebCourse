@@ -59,7 +59,9 @@
                             <div class="max-w-md">
                                 <h1 class="mb-5 text-5xl font-bold">End-to-End Travel with <br /><span class="text-[#1DD100]">P Paribahan</span></h1>
                                 <p class="mb-5">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
-                                <button class="btn bg-[#1DD100] border-none">Get Started</button>
+                                <a href="#ph-paribahan">
+                                    <button class="btn bg-[#1DD100] border-none">Get Started</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +121,7 @@
             <!--! =================  Bus Information Starts  =============== -->
             <section>
                 <!-- P.H Paribahan -->
-                <div class="container mx-auto mt-60 mb-24">
+                <div id="ph-paribahan" class="container mx-auto mt-60 mb-24">
                     <hr />
                     <div class="text-center">
                         <h1 class="text-4xl font-bold mb-5">P.H Paribahan</h1>
@@ -219,7 +221,7 @@
                         <!-- 4th part ALL Seat -->
                         <div id="seat-container" class="text-[#0307127F] flex justify-between">
                             <!-- * 4th part left part start -->
-                            <div class="dbg-red">
+                            <div>
                                 <!-- A1 A2 -->
                                 <div>
                                     <button class="mr-6 text-lg">A</button>
@@ -282,7 +284,7 @@
                                 </div>
                             </div>
                             <!--* 4th part right part start -->
-                            <div class="dbg-blue">
+                            <div>
                                 <!-- A3 A4 -->
                                 <div>
                                     <button id="A3" class="bg-[#F7F8F8] rounded-2xl pr-8 text-lg font-medium px-10 py-3 mr-8">A3</button>
@@ -344,7 +346,7 @@
                             <h1 class="text-2xl font-bold mb-5">Select Your Seat</h1>
                         </div>
                         <!-- Dynamic Chart -->
-                        <div class="w-[90%] bg-[#F7F8F8]">
+                        <div class="bg-[#F7F8F8]">
                             <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
                                 <div class="text-black text-base font-medium py-2 flex justify-between">
                                     <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
@@ -352,7 +354,7 @@
                                     <p>Price</p>
                                 </div>
                                 <!--! to show dynamically the selected bus chart -->
-                                <div id="title-container" class="dbg-blue text-base font-medium text-[#0307127F] flex flex-col"></div>
+                                <div id="title-container" class="text-base font-medium text-[#0307127F] flex flex-col"></div>
 
                                 <hr class="my-4" />
                                 <!-- total price -->
@@ -383,7 +385,7 @@
                         </div>
 
                         <!-- form -->
-                        <div class="w-[90%] dbg-blue p-8">
+                        <div class="p-8 bg-[#03071210]">
                             <form class="text-base font-bold text-black m-6 flex flex-col gap-4">
                                 <label for="" class="">Passenger Name*</label>
                                 <input id="name" class="p-6 w-full rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1DD100]" type="text" name="name" placeholder="Enter your name" />
@@ -399,7 +401,7 @@
                         </div>
 
                         <!-- terms and condition -->
-                        <div class="text-base font-medium text-[#0307127F] flex justify-between w-[80%]">
+                        <div class="text-base font-medium text-[#0307127F] flex justify-between">
                             <p>Terms and Conditions</p>
                             <p>Cancellation Policy</p>
                         </div>
@@ -441,5 +443,7 @@
             <script src="./scripts/script.js"></script>
             <script src="./scripts/utility.js"></script>
         </main>
+
+        <footer></footer>
     </body>
 </html>

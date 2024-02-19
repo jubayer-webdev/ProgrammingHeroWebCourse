@@ -29,6 +29,8 @@ for (let i = 0; i < allSeatId.length; i++) {
         totalSeatCount++;
         //* update total-seat
         setTotal('total-select-seat', totalSeatCount);
+        //* update remain-seat
+        setTotal('remain-seat', 40 - totalSeatCount);
         //?apply-button enable
         if (totalSeatCount >= 4) {
             removeBtnDisableClass('apply-btn');
