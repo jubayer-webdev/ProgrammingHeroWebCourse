@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Footer</title>
+
+        <!-- Add Tailwind CDN and daisyUI-->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Add fontawesome link  -->
+        <script src="https://kit.fontawesome.com/21261eb6e6.js" crossorigin="anonymous"></script>
+
+        <!-- CSS link -->
+        <link rel="stylesheet" href="./styles/style.css" />
+    </head>
+    <body>
+        <footer class="dbg-red px-36 py-32 mt-32 bg-[#030712]">
+            <!-- https://daisyui.com/components/footer/ -->
+            <!-- up -->
+            <footer class="footer p-10 text-white text-base-content flex justify-between">
+                <nav>
+                    <h6 class="text-4xl font-extrabold">P-Ticket</h6>
+                    <a class="link link-hover text-[#FFFFFFCC]">P-Ticket is a digital platform to make your daily commuting better.</a>
+                </nav>
+                <nav>
+                    <h6 class="text-xl font-semibold">Download our app</h6>
+                    <a class="link link-hover"><img src="./images/play-store.svg" alt="" /></a>
+                </nav>
+            </footer>
+            <!-- down -->
+            <footer class="footer px-10 py-4 border-t text-base-content border-base-300">
+                <aside class="items-center grid-flow-col">
+                    <p class="text-[#FFFFFFB2]">@all rights reserved, P-Ticket services limited.2024</p>
+                </aside>
+                <nav class="md:place-self-center md:justify-self-end">
+                    <div class="grid grid-flow-col gap-4 text-base font-semibold text-white">
+                        <p>Terms & condition</p>
+                        <p>Return & refund policy</p>
+                        <p>Privacy policy</p>
+                    </div>
+                </nav>
+            </footer>
+        </footer>
+    </body>
+</html>

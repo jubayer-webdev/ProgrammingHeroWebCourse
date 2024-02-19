@@ -202,15 +202,15 @@
                                     <div>
                                         <img class="h-6 w-6" src="./images/seat-gray.png" alt="" />
                                     </div>
-                                    <p class="px-4 text-base font-medium">Available</p>
+                                    <p class="px-4 text-base font-extrabold">Available</p>
                                 </div>
                             </div>
                             <!-- Selected-->
                             <div class="flex flex-col lg:flex-row rounded-xl px-7 py-4">
                                 <div>
-                                    <img class="h-6 w-6" src="./images/seat-green.png" alt="" />
+                                    <img class="h-6 w-6" src="./images/seat-green-filled.png" alt="" />
                                 </div>
-                                <p class="px-4 text-green-400 text-base font-medium">Selected</p>
+                                <p class="px-4 text-green-400 text-base font-extrabold">Selected</p>
                             </div>
                         </div>
                         <hr />
@@ -347,14 +347,14 @@
                         </div>
                         <!-- Dynamic Chart -->
                         <div class="bg-[#F7F8F8]">
-                            <div class="dbg-blue mt-8 p-4 bg-white rounded-md">
-                                <div class="text-black text-base font-medium py-2 flex justify-between">
+                            <div class="mt-8 p-4 bg-white rounded-md">
+                                <div class="text-black text-base font-medium py-2 flex justify-between bg-[#03071210]">
                                     <p>Seat<span id="total-select-seat" class="bg-[#1DD100] text-white font-bold px-1">0</span></p>
                                     <p>Class</p>
                                     <p>Price</p>
                                 </div>
                                 <!--! to show dynamically the selected bus chart -->
-                                <div id="title-container" class="text-base font-medium text-[#0307127F] flex flex-col"></div>
+                                <div id="title-container" class="text-base font-medium text-[#0307127F] flex flex-col bg-[#03071210]"></div>
 
                                 <hr class="my-4" />
                                 <!-- total price -->
@@ -444,8 +444,32 @@
             <script src="./scripts/utility.js"></script>
         </main>
 
-        <footer>
-            
+        <footer class="px-32 py-28 mt-32 bg-[#030712]">
+            <!-- https://daisyui.com/components/footer/ -->
+            <!-- up -->
+            <footer class="footer p-10 text-white text-base-content flex justify-between">
+                <nav>
+                    <h6 class="text-4xl font-extrabold">P-Ticket</h6>
+                    <a class="link link-hover text-[#FFFFFFCC]">P-Ticket is a digital platform to make your daily commuting better.</a>
+                </nav>
+                <nav>
+                    <h6 class="text-xl font-semibold">Download our app</h6>
+                    <a class="link link-hover"><img src="./images/play-store.svg" alt="" /></a>
+                </nav>
+            </footer>
+            <!-- down -->
+            <footer class="footer px-10 py-4 border-t text-base-content border-base-300">
+                <aside class="items-center grid-flow-col">
+                    <p class="text-[#FFFFFFB2]">@all rights reserved, P-Ticket services limited.2024</p>
+                </aside>
+                <nav class="md:place-self-center md:justify-self-end">
+                    <div class="grid grid-flow-col gap-4 text-base font-semibold text-white">
+                        <p>Terms & condition</p>
+                        <p>Return & refund policy</p>
+                        <p>Privacy policy</p>
+                    </div>
+                </nav>
+            </footer>
         </footer>
     </body>
 </html>

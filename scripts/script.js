@@ -117,4 +117,5 @@ nextBtnElement.addEventListener('click', function (event) {
 const modalContinueBtnElement = document.getElementById('modal-continue-btn');
 modalContinueBtnElement.addEventListener('click', function () {
     document.location.reload();
+    // window.location.reload();
 });
