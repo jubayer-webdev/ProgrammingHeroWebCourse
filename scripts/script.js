@@ -112,3 +112,9 @@ nextBtnElement.addEventListener('click', function (event) {
     event.preventDefault();
     my_modal_5.showModal();
 });
+
+//*reset value through refresh the page
+const modalContinueBtnElement = document.getElementById('modal-continue-btn');
+modalContinueBtnElement.addEventListener('click', function () {
+    document.location.reload();
+});
