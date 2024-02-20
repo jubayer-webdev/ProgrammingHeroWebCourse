@@ -13,6 +13,7 @@ function play() {
     setTextElementValueById('current-score', 0);
 
     isGamePlayOn = true;
+    showModalVar = false;
 
     continueGame();
 }
@@ -102,6 +103,16 @@ function gameOver() {
     // console.log(currentAlphabet);
     removeBackgroundColorById(currentAlphabet);
     isGamePlayOn = false;
+    showModalVar = true;
 
     artBoard.style.background = `linear-gradient(#FFFFFFB3 100%, red)`;
 }
+
+let showModalVar = false;
+function modalOpen(event) {
+    console.log(event);
+    if (event.clientY < 20 && showModalVar) {
+        my_modal_3.showModal();
+    }
+}
+document.body.onmousemove = modalOpen;
