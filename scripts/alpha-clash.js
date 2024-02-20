@@ -41,7 +41,9 @@ function handleKeyboardKeyUpEvent(event) {
     if (playerPressed === expectedAlphabet) {
         console.log('you got a point!');
 
-        audio.src = "../audio/seccessSound.mp3";
+        // audio.src = "../audio/seccessSound.mp3";
+        // to listen on github
+        audio.src = "seccessSound.mp3";
         audio.play();
 
         const currentScore = getTextElementValueById('current-score');
@@ -57,7 +59,9 @@ function handleKeyboardKeyUpEvent(event) {
     else {
         console.log('ধুর ভাইয়া বা আপু...right key press koro');
 
-        audio.src = "../audio/wrongAnswer.mp3";
+        // audio.src = "../audio/wrongAnswer.mp3";
+        //to listen sound in github
+        audio.src = "wrongAnswer.mp3";
         audio.play();
 
         const currentLife = getTextElementValueById('current-life');
