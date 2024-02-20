@@ -1,21 +1,25 @@
-// function play(){
-//     // step-1: hide the home screen. to hide the screen add the class hidden to the home section
-//     const homeSection = document.getElementById('home-screen');
-//     homeSection.classList.add('hidden');
-//     // console.log(homeSection.classList)
+function play() {
+    // hide everything show only the playground
+    hideElementById('home-screen');
+    hideElementById('final-score');
+    showElementById('play-ground');
 
-//     // show the playground
-//     const playgroundSection = document.getElementById('play-ground');
-//     playgroundSection.classList.remove('hidden');
-//     // console.log(playgroundSection.classList)
-// }
+    // reset score and life
+    setTextElementValueById('current-life', 5);
+    setTextElementValueById('current-score', 0);
+
+    continueGame();
+}
+
+document.addEventListener('keyup', handleKeyboardKeyUpEvent);
+const audio = new Audio();
 
 function handleKeyboardKeyUpEvent(event) {
     const playerPressed = event.key;
-    console.log( 'player pressed', playerPressed)
+    console.log('player pressed', playerPressed)
 
     // stop the game if pressed 'Esc'
-    if(playerPressed === 'Escape'){
+    if (playerPressed === 'Escape') {
         gameOver();
     }
 
@@ -27,6 +31,9 @@ function handleKeyboardKeyUpEvent(event) {
     // check right or wrong key pressed
     if (playerPressed === expectedAlphabet) {
         console.log('you got a point!');
+
+        audio.src = "../audio/seccessSound.mp3";
+        audio.play();
 
         const currentScore = getTextElementValueById('current-score');
         const updatedScore = currentScore + 1;
@@ -41,17 +48,18 @@ function handleKeyboardKeyUpEvent(event) {
     else {
         console.log('ধুর ভাইয়া বা আপু...right key press koro');
 
+        audio.src = "../audio/wrongAnswer.mp3";
+        audio.play();
+
         const currentLife = getTextElementValueById('current-life');
         const updatedLife = currentLife - 1;
         setTextElementValueById('current-life', updatedLife);
 
-        if(updatedLife === 0){
+        if (updatedLife === 0) {
             gameOver();
         }
     }
 }
-
-document.addEventListener('keyup', handleKeyboardKeyUpEvent);
 
 function continueGame() {
     // step -1: generate a random alphabet
@@ -66,20 +74,8 @@ function continueGame() {
     setBackgroundColorById(alphabet);
 }
 
-function play() {
-    // hide everything show only the playground
-    hideElementById('home-screen');
-    hideElementById('final-score');
-    showElementById('play-ground');
 
-    // reset score and life
-    setTextElementValueById('current-life', 5);
-    setTextElementValueById('current-score', 0);
-
-    continueGame();
-}
-
-function gameOver(){
+function gameOver() {
     hideElementById('play-ground');
     showElementById('final-score');
     // update final score
