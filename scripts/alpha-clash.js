@@ -1,4 +1,7 @@
+let isGamePlayOn = false;
+
 function play() {
+    console.log('play button clicked');
     // hide everything show only the playground
     hideElementById('home-screen');
     hideElementById('final-score');
@@ -8,6 +11,8 @@ function play() {
     setTextElementValueById('current-life', 5);
     setTextElementValueById('current-score', 0);
 
+    isGamePlayOn = true;
+
     continueGame();
 }
 
@@ -16,7 +21,9 @@ const audio = new Audio();
 
 function handleKeyboardKeyUpEvent(event) {
     const playerPressed = event.key;
-    console.log('player pressed', playerPressed)
+    console.log('player pressed', playerPressed);
+
+    if (!isGamePlayOn) return;
 
     // stop the game if pressed 'Esc'
     if (playerPressed === 'Escape') {
@@ -88,4 +95,5 @@ function gameOver() {
     const currentAlphabet = getElementTextById('current-alphabet');
     // console.log(currentAlphabet);
     removeBackgroundColorById(currentAlphabet);
+    isGamePlayOn = false;
 }
