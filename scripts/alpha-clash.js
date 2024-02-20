@@ -1,4 +1,5 @@
 let isGamePlayOn = false;
+artBoard = document.getElementById("art-board");
 
 function play() {
     console.log('play button clicked');
@@ -60,6 +61,11 @@ function handleKeyboardKeyUpEvent(event) {
 
         const currentLife = getTextElementValueById('current-life');
         const updatedLife = currentLife - 1;
+
+        // added red gradient on score board
+        const updatedLifePercentage = (updatedLife / 5) * 100;
+        artBoard.style.background = `linear-gradient(#FFFFFFB3 ${updatedLifePercentage}%, red)`;
+
         setTextElementValueById('current-life', updatedLife);
 
         if (updatedLife === 0) {
@@ -96,4 +102,6 @@ function gameOver() {
     // console.log(currentAlphabet);
     removeBackgroundColorById(currentAlphabet);
     isGamePlayOn = false;
+
+    artBoard.style.background = `linear-gradient(#FFFFFFB3 100%, red)`;
 }
