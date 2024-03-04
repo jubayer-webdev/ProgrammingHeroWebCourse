@@ -9,7 +9,8 @@
 //     console.log(posts);
 // }
 
-const displayAllCards = () => {
+const displayCards = (searchKey) => {
+    // console.log(searchKey);
     const url = 'https://openapi.programming-hero.com/api/retro-forum/posts';
     fetch(url)
         .then((res) => res.json())
@@ -19,8 +20,8 @@ const displayAllCards = () => {
 
             //! Added all Posts
             const cardContainer = document.getElementById('card');
-            for (let i = 0; i < len; ++i) {
-
+            for (let i = 0; i < len; ++i) if (searchKey === null || searchKey === posts[i].category) {
+                // console.log('searchkey = ', searchKey);
                 const newCard = document.createElement('div');
                 newCard.className = 'bg-[#7B7DFC1A]';
                 newCard.innerHTML = `
@@ -59,7 +60,7 @@ const displayAllCards = () => {
             }
         });
 }
-displayAllCards();
+displayCards(null);
 
 
 let count = 0;
@@ -96,11 +97,10 @@ const latestPost = () => {
         .then(res => res.json())
         .then(data => {
             const len = data.length;
-            console.log(len);
 
             const latestPostContainer = document.getElementById('latestPostContainer');
             for (let i = 0; i < len; ++i) {
-                console.log(data[i].author);
+                // console.log(data[i].author);
                 const newLatestPost = document.createElement('div');
                 newLatestPost.innerHTML = `
                 <div class="mb-6 bg-[#12132DC]"><img src=${data[i].cover_image} alt="" /></div>
@@ -132,5 +132,24 @@ const latestPost = () => {
 latestPost();
 
 
+//todo:link-- https://github.com/Jame-boy/Milestone5_Module29_Assignment5___smart-ticketing/blob/main/scripts/script.js
+//!DRY (Don't Repeat Yourself)
+//!For Search Button
 
+const searchBtnElement = document.getElementById('search-btn');
+searchBtnElement.addEventListener('click', function () {
+    const searchValue = document.getElementById('search-btn-input-field').value;
+    //* help from M5Conceptual 1 ; 38:15 Minute
+    //*find out the input value and make to toUpperCase();
+    const searchKey = searchValue.split(" ").join("").toUpperCase();
+    console.log('searchKey = ', searchKey);
+
+    //if input search is invalid
+    if (searchKey !== 'COMEDY' && searchKey !== 'CODING' && searchKey !== 'MUSIC') {
+        return alert('You give a invalid input!!');
+    }
+
+    //if input Value is correct
+    displayCards(searchKey);
+});
 
