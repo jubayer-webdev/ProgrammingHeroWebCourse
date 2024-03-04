@@ -110,14 +110,14 @@ const latestPost = () => {
                 <div class="mb-6 bg-[#12132DC]"><img src=${data[i].cover_image} alt="" /></div>
 
                 
-                <div class="#12132D26">
+                <div class="#12132D26 space-y-3">
                     <div class="flex">
                         <div><img src="./images/Frame.svg" alt="" /></div>
                         <p id="date-show" class="text-base font-normal text-[#12132D99]">${data[i].author.posted_date || 'No Publish Date'}</p>
                     </div>
                     <p class="text-lg font-bold">${data[i].title}</p>
                     <p class="text-base font-normal">${data[i].description}</p>
-                    <div class="flex">
+                    <div class="flex gap-4">
                         <div class="h-11 w-11">
                             <img src=${data[i].profile_image} alt="" />
                         </div>
