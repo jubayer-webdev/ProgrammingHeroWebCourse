@@ -1,5 +1,4 @@
 // alert('ok');
-const cardContainer = document.getElementById('card');
 
 // async function fetchData() {
 //     const url = 'https://openapi.programming-hero.com/api/retro-forum/posts';
@@ -19,6 +18,7 @@ const displayAllCards = () => {
             const len = posts.length;
 
             //! Added all Posts
+            const cardContainer = document.getElementById('card');
             for (let i = 0; i < len; ++i) {
 
                 const newCard = document.createElement('div');
@@ -130,4 +130,7 @@ const latestPost = () => {
         });
 }
 latestPost();
+
+
+
 
