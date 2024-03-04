@@ -20,8 +20,9 @@ const displayCards = (searchKey) => {
 
             //! Added all Posts
             const cardContainer = document.getElementById('card');
-            for (let i = 0; i < len; ++i) if (searchKey === null || searchKey === posts[i].category) {
-                // console.log('searchkey = ', searchKey);
+            cardContainer.innerHTML = '';
+            for (let i = 0; i < len; ++i) if (searchKey === null || searchKey === posts[i].category.toUpperCase()) {
+                console.log('searchkey = ', searchKey);
                 const newCard = document.createElement('div');
                 newCard.className = 'bg-[#7B7DFC1A]';
                 //!  https://daisyui.com/components/indicator/
