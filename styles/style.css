@@ -13,3 +13,13 @@
 .dbg-tomato {
     border: 2px solid tomato;
 }
+
+#banner-section {
+    background-image: url("../images/bgbanner.png");
+}
+#retro {
+    background: linear-gradient(90deg, #797dfc 0.63%, rgba(121, 125, 252, 0) 150%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
