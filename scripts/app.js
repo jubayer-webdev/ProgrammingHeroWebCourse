@@ -160,6 +160,8 @@ searchBtnElement.addEventListener('click', function () {
         const searchKey = searchValue.split(" ").join("").toUpperCase();
         console.log('searchKey = ', searchKey);
 
+        //clear the input value
+        document.getElementById('search-btn-input-field').value = '';
         //if input search is invalid
         if (searchKey !== 'COMEDY' && searchKey !== 'CODING' && searchKey !== 'MUSIC') {
             alert('You give a invalid input!!');
