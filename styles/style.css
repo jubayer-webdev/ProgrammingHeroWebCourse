@@ -4,7 +4,7 @@
     font-family: "Manrope", sans-serif;
 }
 /* My Custom Debugging class */
-.dbg-red {
+/* .dbg-red {
     border: 2px solid red;
 }
 .dbg-blue {
@@ -12,7 +12,7 @@
 }
 .dbg-tomato {
     border: 2px solid tomato;
-}
+} */
 
 #retro {
     background: linear-gradient(90deg, #797dfc 0.63%, rgba(121, 125, 252, 0) 150%);

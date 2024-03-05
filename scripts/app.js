@@ -137,6 +137,11 @@ const latestPost = () => {
 latestPost();
 
 
+const addLoading = async () => {
+    setTimeout(() => {
+    }, 2000);
+}
+
 //todo:link-- https://github.com/Jame-boy/Milestone5_Module29_Assignment5___smart-ticketing/blob/main/scripts/script.js
 //!DRY (Don't Repeat Yourself)
 //!For Search Button
@@ -148,6 +153,9 @@ searchBtnElement.addEventListener('click', function () {
     //*find out the input value and make to toUpperCase();
     const searchKey = searchValue.split(" ").join("").toUpperCase();
     console.log('searchKey = ', searchKey);
+
+    //! Adding loading
+    addLoading();
 
     //if input search is invalid
     if (searchKey !== 'COMEDY' && searchKey !== 'CODING' && searchKey !== 'MUSIC') {
