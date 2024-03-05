@@ -21,8 +21,9 @@ const displayCards = (searchKey) => {
             //! Added all Posts
             const cardContainer = document.getElementById('card');
             cardContainer.innerHTML = '';
+            // console.log('searchkey = ', searchKey);
             for (let i = 0; i < len; ++i) if (searchKey === null || searchKey === posts[i].category.toUpperCase()) {
-                console.log('searchkey = ', searchKey);
+
                 const newCard = document.createElement('div');
                 newCard.className = 'bg-[#7B7DFC1A]';
                 //!  https://daisyui.com/components/indicator/
@@ -137,32 +138,37 @@ const latestPost = () => {
 latestPost();
 
 
-const addLoading = async () => {
-    setTimeout(() => {
-    }, 2000);
-}
-
 //todo:link-- https://github.com/Jame-boy/Milestone5_Module29_Assignment5___smart-ticketing/blob/main/scripts/script.js
 //!DRY (Don't Repeat Yourself)
 //!For Search Button
 
 const searchBtnElement = document.getElementById('search-btn');
 searchBtnElement.addEventListener('click', function () {
-    const searchValue = document.getElementById('search-btn-input-field').value;
-    //* help from M5Conceptual 1 ; 38:15 Minute
-    //*find out the input value and make to toUpperCase();
-    const searchKey = searchValue.split(" ").join("").toUpperCase();
-    console.log('searchKey = ', searchKey);
+    //!start to show the LoadingSpinner for 2 second
+    const loadingSpinner = document.getElementById('loading-spinner');
+    loadingSpinner.classList.remove('hidden');
+    //! to remove all cards
+    const cardContainer = document.getElementById('card');
+    cardContainer.innerHTML = '';
+    setTimeout(() => {
+        //! Hide the LoadingSpinner
+        loadingSpinner.classList.add('hidden');
 
-    //! Adding loading
-    addLoading();
+        const searchValue = document.getElementById('search-btn-input-field').value;
+        //* help from M5Conceptual 1 ; 38:15 Minute
+        //*find out the input value and make to toUpperCase();
+        const searchKey = searchValue.split(" ").join("").toUpperCase();
+        console.log('searchKey = ', searchKey);
 
-    //if input search is invalid
-    if (searchKey !== 'COMEDY' && searchKey !== 'CODING' && searchKey !== 'MUSIC') {
-        return alert('You give a invalid input!!');
-    }
+        //if input search is invalid
+        if (searchKey !== 'COMEDY' && searchKey !== 'CODING' && searchKey !== 'MUSIC') {
+            alert('You give a invalid input!!');
+            displayCards(null);
+            return;
+        }
 
-    //if input Value is correct
-    displayCards(searchKey);
+        //if input Value is correct
+        displayCards(searchKey);
+    }, 2000);
 });
 
