@@ -6,6 +6,10 @@ const addProduct = () => {
     productField.value = '';
     quantityField.value = '';
     console.log(product, quantity);
+
+    //!if there is no value in product or quantity
+    if (!product || !quantity) return;
+
     //!calling the displayProduct
     displayProduct(product, quantity);
     //!to save product,quantity on localStorage
@@ -45,7 +49,8 @@ const saveProductToLocalStorage = (product, quantity) => {
 //!to show localStorage data on reload, or another tab in same browser
 const displayProductsFromLocalStorage = () => {
     const savedCart = getStoredShoppingCart();
-    console.log(savedCart);
+    console.log('savedCart = ', savedCart);
+    console.log(`savedCart = ${savedCart}`);
     for (const product in savedCart) {
         const quantity = savedCart[product];
         console.log(product, quantity);
