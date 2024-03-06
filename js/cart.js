@@ -5,7 +5,7 @@ const addProduct = () => {
     const quantity = quantityField.value;
     productField.value = '';
     quantityField.value = '';
-    console.log(product, quantity);
+    console.log('product = ', product, 'quantity = ', quantity);
 
     //!if there is no value in product or quantity
     if (!product || !quantity) return;
