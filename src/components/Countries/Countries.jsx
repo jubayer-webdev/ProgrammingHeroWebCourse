@@ -10,6 +10,7 @@ const Countries = () => {
             .then((res) => res.json())
             .then((data) => setCountries(data));
     }, []);
+
     return (
         <div>
             <h3>Countries {countries.length}</h3>
