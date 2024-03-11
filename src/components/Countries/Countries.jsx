@@ -43,15 +43,15 @@ const Countries = () => {
                 </ul>
             </div>
             <div className="flag-container">
-                {
-                    visitedFlags.map((flag, index) => <img key={index} src={flag}></img>)
-                }
+                {visitedFlags.map((flag, index) => (
+                    <img key={index} src={flag}></img>
+                ))}
             </div>
             {/* //!Display Countries */}
             <div className="country-container">
                 {/* //! 40-2 video */}
                 {countries.map((country) => (
-                    <Country key={country.cca3} handleVisitedCountry={handleVisitedCountry} handleVisitedFlags={handleVisitedFlags} country={country}></Country>
+                    <Country key={country.cca3} handleVisitedCountry={handleVisitedCountry} handleVisitedFlags={handleVisitedFlags} country={country} jame={55}></Country>
                 ))}
             </div>
         </div>
