@@ -18,12 +18,13 @@ Currently, two official plugins are available:
 
 # Deploy To Surge
 
--[npm run build] -[surge dist]
+-   [npm run build]
+-   [surge dist]
 
 # React Developer Tools
 
--[React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1)
+-   [React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1)
 
 # Better ReactJS Code Snippet
 
--[Better ReactJS Code Snippet](https://marketplace.visualstudio.com/items?itemName=Sharafdin.better-reactjs-code-snippetj)
+-   [Better ReactJS Code Snippet](https://marketplace.visualstudio.com/items?itemName=Sharafdin.better-reactjs-code-snippetj)
