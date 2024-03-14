@@ -14,9 +14,13 @@ function App() {
         setBookmarks(newBookMarks);
     };
 
-    const handleMarkAsRead = (time) => {
+    const handleMarkAsRead = (time, id) => {
         console.log("Mark As Read...", time);
         setReadingTime(readingTime + time);
+        //! Remove the read blog from bookmark
+        console.log("Remove bookmark id ", id);
+        const remainingBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
+        setBookmarks(remainingBookmarks);
     };
 
     return (
