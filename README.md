@@ -15,3 +15,15 @@ Currently, two official plugins are available:
 
 -   [Figma File](https://github.com/ProgrammingHero1/knowledge-cafe)
 -   [Project Link](https://github.com/ProgrammingHero1/react-knowledge-cafe)
+
+# Deploy To Surge
+
+-[npm run build] -[surge dist]
+
+# React Developer Tools
+
+-[React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1)
+
+# Better ReactJS Code Snippet
+
+-[Better ReactJS Code Snippet](https://marketplace.visualstudio.com/items?itemName=Sharafdin.better-reactjs-code-snippetj)
