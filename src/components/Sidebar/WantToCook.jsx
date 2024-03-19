@@ -1,6 +1,6 @@
 import anyName from "prop-types";
 
-const WantToCook = ({ wishToCook }) => {
+const WantToCook = ({ wishToCook, handlePreparingButton }) => {
     //! When no cook is click
     if (wishToCook.length == 0) {
         return (
@@ -36,7 +36,9 @@ const WantToCook = ({ wishToCook }) => {
                             <td>{cook.preparing_time} minutes</td>
                             <td>{cook.calories} calories</td>
                             <td>
-                                <button className="btn font-semibold lexend bg-[#0BE58A] rounded-full text-black lg:block">Preparing</button>
+                                <button onClick={() => handlePreparingButton(cook)} className="btn font-semibold lexend bg-[#0BE58A] rounded-full text-black lg:block">
+                                    Preparing
+                                </button>
                             </td>
                         </tr>
                     ))}
@@ -48,6 +50,7 @@ const WantToCook = ({ wishToCook }) => {
 
 WantToCook.propTypes = {
     wishToCook: anyName.array.isRequired,
+    handlePreparingButton: anyName.func.isRequired,
 };
 
 export default WantToCook;

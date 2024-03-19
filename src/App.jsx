@@ -8,11 +8,14 @@ import WantToCook from "./components/Sidebar/WantToCook";
 import CurrentlyCooking from "./components/Sidebar/CurrentlyCooking";
 import toast, { Toaster } from "react-hot-toast";
 import { PiWarningFill } from "react-icons/pi";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     const [cooks, setCooks] = useState([]);
     const [wishToCook, setWishToCook] = useState([]);
     const [nowCooking, setNowCooking] = useState([]);
+    const [totalTime, setTotalTime] = useState(0);
+    const [totalCalories, setTotalCalories] = useState(0);
 
     //! Fetching the json dada from public folder
     useEffect(() => {
@@ -43,6 +46,19 @@ function App() {
         }
     };
 
+    //! When click on the "Preparing" button
+    const handlePreparingButton = (preparingCook) => {
+        console.log("Preparing button is clicked", preparingCook);
+
+        setNowCooking([...nowCooking, preparingCook]);
+        setTotalTime(totalTime + preparingCook.preparing_time);
+        setTotalCalories(totalCalories + preparingCook.calories);
+
+        //! To hide from "Want to Cook" chart
+        const updateWishToCook = wishToCook.filter((wishCook) => wishCook.recipe_id != preparingCook.recipe_id);
+        setWishToCook(updateWishToCook);
+    };
+
     return (
         <>
             <Header></Header>
@@ -59,11 +75,13 @@ function App() {
                 {/* //! This is for side bar */}
                 <div className="lg:w-[40%]">
                     <div className="border-[1px] rounded-xl py-5">
-                        <WantToCook wishToCook={wishToCook}></WantToCook>
-                        {/* <CurrentlyCooking nowCooking={nowCooking}></CurrentlyCooking> */}
+                        <WantToCook wishToCook={wishToCook} handlePreparingButton={handlePreparingButton}></WantToCook>
+                        <CurrentlyCooking nowCooking={nowCooking} totalTime={totalTime} totalCalories={totalCalories}></CurrentlyCooking>
                     </div>
                 </div>
             </div>
+
+            <Footer></Footer>
         </>
     );
 }
