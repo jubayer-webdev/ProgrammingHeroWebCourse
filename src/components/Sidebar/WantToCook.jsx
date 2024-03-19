@@ -11,6 +11,39 @@ const WantToCook = ({ wishToCook }) => {
             </div>
         );
     }
+
+    return (
+        <div className="flex flex-col items-center">
+            <div className=" pb-2 pt-5 text-xl font-semibold">Want to cook: {wishToCook.length < 10 && wishToCook.length > 0 ? "0" + wishToCook.length : wishToCook.length}</div>
+            <hr className="w-1/2 bg-[#28282826] mb-3" />
+
+            <table className="px-0 w-full">
+                <thead className="text-[#878787] fira-sans">
+                    <tr className="">
+                        <th></th>
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+
+                <tbody className="fira-sans text-[#282828B3] bg-[#28282808]">
+                    {/* //!When "Want to Cook" button is clicked, this will be re-rendered */}
+                    {wishToCook.map((cook, index) => (
+                        <tr key={cook.recipe_id}>
+                            <td className="text-[#282828CC] font-bold">{index + 1}</td>
+                            <td>{cook.recipe_name}</td>
+                            <td>{cook.preparing_time} minutes</td>
+                            <td>{cook.calories} calories</td>
+                            <td>
+                                <button className="btn font-semibold lexend bg-[#0BE58A] rounded-full text-black lg:block">Preparing</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 };
 
 WantToCook.propTypes = {
