@@ -4,9 +4,13 @@ import Banner from "./components/Banner/Banner";
 import SectionTitle from "./components/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
 import Posts from "./components/Posts/Posts";
+import WantToCook from "./components/Sidebar/WantToCook";
+import CurrentlyCooking from "./components/Sidebar/CurrentlyCooking";
 
 function App() {
     const [cooks, setCooks] = useState([]);
+    const [wishToCook, setWishToCook] = useState([]);
+    const [nowCooking, setNowCooking] = useState([]);
 
     //! Fetching the json dada from public folder
     useEffect(() => {
@@ -27,7 +31,13 @@ function App() {
                 <div className="flex-1">
                     <Posts cooks={cooks} />
                 </div>
-                <div className="lg:w-[40%]"></div>
+                {/* //! This is for side bar */}
+                <div className="lg:w-[40%]">
+                    <div className="border-[1px] rounded-xl py-5">
+                        <WantToCook wishToCook={wishToCook}></WantToCook>
+                        <CurrentlyCooking nowCooking={nowCooking}></CurrentlyCooking>
+                    </div>
+                </div>
             </div>
         </>
     );
