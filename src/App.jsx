@@ -21,6 +21,10 @@ function App() {
             });
     }, []);
 
+    const handleWantToCookButton = (cook) => {
+        console.log('wantToCookButton is clicked', cook);
+    };
+
     return (
         <>
             <Header></Header>
@@ -29,7 +33,7 @@ function App() {
 
             <div className="flex lg:flex-row flex-col gap-5">
                 <div className="flex-1">
-                    <Posts cooks={cooks} />
+                    <Posts cooks={cooks} handleWantToCookButton={handleWantToCookButton} ></Posts>
                 </div>
                 {/* //! This is for side bar */}
                 <div className="lg:w-[40%]">

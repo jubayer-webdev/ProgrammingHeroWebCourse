@@ -3,7 +3,7 @@ import { GoClock } from "react-icons/go";
 import { AiOutlineFire } from "react-icons/ai";
 import { useState } from "react";
 
-const Post = ({ cook }) => {
+const Post = ({ cook, handleWantToCookButton }) => {
     const { recipe_image, recipe_name, short_description, ingredients, preparing_time, calories } = cook;
 
     //!when click the see more... in card
@@ -55,7 +55,7 @@ const Post = ({ cook }) => {
                         {calories} calories
                     </div>
                 </div>
-                <button className="btn bg-[#0BE58A] mt-5 font-semibold rounded-full px-6 py-3">Want to Cook</button>
+                <button onClick={()=>handleWantToCookButton(cook)} className="btn bg-[#0BE58A] mt-5 font-semibold rounded-full px-6 py-3">Want to Cook</button>
             </div>
         </div>
     );
@@ -63,6 +63,7 @@ const Post = ({ cook }) => {
 
 Post.propTypes = {
     cook: PropTypes.object.isRequired,
+    handleWantToCookButton: PropTypes.func.isRequired
 };
 
 export default Post;
