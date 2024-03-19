@@ -9,6 +9,7 @@ import CurrentlyCooking from "./components/Sidebar/CurrentlyCooking";
 import toast, { Toaster } from "react-hot-toast";
 import { PiWarningFill } from "react-icons/pi";
 import Footer from "./components/Footer/Footer";
+import "./components/Sidebar/Table.css";
 
 function App() {
     const [cooks, setCooks] = useState([]);
