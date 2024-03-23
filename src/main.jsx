@@ -12,12 +12,15 @@ import Users from "./components/Users/Users.jsx";
 import UserDetails from "./components/UserDetails/UserDetails.jsx";
 import Posts from "./components/Posts/Posts.jsx";
 import PostDetails from "./components/PostDetails/PostDetails.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+
 const anyName = createBrowserRouter([
     {
         path: "/",
         //! in element: HTML / JSX / component
         // element: <div>Hello from React router</div>,
         element: <Home></Home>,
+        errorElement: <ErrorPage></ErrorPage>,
         //! Nested Route
         children: [
             {
