@@ -8,6 +8,7 @@ const Header = () => {
                 {/* //!Using <Link> for avoiding reload page */}
                 <Link to="/">Home</Link>
                 <Link to="/users">Users</Link>
+                <Link to="/posts">Posts</Link>
                 {/* <a href="/">Home</a> */}
                 <Link to="/about">About</Link>
                 {/* <a href="/about">About</a> */}
