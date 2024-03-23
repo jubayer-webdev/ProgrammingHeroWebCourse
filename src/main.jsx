@@ -1,27 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+// import App from "./App.jsx";
 import "./index.css";
+
 //! React Route (https://reactrouter.com/en/main/start/tutorial)
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-const router = createBrowserRouter([
+import Home from "./components/Home/Home.jsx";
+import About from "./components/About/About.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+const anyName = createBrowserRouter([
     {
         path: "/",
-        element: <div>Hello from React router</div>,
-    },
-    {
-        path: "/about",
-        element: <div>I am in the about page</div>,
-    },
-    {
-        path: "/contact",
-        element: <div>Call me right now!!</div>,
+        //! in element: HTML / JSX / component
+        // element: <div>Hello from React router</div>,
+        element: <Home></Home>,
+        //! Nested Route
+        children: [
+            {
+                path: "/about",
+                element: <About></About>,
+            },
+            {
+              path: "/contact",
+              element: <Contact></Contact>
+            }
+        ],
     },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         {/* <App /> */}
-        <RouterProvider router={router} />
+        <RouterProvider router={anyName} />
     </React.StrictMode>
 );
