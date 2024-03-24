@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const StatefulForm = () => {
-    const [name, setName] = useState("default name");
+    const [nameJame, setName] = useState("default name");
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [error, setError] = useState("");
@@ -12,7 +12,7 @@ const StatefulForm = () => {
             setError("Password must be 6 characters or longer");
         } else {
             setError("");
-            console.log("from handleSubmit", name, email, password);
+            console.log("from handleSubmit", nameJame, email, password);
         }
     };
 
@@ -20,8 +20,8 @@ const StatefulForm = () => {
         setName(e.target.value);
     };
     const handleEmailChange = (e) => {
-        // console.log('handleEmailChage e.target = ',e.target);
-        console.log("handleEmailChage e.target.value = ", e.target.value);
+        // console.log('handleEmailChange e.target = ',e.target);
+        console.log("handleEmailChange e.target.value = ", e.target.value);
         setEmail(e.target.value);
     };
     const handlePasswordChange = (e) => {
@@ -31,7 +31,7 @@ const StatefulForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input value={name} onChange={handleNameChange} type="text" name="firstInput" />
+                <input value={nameJame} onChange={handleNameChange} type="text" name="firstInput" />
                 <br />
                 <input onChange={handleEmailChange} type="email" name="secondInput" id="" />
                 <br />
