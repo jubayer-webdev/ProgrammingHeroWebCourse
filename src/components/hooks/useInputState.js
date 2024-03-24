@@ -16,6 +16,18 @@ const useInputState = (defaultValue = null) => {
     }
     //! {value: "default@email.go", onChange:f}
     return { value, onChange };
+
+
+    //! Debug Purpose
+    /*
+    const returnObj = () => {
+        const val = 44;
+        return { val };
+    }
+
+    console.log(returnObj());
+    console.log(typeof (returnObj()));
+    */
 }
 
 export default useInputState;
