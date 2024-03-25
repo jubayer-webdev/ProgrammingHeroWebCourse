@@ -11,7 +11,7 @@ const ReusableForm = ({ formTitleProps, handleSubmit, submitBtnText = "Submit", 
 
     return (
         <div>
-            <h2>{formTitleProps}</h2>
+            <h2>This is from Props {formTitleProps}</h2>
             {children}
             <form onSubmit={handleLocalSubmit}>
                 <input type="text" name="firstInput" placeholder="Give Your Name" />
