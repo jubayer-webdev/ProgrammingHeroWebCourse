@@ -21,7 +21,7 @@ const router = createBrowserRouter([
                 path: "/bookCard/:idJame",
                 element: <BookCardDetails></BookCardDetails>,
                 //!Not best way (do not load all data, load only what you need)
-                loader: () => fetch("books.json"),
+                loader: () => fetch("../public/books.json"),
                 //fetch("../jobs.json");
             },
         ],
