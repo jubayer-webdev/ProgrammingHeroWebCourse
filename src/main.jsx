@@ -6,6 +6,7 @@ import Root from "./components/Root/Root";
 import Home from "./components/Home/Home";
 import AppliedJobs from "./components/AppliedJobs/AppliedJobs";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import JobDetails from "./components/JobDetails/JobDetails";
 
 const routerName = createBrowserRouter([
     {
@@ -20,6 +21,14 @@ const routerName = createBrowserRouter([
             {
                 path: "/applied",
                 element: <AppliedJobs></AppliedJobs>,
+            },
+            //!Dynamic Route
+            {
+                path: "/job/:id",
+                element: <JobDetails></JobDetails>,
+                //!Not best way (do not load all data, load only what you need)
+                loader: () => fetch("jobs.json"),
+                //fetch("../jobs.json");
             },
         ],
     },
