@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Job from "../Job/Job";
-import { data } from "autoprefixer";
 
 const FeaturedJobs = () => {
     const [jobs, setJobs] = useState([]);
