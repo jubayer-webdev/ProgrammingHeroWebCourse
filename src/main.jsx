@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root/Root";
 import Home from "./components/Home/Home";
 import BookCardDetails from "./components/BookCardDetails/BookCardDetails";
+import ListedBooks from "./components/ListedBooks/ListedBooks";
 
 //! https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/listedBooks",
+                element: <ListedBooks></ListedBooks>,
             },
             //!Dynamic Route
             {
