@@ -14,7 +14,7 @@ const JobDetails = () => {
     console.log(job);
 
     const handleToast = () => {
-        const isAdd = saveJobApplication(id);
+        const isAdd = saveJobApplication(idInt);
         if (isAdd) toast("You have applied successfully");
         //!https://fkhadra.github.io/react-toastify/positioning-toast
         else {
