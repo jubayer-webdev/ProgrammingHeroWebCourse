@@ -21,6 +21,8 @@ const routerName = createBrowserRouter([
             {
                 path: "/applied",
                 element: <AppliedJobs></AppliedJobs>,
+                //! warning: do not load all the data, only load tha data you need.
+                loader: () => fetch("jobs.json"),
             },
             //!Dynamic Route
             {
