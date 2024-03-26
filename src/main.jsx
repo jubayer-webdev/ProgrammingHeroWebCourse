@@ -6,12 +6,14 @@ import Root from "./components/Root/Root";
 import Home from "./components/Home/Home";
 import BookCardDetails from "./components/BookCardDetails/BookCardDetails";
 import ListedBooks from "./components/ListedBooks/ListedBooks";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 //! https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
