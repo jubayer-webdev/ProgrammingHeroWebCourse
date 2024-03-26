@@ -1,0 +1,13 @@
+Create a JSON File with a minimum of 6 data. Each data will contain.
+
+ bookId
+ bookName
+ author
+ image
+ review
+ totalPages
+ rating
+ category
+ tags: (in an array) => example: ["Suspense", "Psychological"]
+ publisher
+ yearOfPublishing
