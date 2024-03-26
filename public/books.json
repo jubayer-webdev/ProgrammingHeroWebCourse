@@ -1,0 +1,80 @@
+[
+    {
+        "bookId": 1,
+        "bookName": "The Da Vinci Code",
+        "author": "Dan Brown",
+        "image": "https://ibb.co/TTdBs7c",
+        "review": "An enthralling mystery that keeps you guessing until the very end.",
+        "totalPages": 454,
+        "rating": 4.3,
+        "category": "Mystery",
+        "tags": ["Suspense", "Conspiracy"],
+        "publisher": "Doubleday",
+        "yearOfPublishing": 2003
+    },
+    {
+        "bookId": 2,
+        "bookName": "The Hunger Games",
+        "author": "Suzanne Collins",
+        "image": "https://ibb.co/M6GSLxb",
+        "review": "A gripping dystopian tale filled with action and heart.",
+        "totalPages": 374,
+        "rating": 4.5,
+        "category": "Science Fiction",
+        "tags": ["Dystopian", "Adventure"],
+        "publisher": "Scholastic Press",
+        "yearOfPublishing": 2008
+    },
+    {
+        "bookId": 3,
+        "bookName": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "https://ibb.co/MpKzjCm",
+        "review": "A timeless classic exploring the struggles of adolescence.",
+        "totalPages": 277,
+        "rating": 4.4,
+        "category": "Fiction",
+        "tags": ["Coming-of-age", "Literary"],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 1951
+    },
+    {
+        "bookId": 4,
+        "bookName": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "https://ibb.co/9V4S0QM",
+        "review": "A masterpiece of modern literature capturing the decadence of the Jazz Age.",
+        "totalPages": 180,
+        "rating": 4.6,
+        "category": "Fiction",
+        "tags": ["Classics", "Romance"],
+        "publisher": "Scribner",
+        "yearOfPublishing": 1925
+    },
+    {
+        "bookId": 5,
+        "bookName": "The Girl with the Dragon Tattoo",
+        "author": "Stieg Larsson",
+        "image": "https://ibb.co/M6bwTNP",
+        "review": "A thrilling mystery with complex characters and an intricate plot.",
+        "totalPages": 672,
+        "rating": 4.2,
+        "category": "Mystery",
+        "tags": ["Suspense", "Crime"],
+        "publisher": "Norstedts Förlag",
+        "yearOfPublishing": 2005
+    },
+    {
+        "bookId": 6,
+        "bookName": "1984",
+        "author": "George Orwell",
+        "image": "https://ibb.co/TwG9fTR",
+        "review": "A haunting vision of a dystopian future where freedom is restricted.",
+        "totalPages": 328,
+        "rating": 4.7,
+        "category": "Science Fiction",
+        "tags": ["Dystopian", "Political"],
+        "publisher": "Secker & Warburg",
+        "yearOfPublishing": 1949
+    }
+]
