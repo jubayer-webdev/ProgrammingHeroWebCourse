@@ -6,7 +6,7 @@ const ErrorPage = () => {
             <h2>Oops!!!</h2>
             {/* //! <Link> doesn't reload a page. Eventually it turns in anchor on Browser*/}
             <Link to={"/"}>
-                <button>Go back to Home</button>
+                <button className="btn btn-warning">Go back to Home</button>
             </Link>
         </div>
     );

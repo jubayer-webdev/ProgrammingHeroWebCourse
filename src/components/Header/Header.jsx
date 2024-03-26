@@ -35,13 +35,13 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Career Hub</a>
+                <a className="btn btn-accent text-xl">Career Hub</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Apply Now</a>
+                <a className="btn btn-accent">Apply Now</a>
             </div>
         </div>
     );
