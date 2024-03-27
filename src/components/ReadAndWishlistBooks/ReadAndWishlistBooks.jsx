@@ -5,7 +5,7 @@ const ReadAndWishlistBooks = ({ book }) => {
 
     return (
         //! https://daisyui.com/components/card/
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-base-100 shadow-xl p-6 mb-6">
             <figure>
                 <img src={image} alt="Book" />
             </figure>
