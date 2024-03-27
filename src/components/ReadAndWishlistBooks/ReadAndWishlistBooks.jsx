@@ -15,20 +15,22 @@ const ReadAndWishlistBooks = ({ book }) => {
             </figure>
             <div className="card-body text-lg">
                 {<p>BookId = {bookId}</p>}
-                <h2 className="card-title text-3xl mb-4">{book.bookName}</h2>
-                <p className="mb-4">By: {book.author}</p>
+                <h2 className="card-title text-3xl">{book.bookName}</h2>
+                <p className="mb-6">
+                    By: <b>{book.author}</b>
+                </p>
 
-                <div className="lg:flex gap-8 mb-6">
+                <div className="lg:flex gap-6">
                     <b>Tag</b>
                     {book.tags.map((tag, idx) => (
-                        <b className="text-[#23BE0A]" key={idx}>
-                            #{tag}
-                        </b>
+                        <button className="text-[#23BE0A] bth btn-active rounded-xl btn-ghost" key={idx}>
+                            <b>#{tag}</b>
+                        </button>
                     ))}
-                    <p className="flex justify-center items-center gap-3">
+                    <b className="border-2 border-red-900 justify-start flex items-center gap-3">
                         <LuMapPin />
                         Year of Publishing: {book.yearOfPublishing}
-                    </p>
+                    </b>
                 </div>
 
                 <div className="mb-11 lg:flex gap-4">
