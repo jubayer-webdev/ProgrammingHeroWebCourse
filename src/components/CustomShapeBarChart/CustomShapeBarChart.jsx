@@ -23,7 +23,6 @@ function CustomShapeBarChart() {
         }
         setAllReadBooks(readBooks);
     }, []);
-    console.log(allReadBooks);
 
     //!This is for triangle Shape-----------------------------------
     const getPath = (x, y, width, height) =>
@@ -54,6 +53,9 @@ function CustomShapeBarChart() {
         return null;
     };
 
+    if (allReadBooks.length === 0) {
+        return <h2 className="text-7xl text-center">Read Books is Empty.</h2>;
+    }
     return (
         <div>
             <BarChart width={1000} height={300} data={allReadBooks}>
