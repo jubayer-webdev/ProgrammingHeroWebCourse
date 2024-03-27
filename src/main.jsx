@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import BookCardDetails from "./components/BookCardDetails/BookCardDetails";
 import ListedBooks from "./components/ListedBooks/ListedBooks";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import CustomShapeBarChart from "./components/CustomShapeBarChart/CustomShapeBarChart";
 
 //! https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                 //!Not best way (do not load all data, load only what you need)
                 loader: () => fetch("../public/books.json"),
                 //fetch("../jobs.json");
+            },
+            {
+                path: "/pageToRead",
+                element: <CustomShapeBarChart></CustomShapeBarChart>,
+                loader: () => fetch("../public/books.json"),
             },
         ],
     },

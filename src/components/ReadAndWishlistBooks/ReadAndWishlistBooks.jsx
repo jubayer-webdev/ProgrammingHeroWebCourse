@@ -27,7 +27,7 @@ const ReadAndWishlistBooks = ({ book }) => {
                             <b>#{tag}</b>
                         </button>
                     ))}
-                    <b className="border-2 border-red-900 justify-start flex items-center gap-3">
+                    <b className="justify-start flex items-center gap-3">
                         <LuMapPin />
                         Year of Publishing: {book.yearOfPublishing}
                     </b>

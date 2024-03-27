@@ -77,29 +77,29 @@ const ListedBooks = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-semibold text-center p-8 bg-[#1313130D]">Books</h2>
+            <h2 className="text-5xl font-semibold text-center p-8 bg-[#1313130D]">Books</h2>
 
             {/* //! https://daisyui.com/components/dropdown/ */}
             <div className="text-center">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-accent m-1 text-xl">
+                    <summary tabIndex={0} role="button" className="btn btn-accent m-1 text-xl">
                         Sort By
                         <IoIosArrowDropdown />
-                    </div>
+                    </summary>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-xl">
-                        <li onClick={() => handleSorting("rating")}>
+                        <li className="hover:bg-gray-400" onClick={() => handleSorting("rating")}>
                             <a>Rating</a>
                         </li>
-                        <li onClick={() => handleSorting("page")}>
+                        <li className="hover:bg-gray-400" onClick={() => handleSorting("page")}>
                             <a>Number of pages</a>
                         </li>
-                        <li onClick={() => handleSorting("publish-year")}>
+                        <li className="hover:bg-gray-400" onClick={() => handleSorting("publish-year")}>
                             <a>Publisher year</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             {/* //! https://daisyui.com/components/tab/ */}
             <div role="tablist" className="tabs tabs-lifted">
                 <input type="radio" name="my_tabs_2" role="tab" className="tab text-xl" aria-label="Read Books" checked />
