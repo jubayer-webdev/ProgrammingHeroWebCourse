@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
     const links = (
         <>
             <li>
-                <Link to={"/"}>
+                {/* //!NavLink provide 'active' class. Nav doesn't provide 'active' class */}
+                <NavLink to={"/"}>
                     <button className="btn btn-outline btn-success">Home</button>
-                </Link>
+                </NavLink>
             </li>
 
             <li>
