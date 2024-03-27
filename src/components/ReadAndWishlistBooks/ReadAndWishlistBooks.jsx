@@ -14,6 +14,7 @@ const ReadAndWishlistBooks = ({ book }) => {
                 <img src={image} alt="Book" />
             </figure>
             <div className="card-body text-lg">
+                {<p>BookId = {bookId}</p>}
                 <h2 className="card-title text-3xl mb-4">{book.bookName}</h2>
                 <p className="mb-4">By: {book.author}</p>
 
@@ -42,9 +43,9 @@ const ReadAndWishlistBooks = ({ book }) => {
                 </div>
                 <hr />
 
-                <div className="lg:card-actions">
-                    <p>Category: {book.category}</p>
-                    <p>Rating: {book.rating}</p>
+                <div className="lg:flex gap-6">
+                    <button className="bg-[#FFAC33] p-3 rounded-2xl">Category: {book.category}</button>
+                    <button className="bg-[#328EFF26] p-3 rounded-2xl">Rating: {book.rating}</button>
                     <NavLink to={`/bookCard/${bookId}`}>
                         <button className="btn btn-success text-white text-lg">View Details</button>
                     </NavLink>

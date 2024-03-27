@@ -3,6 +3,7 @@ import { getStoredReadBooks, getStoredWishlistBooks } from "../../utility/localS
 import { useLoaderData } from "react-router-dom";
 import ReadAndWishlistBooks from "../ReadAndWishlistBooks/ReadAndWishlistBooks";
 import { IoIosArrowDropdown } from "react-icons/io";
+import "./ListedBooks.css";
 
 const ListedBooks = () => {
     const books = useLoaderData();
@@ -46,27 +47,38 @@ const ListedBooks = () => {
     //! For sorting
     const handleSorting = (type) => {
         if (type === "rating") {
-            //! copy the allReadBooks
+            //! Copy the allReadBooks
             const readingRatingSort = [...allReadBooks];
             readingRatingSort.sort((a, b) => b.rating - a.rating);
             setAllReadBooks(readingRatingSort);
-            setAllWishlistBooks(readingRatingSort);
-        }
-        else if(type === 'page'){
+
+            //! Copy the allWishlistBooks
+            const wishlistRatingSort = [...allWishlistBooks];
+            wishlistRatingSort.sort((a, b) => b.rating - a.rating);
+            setAllWishlistBooks(wishlistRatingSort);
+        } else if (type === "page") {
             const readingPageSort = [...allReadBooks];
             readingPageSort.sort((a, b) => b.totalPages - a.totalPages);
             setAllReadBooks(readingPageSort);
-        }
-        else if(type === 'publish-year'){
+            //! This is for allWishlistBooks
+            const wishlistPageSort = [...allWishlistBooks];
+            wishlistPageSort.sort((a, b) => b.totalPages - a.totalPages);
+            setAllWishlistBooks(wishlistPageSort);
+        } else if (type === "publish-year") {
             const readingPublishSort = [...allReadBooks];
             readingPublishSort.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
             setAllReadBooks(readingPublishSort);
+            //! This is for allWishlistBooks
+            const wishlistPublishSort = [...allWishlistBooks];
+            wishlistPublishSort.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+            setAllWishlistBooks(wishlistPublishSort);
         }
     };
 
     return (
         <div>
             <h2 className="text-3xl font-semibold text-center p-8 bg-[#1313130D]">Books</h2>
+
             {/* //! https://daisyui.com/components/dropdown/ */}
             <div className="text-center">
                 <div className="dropdown">
@@ -87,7 +99,7 @@ const ListedBooks = () => {
                     </ul>
                 </div>
             </div>
-
+            
             {/* //! https://daisyui.com/components/tab/ */}
             <div role="tablist" className="tabs tabs-lifted">
                 <input type="radio" name="my_tabs_2" role="tab" className="tab text-xl" aria-label="Read Books" checked />
@@ -96,7 +108,7 @@ const ListedBooks = () => {
                         <ReadAndWishlistBooks key={book.bookId} book={book}></ReadAndWishlistBooks>
                     ))}
                 </div>
-
+                {/* //! This is for wishlistBooks */}
                 <input type="radio" name="my_tabs_2" role="tab" className="tab text-xl" aria-label="Wishlist Books" />
                 <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
                     {allWishlistBooks.map((book) => (
