@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="block lg:flex px-32 py-20 mt-24">
+        <div className="mb-28 rounded-3xl block lg:flex px-32 py-20 mt-24 bg-[#1313130F]">
             <div className="mr-20">
                 <h1 className="text-5xl font-semibold">Books to freshen up your bookshelf</h1>
                 <NavLink to={"/listedBooks"}>

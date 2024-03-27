@@ -61,29 +61,55 @@ const BookCardDetails = () => {
     return (
         <div>
             {/* //! https://daisyui.com/components/card/ */}
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure>
+            <div className="card lg:card-side bg-base-100 shadow-xl mt-14">
+                <figure className="bg-[#1313130F] lg:w-[40%] p-20">
                     <img src={book.image} alt="Book" />
                 </figure>
 
                 <div className="card-body">
-                    <h2>This is from BookCardDetails: {idJame}</h2>
-                    <h2 className="card-title">{book.bookName}</h2>
-                    <h2>By: {book.author}</h2>
-                    <h2>{book.category}</h2>
-                    <h2>review: {book.review}</h2>
-                    <div className="flex gap-2 text-green-500">
+                    <h2 className="text-xl">This is from BookCardDetails: {idJame}</h2>
+                    <h2 className="card-title text-4xl font-semibold mb-4">{book.bookName}</h2>
+                    <h2 className="text-xl mb-10">By: {book.author}</h2>
+                    <hr />
+                    <h2 className="text-xl mb-10">{book.category}</h2>
+                    <hr />
+                    <h2 className="text-base mb-8">
+                        <b>review:</b> {book.review}
+                    </h2>
+
+                    <div className="flex gap-2 text-green-500 mb-12">
+                        <b className="text-black">Tag</b>
                         {book.tags.map((tag, idx) => (
-                            <h2 key={idx}>{tag}</h2>
+                            <h2 key={idx}>#{tag}</h2>
                         ))}
                     </div>
-                    <h2>{book.totalPages}</h2>
-                    <h2>{book.publisher}</h2>
-                    <h2>{book.yearOfPublishing}</h2>
-                    <h2>{book.rating}</h2>
+                    <hr />
+
+                    <div className="text-base flex gap-12">
+                        <div>
+                            <h2>Number of Pages:</h2>
+                            <h2>Publisher:</h2>
+                            <h2>Year of Publishing:</h2>
+                            <h2>Rating:</h2>
+                        </div>
+                        <div>
+                            <h2>
+                                <b>{book.totalPages}</b>
+                            </h2>
+                            <h2>
+                                <b>{book.publisher}</b>
+                            </h2>
+                            <h2>
+                                <b>{book.yearOfPublishing}</b>
+                            </h2>
+                            <h2>
+                                <b>{book.rating}</b>
+                            </h2>
+                        </div>
+                    </div>
 
                     {/* //!2 bu˻on named - Read, Wishlist */}
-                    <div className="card-actions justify-end">
+                    <div className="card-actions">
                         <button onClick={handleReadButtonToast} className="btn btn-outline btn-accent">
                             Read
                         </button>

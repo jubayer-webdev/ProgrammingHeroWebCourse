@@ -1,4 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
+import anyName from "prop-types";
+import { NavLink } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa";
 
 const BookCard = ({ book }) => {
@@ -36,6 +37,10 @@ const BookCard = ({ book }) => {
             </div>
         </NavLink>
     );
+};
+
+BookCard.propTypes = {
+    book: anyName.object,
 };
 
 export default BookCard;

@@ -1,16 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
     const links = (
         <>
             <li>
-                <NavLink to={"/"}>Home</NavLink>
+                <Link to={"/"}>
+                    <button className="btn btn-outline btn-success">Home</button>
+                </Link>
+            </li>
+
+            <li>
+                <NavLink to={"/listedBooks"}>
+                    <button className="btn btn-outline btn-success">Listed Books</button>
+                </NavLink>
             </li>
             <li>
-                <NavLink to={"/listedBooks"}>Listed Books</NavLink>
-            </li>
-            <li>
-                <NavLink to={"/pageToRead"}>Pages to Read</NavLink>
+                <NavLink to={"/pageToRead"}>
+                    <button className="btn btn-outline btn-success">Pages to Read</button>
+                </NavLink>
             </li>
         </>
     );
