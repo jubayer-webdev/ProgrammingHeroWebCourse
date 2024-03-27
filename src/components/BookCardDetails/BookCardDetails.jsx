@@ -110,10 +110,10 @@ const BookCardDetails = () => {
 
                     {/* //!2 bu˻on named - Read, Wishlist */}
                     <div className="card-actions">
-                        <button onClick={handleReadButtonToast} className="btn btn-outline btn-accent">
+                        <button onClick={handleReadButtonToast} className="btn btn-outline btn-accent px-7 py-4">
                             Read
                         </button>
-                        <button onClick={handleWishlistButtonToast} className="btn btn-success">
+                        <button onClick={handleWishlistButtonToast} className="btn bg-[#50B1C9] px-7 py-4 text-white font-bold">
                             Wishlist
                         </button>
                     </div>

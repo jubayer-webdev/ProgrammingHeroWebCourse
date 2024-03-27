@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -44,8 +44,8 @@ const Header = () => {
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-                <a className="btn btn-accent mr-4">Sign In</a>
-                <a className="btn btn-accent">Sign Up</a>
+                <a className="btn btn-accent mr-4 px-7 py-4">Sign In</a>
+                <a className="btn bg-[#59C6D2] px-7 py-4">Sign Up</a>
             </div>
         </div>
     );
