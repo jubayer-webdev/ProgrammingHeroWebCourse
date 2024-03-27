@@ -62,20 +62,20 @@ const BookCardDetails = () => {
         <div>
             {/* //! https://daisyui.com/components/card/ */}
             <div className="card lg:card-side bg-base-100 shadow-xl mt-14">
-                <figure className="bg-[#1313130F] lg:w-[40%] p-20">
-                    <img src={book.image} alt="Book" />
+                <figure className="bg-[#1313130F] lg:w-[40%] lg:p-16">
+                    <img className="w-[50%] lg:w-full" src={book.image} alt="Book" />
                 </figure>
 
                 <div className="card-body">
                     <h2 className="text-xl">This is from BookCardDetails: {idJame}</h2>
-                    <h2 className="card-title text-4xl font-semibold mb-4">{book.bookName}</h2>
+                    <h2 className="card-title text-4xl font-semibold">{book.bookName}</h2>
                     <h2 className="text-xl mb-10">
                         By: <b>{book.author}</b>
                     </h2>
                     <hr />
-                    <b className="text-xl mb-10">{book.category}</b>
+                    <b className="text-xl mb-7">{book.category}</b>
                     <hr />
-                    <h2 className="text-xl mb-8">
+                    <h2 className="text-xl">
                         <b>review:</b> {book.review}
                     </h2>
 
@@ -110,8 +110,8 @@ const BookCardDetails = () => {
                         </div>
                     </div>
 
-                    {/* //!2 bu˻on named - Read, Wishlist */}
-                    <div className="card-actions">
+                    {/* //!2 buton named - Read, Wishlist */}
+                    <div className="card-actions mt-7">
                         <button onClick={handleReadButtonToast} className="rounded-2xl bg-green-300 font-bold hover:bg-green-700 px-7 py-4">
                             Read
                         </button>
