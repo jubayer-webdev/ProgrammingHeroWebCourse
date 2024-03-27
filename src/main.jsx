@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        errorElement:<ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -22,6 +22,8 @@ const router = createBrowserRouter([
             {
                 path: "/listedBooks",
                 element: <ListedBooks></ListedBooks>,
+                //! warning: do not load all the data, only load tha data you need.
+                loader: () => fetch("../public/books.json"),
             },
             //!Dynamic Route
             {
