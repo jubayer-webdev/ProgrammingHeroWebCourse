@@ -69,23 +69,25 @@ const BookCardDetails = () => {
                 <div className="card-body">
                     <h2 className="text-xl">This is from BookCardDetails: {idJame}</h2>
                     <h2 className="card-title text-4xl font-semibold mb-4">{book.bookName}</h2>
-                    <h2 className="text-xl mb-10">By: {book.author}</h2>
+                    <h2 className="text-xl mb-10">
+                        By: <b>{book.author}</b>
+                    </h2>
                     <hr />
-                    <h2 className="text-xl mb-10">{book.category}</h2>
+                    <b className="text-xl mb-10">{book.category}</b>
                     <hr />
-                    <h2 className="text-base mb-8">
+                    <h2 className="text-xl mb-8">
                         <b>review:</b> {book.review}
                     </h2>
 
                     <div className="flex gap-2 text-green-500 mb-12">
-                        <b className="text-black">Tag</b>
+                        <b className="text-black">Tags</b>
                         {book.tags.map((tag, idx) => (
                             <h2 key={idx}>#{tag}</h2>
                         ))}
                     </div>
                     <hr />
 
-                    <div className="text-base flex gap-12">
+                    <div className="text-xl flex gap-12">
                         <div>
                             <h2>Number of Pages:</h2>
                             <h2>Publisher:</h2>
@@ -110,10 +112,10 @@ const BookCardDetails = () => {
 
                     {/* //!2 bu˻on named - Read, Wishlist */}
                     <div className="card-actions">
-                        <button onClick={handleReadButtonToast} className="btn btn-outline btn-accent px-7 py-4">
+                        <button onClick={handleReadButtonToast} className="rounded-2xl bg-green-300 font-bold hover:bg-green-700 px-7 py-4">
                             Read
                         </button>
-                        <button onClick={handleWishlistButtonToast} className="btn bg-[#50B1C9] px-7 py-4 text-white font-bold">
+                        <button onClick={handleWishlistButtonToast} className="rounded-2xl hover:bg-[#12b4dd] bg-[#438292] px-7 py-4 text-white font-bold">
                             Wishlist
                         </button>
                     </div>
