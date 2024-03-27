@@ -79,10 +79,12 @@ const BookCardDetails = () => {
                         <b>review:</b> {book.review}
                     </h2>
 
-                    <div className="flex gap-2 text-green-500 mb-12">
+                    <div className="flex gap-2 text-green-500 text-xl mb-12">
                         <b className="text-black">Tags</b>
                         {book.tags.map((tag, idx) => (
-                            <h2 key={idx}>#{tag}</h2>
+                            <button className="bth btn-active rounded-xl btn-ghost" key={idx}>
+                                #{tag}
+                            </button>
                         ))}
                     </div>
                     <hr />
