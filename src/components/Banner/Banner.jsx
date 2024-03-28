@@ -10,7 +10,8 @@ const Banner = () => {
                 </NavLink>
             </div>
             <div className="mt-5 lg:w-1/2">
-                <img src="/src/assets/bannerBook.png" alt="" />
+                {/* <img src="/src/assets/bannerBook.png" alt="" /> */}
+                <img src="/bannerBook.png" alt=""></img>
             </div>
         </div>
     );
