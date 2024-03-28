@@ -13,4 +13,3 @@ const ErrorPage = () => {
 };
 
 export default ErrorPage;
-<h2>Oops!!!</h2>;

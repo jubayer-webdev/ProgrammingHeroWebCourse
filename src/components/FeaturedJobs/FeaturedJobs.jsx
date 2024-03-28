@@ -23,6 +23,7 @@ const FeaturedJobs = () => {
                     <Job key={job.id} job={job}></Job>
                 ))}
             </div>
+            
             {/* //!added button to load more data */}
             {/* className={dataLength === jobs.length ? "hidden" : ""} */}
             <div className={dataLength === jobs.length && "hidden"}>

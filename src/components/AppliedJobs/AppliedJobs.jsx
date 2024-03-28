@@ -22,7 +22,7 @@ const AppliedJobs = () => {
     useEffect(() => {
         const storedJobIds = getStoredJobApplication();
         if (jobs.length > 0) {
-            //! Method 1
+            //! Method 1 here the serial of stored book won't maintain
             // const jobsApplied = jobs.filter((job) => storedJobIds.includes(job.id));
             //! Method 2
             const jobsApplied = [];
