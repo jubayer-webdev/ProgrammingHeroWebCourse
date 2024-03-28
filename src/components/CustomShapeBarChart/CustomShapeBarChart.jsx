@@ -55,6 +55,7 @@ function CustomShapeBarChart() {
         return null;
     };
 
+    //! If read book is empty
     if (allReadBooks.length === 0) {
         return <h2 className="text-7xl text-center">Read Books is Empty.</h2>;
     }

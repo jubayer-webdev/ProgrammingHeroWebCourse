@@ -24,20 +24,20 @@ const router = createBrowserRouter([
                 path: "/listedBooks",
                 element: <ListedBooks></ListedBooks>,
                 //! warning: do not load all the data, only load tha data you need.
-                loader: () => fetch("./books.json"),
+                loader: () => fetch("/books.json"),
             },
             //!Dynamic Route
             {
                 path: "/bookCard/:idJame",
-                element: <BookCardDetails></BookCardDetails>,
                 //!Not best way (do not load all data, load only what you need)
-                loader: () => fetch("./books.json"),
+                loader: () => fetch("/books.json"),
+                element: <BookCardDetails></BookCardDetails>,
                 //fetch("../jobs.json");
             },
             {
                 path: "/pageToRead",
+                loader: () => fetch("/books.json"),
                 element: <CustomShapeBarChart></CustomShapeBarChart>,
-                loader: () => fetch("./books.json"),
             },
         ],
     },
