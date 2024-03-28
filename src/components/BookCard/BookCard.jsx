@@ -8,7 +8,7 @@ const BookCard = ({ book }) => {
     return (
         //! Dynamic link
         <Link to={`/bookCard/${bookId}`}>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl p-6">
+            <div className="card card-compact lg:w-96 bg-base-100 shadow-xl p-6">
                 <figure className="bg-[#F3F3F3] lg:px-24 lg:py-14 mb-6">
                     <img src={image} alt="Image" />
                 </figure>
