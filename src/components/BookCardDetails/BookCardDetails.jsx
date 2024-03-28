@@ -112,7 +112,7 @@ const BookCardDetails = () => {
                         </div>
                     </div>
 
-                    {/* //!2 buton named - Read, Wishlist */}
+                    {/* //!2 button named - Read, Wishlist */}
                     <div className="card-actions mt-7">
                         <button onClick={handleReadButtonToast} className="rounded-2xl bg-green-300 font-bold hover:bg-green-700 px-7 py-4">
                             Read

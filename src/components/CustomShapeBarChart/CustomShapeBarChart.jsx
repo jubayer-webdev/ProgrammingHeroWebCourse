@@ -1,11 +1,13 @@
 //! https://recharts.org/en-US/guide/customize
 
 import { useEffect, useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from "recharts";
 import { getStoredReadBooks } from "../../utility/localStorage";
 import { useLoaderData } from "react-router-dom";
 
 function CustomShapeBarChart() {
+    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+
     const books = useLoaderData();
     const [allReadBooks, setAllReadBooks] = useState([]);
     // //! This is for Read Books--------------------------------------
@@ -59,7 +61,13 @@ function CustomShapeBarChart() {
     return (
         <div>
             <BarChart width={1000} height={300} data={allReadBooks}>
-                <Bar dataKey="totalPages" fill="#FF69B4" shape={<TriangleBar />} />
+                <Bar dataKey="totalPages" fill="#FF69B4" shape={<TriangleBar />} label={{ position: "top" }}>
+                    {/* //!https://recharts.org/en-US/examples/CustomShapeBarChart */}
+                    {books.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                    ))}
+                </Bar>
+
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="bookName" />
                 <YAxis />
