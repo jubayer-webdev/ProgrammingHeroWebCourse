@@ -1,0 +1,61 @@
+[
+    {
+        "bookId": 104,
+        "bookName": "Fera 2",
+        "author": "Bintu Adil",
+        "image": "https://i.postimg.cc/1RqBjshj/Fera-2-500x787.png",
+        "review": "In a word, extraordinary!!!!!! The story of two sisters returning to the path of Islam, overcoming various obstacles, and the true story of staying on that path. Some parts of this year leave a mark on the reader's mind, I think the mark will be removed.How much are we able to give in the Islamic religion that we have received in inheritance? The question remains with us. Moreover, how much disrespect are we showing to the rules of Islam by being Muslim... Hopefully, reading the book will make us think about it, InshaAllah.",
+        "totalPages": 119,
+        "rating": 4.5,
+        "category": "Muslim Personality",
+        "tags": [" Islamic Literature", "Dawah", "Call to the Path of Religion"],
+        "publisher": "Somokalin Prokashon",
+        "yearOfPublishing": 2020,
+        "price": 110,
+        "type": "bestCellar"
+    },
+    {
+        "bookId": 3,
+        "bookName": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "https://i.postimg.cc/63g0Q6gF/5107.jpg",
+        "review": "A timeless classic exploring the struggles of adolescence.",
+        "totalPages": 277,
+        "rating": 4.4,
+        "category": "Fiction",
+        "tags": ["Coming-of-age", "Literary"],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 1951,
+        "type": "bestCellar"
+    },
+    {
+        "bookId": 100,
+        "bookName": "The Final Command of the Prophet",
+        "author": "Sheikh Musa Jibril",
+        "image": "https://i.postimg.cc/RCpJrbKJ/2-250x379.webp",
+        "review": "Explaining the importance of prayer to those who do not read and neglect the prayer, why should you read the prayer? Why so important? What will be the punishment if not read? And will you get a reward for reading? The book is written on these topics.",
+        "totalPages": 80,
+        "rating": 5.0,
+        "category": "Salat/prayer",
+        "tags": ["Islamic", "Prophet Muhammad", "Guidance"],
+        "publisher": "nusus-publication",
+        "yearOfPublishing": 0,
+        "price": 85,
+        "type": "bestCellar"
+    },
+    {
+        "bookId": 101,
+        "bookName": "Jakaria Masud",
+        "author": "Hijab Amar Porichoy",
+        "image": "https://i.postimg.cc/T2BmL41M/a1654ac8-da59-11ec-86a2-525400670ffc.png",
+        "review": "I felt guilty reading every line of the book. Without knowing how much I insulted hijab. I called the head cloth as hijab. This book provides a complete understanding of Hijab which will inform us about the basics of Hijab.The book is written in very simple and easy language. Language has no complications. Which we can easily understand.I would say my brothers must also read the book. Then they can warn their mothers, sisters and wives about hijab",
+        "totalPages": 92,
+        "rating": 4.9,
+        "category": "Salat/prayer",
+        "tags": ["Islamic", "Porda"],
+        "publisher": "sondiponbd",
+        "yearOfPublishing": 2020,
+        "price": 85,
+        "type": "bestCellar"
+    }
+]

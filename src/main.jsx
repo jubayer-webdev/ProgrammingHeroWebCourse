@@ -53,6 +53,17 @@ const router = createBrowserRouter([
                 loader: () => fetch("/islamicBook.json"),
                 element: <BookCardDetails></BookCardDetails>,
             },
+            {
+                path: "/bestCellar",
+                loader: () => fetch("/bestCellarData.json"),
+                element: <BookSection bookLink={"bestCellarData"}></BookSection>,
+            },
+            //! Dynamic
+            {
+                path: "/bestCellar/:idJame",
+                loader: () => fetch("/bestCellarData.json"),
+                element: <BookCardDetails></BookCardDetails>,
+            },
         ],
     },
 ]);
