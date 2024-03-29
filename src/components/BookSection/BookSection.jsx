@@ -9,8 +9,8 @@ const BookSection = ({ bookLink }) => {
         fetch(`/${bookLink}.json`)
             .then((res) => res.json())
             .then((data) => setBooks(data));
-    }, []);
-    
+    }, [bookLink]);
+    //! Remove dependency or add [bookLink] to solve the problem,Islamic book and Best Cellar button didn't work sequentially
 
     return (
         <div>
