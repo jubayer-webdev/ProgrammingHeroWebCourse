@@ -9,11 +9,11 @@ const ReadAndWishlistBooks = ({ book }) => {
 
     return (
         //! https://daisyui.com/components/card/
-        <div className="card lg:card-side bg-base-100 shadow-xl p-6 mb-6">
+        <div className="card lg:card-side bg-base-100 shadow-xl p-6 mb-6 border-red-900 border-2">
             <figure className="bg-[#1313130D] px-7 py-12">
                 <img src={image} alt="Book" />
             </figure>
-            <div className="card-body text-lg">
+            <div className="card-body text-lg w-[100%]">
                 {<p>BookId = {bookId}</p>}
                 <h2 className="card-title text-3xl">{book.bookName}</h2>
                 <p className="mb-6">
@@ -48,7 +48,7 @@ const ReadAndWishlistBooks = ({ book }) => {
                 <div className="lg:flex gap-6">
                     <button className="bg-[#FFAC33] p-3 rounded-2xl">Category: {book.category}</button>
                     <button className="bg-[#328EFF26] p-3 rounded-2xl">Rating: {book.rating}</button>
-                    <NavLink to={`/bookCard/${bookId}`}>
+                    <NavLink to={`/${book.type}/${bookId}`}>
                         <button className="btn btn-success text-white text-lg">View Details</button>
                     </NavLink>
                 </div>

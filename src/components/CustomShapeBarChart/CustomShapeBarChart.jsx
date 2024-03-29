@@ -6,7 +6,7 @@ import { getStoredReadBooks } from "../../utility/localStorage";
 import { useLoaderData } from "react-router-dom";
 
 function CustomShapeBarChart() {
-    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+    const colors = ["#00C49F", "#FFBB28", "#0088FE", "#FFBB28", "#FF8042", "red", "#00C49F", "#FFBB28", "pink", "#FF8042", "#00C49F", "#FF8042", "pink", "#FFBB28", "#0088FE"];
 
     const books = useLoaderData();
     const [allReadBooks, setAllReadBooks] = useState([]);

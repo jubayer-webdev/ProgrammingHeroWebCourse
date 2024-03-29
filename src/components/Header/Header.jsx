@@ -21,6 +21,11 @@ const Header = () => {
                     <button className="btn btn-outline btn-success">Pages to Read</button>
                 </NavLink>
             </li>
+            <li>
+                <NavLink to={"/islamicBook"}>
+                    <button className="btn btn-outline btn-success">Islamic Book</button>
+                </NavLink>
+            </li>
         </>
     );
 

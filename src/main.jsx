@@ -8,6 +8,7 @@ import BookCardDetails from "./components/BookCardDetails/BookCardDetails";
 import ListedBooks from "./components/ListedBooks/ListedBooks";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import CustomShapeBarChart from "./components/CustomShapeBarChart/CustomShapeBarChart";
+import BookSection from "./components/BookSection/BookSection";
 
 //! https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
                 path: "/listedBooks",
                 element: <ListedBooks></ListedBooks>,
                 //! warning: do not load all the data, only load tha data you need.
-                loader: () => fetch("/books.json"),
+                loader: () => fetch("/generalAndislamicBook.json"),
             },
             //!Dynamic Route
             {
@@ -36,8 +37,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "/pageToRead",
-                loader: () => fetch("/books.json"),
+                // loader: () => fetch("/books.json"),
+                loader: () => fetch("/generalAndislamicBook.json"),
                 element: <CustomShapeBarChart></CustomShapeBarChart>,
+            },
+            //! This is extra two button
+            {
+                path: "/islamicBook",
+                loader: () => fetch("/islamicBook.json"),
+                element: <BookSection bookLink={"islamicBook"}></BookSection>,
+            },
+            //! Dynamic Route
+            {
+                path: "/islamicBook/:idJame",
+                loader: () => fetch("/islamicBook.json"),
+                element: <BookCardDetails></BookCardDetails>,
             },
         ],
     },

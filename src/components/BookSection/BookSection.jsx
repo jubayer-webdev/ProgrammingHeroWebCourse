@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
 
-const BookSection = () => {
+const BookSection = ({ bookLink }) => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch('./books.json')
-        .then(res => res.json())
-        .then(data => setBooks(data));
-    },[]);
+        // fetch('./books.json')
+        fetch(`/${bookLink}.json`)
+            .then((res) => res.json())
+            .then((data) => setBooks(data));
+    }, []);
 
     return (
         <div>

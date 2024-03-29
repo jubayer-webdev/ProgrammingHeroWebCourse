@@ -62,11 +62,11 @@ const BookCardDetails = () => {
         <div>
             {/* //! https://daisyui.com/components/card/ */}
             <div className="card lg:card-side bg-base-100 shadow-xl mt-14">
-                <figure className="bg-[#1313130F] lg:w-[40%] lg:p-16">
-                    <img className="w-[50%] lg:w-full" src={book.image} alt="Book" />
+                <figure className="bg-[#1313130F] lg:p-16">
+                    <img src={book.image} alt="Book" />
                 </figure>
 
-                <div className="card-body">
+                <div className="card-body w-[60%]">
                     <h2 className="text-xl">This is from BookCardDetails: {idJame}</h2>
                     <h2 className="card-title text-4xl font-semibold">{book.bookName}</h2>
                     <h2 className="text-xl mb-10">
