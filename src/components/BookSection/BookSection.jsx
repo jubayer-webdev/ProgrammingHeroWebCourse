@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
 import anyNameIsValid from "prop-types";
+import { useLoaderData } from "react-router-dom";
 
 const BookSection = ({ bookLink }) => {
     const [books, setBooks] = useState([]);
+
+    // const books = useLoaderData();
 
     useEffect(() => {
         // fetch('./books.json')
@@ -15,6 +18,7 @@ const BookSection = ({ bookLink }) => {
 
     return (
         <div>
+            
             <h1 className="text-4xl font-semibold text-center">Books: {books.length}</h1>
             <div className="grid lg:grid-cols-3 gap-6">
                 {books.map((book) => (

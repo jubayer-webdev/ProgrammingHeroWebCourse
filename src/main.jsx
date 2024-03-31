@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             //! This is extra two button
             {
                 path: "/islamicBook",
-                loader: () => fetch("/islamicBook.json"),
+                // loader: () => fetch("/islamicBook.json"),
                 element: <BookSection bookLink={"islamicBook"}></BookSection>,
             },
             //! Dynamic Route
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/bestCellar",
-                loader: () => fetch("/bestCellarData.json"),
+                // loader: () => fetch("/bestCellarData.json"),
                 element: <BookSection bookLink={"bestCellarData"}></BookSection>,
             },
             //! Dynamic
