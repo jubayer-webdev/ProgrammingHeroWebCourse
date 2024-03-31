@@ -66,7 +66,7 @@ const BookCardDetails = () => {
                     <img src={book.image} alt="Book" />
                 </figure>
 
-                <div className="card-body w-[60%]">
+                <div className="card-body lg:w-[60%]">
                     <h2 className="text-xl">This is from BookCardDetails: {idJame}</h2>
                     <h2 className="card-title text-4xl font-semibold">{book.bookName}</h2>
                     <h2 className="text-xl mb-10">

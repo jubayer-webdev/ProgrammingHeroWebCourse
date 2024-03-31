@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
+import anyNameIsValid from "prop-types";
 
 const BookSection = ({ bookLink }) => {
     const [books, setBooks] = useState([]);
@@ -22,6 +23,9 @@ const BookSection = ({ bookLink }) => {
             </div>
         </div>
     );
+};
+BookSection.propTypes = {
+    bookLink: anyNameIsValid.string,
 };
 
 export default BookSection;
