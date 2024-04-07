@@ -23,6 +23,7 @@ const Login = () => {
     };
 
     const handleSignOut = () => {
+        //!https://firebase.google.com/docs/auth/web/google-signin?hl=en&authuser=0
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
