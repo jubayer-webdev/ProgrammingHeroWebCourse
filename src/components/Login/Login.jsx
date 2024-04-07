@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from "../../firebase/firebase.init";
 import { useState } from "react";
 
@@ -6,12 +6,14 @@ const Login = () => {
     const [user, setUser] = useState(null);
     // Initialize Firebase Authentication and get a reference to the service
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
+    //! https://firebase.google.com/docs/auth/web/github-auth?hl=en&authuser=0
+    const githubProvider = new GithubAuthProvider();
 
     //!Should set up sign-in-method google in firebase to avoid Firebase:Error(auth/configuration-not-found
     const handleGoogleSignIn = () => {
         //!https://firebase.google.com/docs/auth/web/google-signin?hl=en&authuser=0
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const loggedInUser = result.user;
                 console.log("user info...", loggedInUser);
@@ -38,7 +40,14 @@ const Login = () => {
     return (
         <div>
             {/* //! user ? logout : sign in */}
-            {user ? <button onClick={handleSignOut}>Sign Out</button> : <button onClick={handleGoogleSignIn}>Google Login</button>}
+            {user ? (
+                <button onClick={handleSignOut}>Sign Out</button>
+            ) : (
+                <>
+                    <button onClick={handleGoogleSignIn}>Google Login</button>
+                    <button>Github Login</button>
+                </>
+            )}
 
             {/* //! Conditional rendering */}
             {user && (
