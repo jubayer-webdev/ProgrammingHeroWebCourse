@@ -22,7 +22,7 @@ const Login = () => {
             });
     };
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
@@ -30,14 +30,15 @@ const Login = () => {
             })
             .catch((error) => {
                 // An error happened.
-                console.log('error on Sign Out...',error);
+                console.log("error on Sign Out...", error);
             });
-    }
+    };
 
     return (
         <div>
-            <button onClick={handleGoogleSignIn}>Google Login</button>
-            <button onClick={handleSignOut}>Sign Out</button>
+            {/* //! user ? logout : sign in */}
+            {user ? <button onClick={handleSignOut}>Sign Out</button> : <button onClick={handleGoogleSignIn}>Google Login</button>}
+
             {/* //! Conditional rendering */}
             {user && (
                 <div>
