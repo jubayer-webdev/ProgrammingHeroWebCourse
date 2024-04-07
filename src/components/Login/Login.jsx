@@ -10,17 +10,19 @@ const Login = () => {
     //! https://firebase.google.com/docs/auth/web/github-auth?hl=en&authuser=0
     const githubProvider = new GithubAuthProvider();
 
+
+    //todo: This is for Gooooooooogle 
     //!Should set up sign-in-method google in firebase to avoid Firebase:Error(auth/configuration-not-found
     const handleGoogleSignIn = () => {
         //!https://firebase.google.com/docs/auth/web/google-signin?hl=en&authuser=0
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const loggedInUser = result.user;
-                console.log("user info...", loggedInUser);
+                console.log("Google user info...", loggedInUser);
                 setUser(loggedInUser);
             })
             .catch((error) => {
-                console.log("error msg is...", error.message);
+                console.log("Google error msg is...", error.message);
             });
     };
 
@@ -37,6 +39,19 @@ const Login = () => {
             });
     };
 
+    //todo: This is for Giiiiiiiiithub
+    const handleGithubSignIn = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result => {
+            const loggedInUser = result.user;
+            console.log('Github user info...',loggedInUser);
+            setUser(loggedInUser);
+        })
+        .catch(error => {
+            console.log('Github error msg is...',error);
+        })
+    }
+
     return (
         <div>
             {/* //! user ? logout : sign in */}
@@ -45,7 +60,7 @@ const Login = () => {
             ) : (
                 <>
                     <button onClick={handleGoogleSignIn}>Google Login</button>
-                    <button>Github Login</button>
+                    <button onClick={handleGithubSignIn}>Github Login</button>
                 </>
             )}
 
