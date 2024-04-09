@@ -7,7 +7,7 @@ const Register = () => {
         e.preventDefault();
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
-        console.log(email, password);
+        console.log('from Register...',email, password);
         //! Create User
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
