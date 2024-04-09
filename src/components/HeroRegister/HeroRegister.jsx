@@ -1,4 +1,12 @@
 const HeroRegister = () => {
+
+    const handleRegister = e => {
+        e.preventDefault();
+        const email = e.target.name_email.value;
+        const password = e.target.name_password.value;
+        console.log(email, password);
+    }
+
     return (
         <div>
             {/* //! https://daisyui.com/components/hero/ */}
@@ -9,18 +17,18 @@ const HeroRegister = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" placeholder="email" className="input input-bordered" required name="name_email" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password" placeholder="password" className="input input-bordered" required name="name_password"/>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">
                                         Forgot password?
