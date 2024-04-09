@@ -4,12 +4,15 @@ import { useState } from "react";
 
 const Register = () => {
     const [registerError, setRegisterError] = useState("");
+    const [success, setSuccess] = useState('');
 
     const handleRegister = (e) => {
         //! prevent reload the page when click on submit
         e.preventDefault();
         //! Reset Error 
         setRegisterError('');
+        //! Reset Success
+        setSuccess('');
 
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
@@ -19,9 +22,14 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+
+                //! set success 
+                setSuccess('User Created Successfully.')
             })
             .catch((error) => {
                 console.error(error);
+
+                //! set error
                 setRegisterError(error.message);
             });
     };
@@ -39,6 +47,10 @@ const Register = () => {
                 </form>
                 {/* //!Showing The Error Message */}
                 {registerError && <p className="text-red-700">{registerError}</p>}
+                {/* //!Showing The Success Message */}
+                {
+                    success && <p className="text-green-600">{success}</p>
+                }
             </div>
         </div>
     );
