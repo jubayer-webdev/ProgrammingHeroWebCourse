@@ -1,12 +1,21 @@
-const HeroRegister = () => {
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
-    const handleRegister = e => {
+const HeroRegister = () => {
+    const handleRegister = (e) => {
         e.preventDefault();
         const email = e.target.name_email.value;
         const password = e.target.name_password.value;
-
         console.log(email, password);
-    }
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                console.log(result.user);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
 
     return (
         <div>
@@ -29,7 +38,7 @@ const HeroRegister = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required name="name_password"/>
+                                <input type="password" placeholder="password" className="input input-bordered" required name="name_password" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">
                                         Forgot password?
