@@ -1,13 +1,19 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { useState } from "react";
 
 const Register = () => {
+    const [registerError, setRegisterError] = useState("");
+
     const handleRegister = (e) => {
         //! prevent reload the page when click on submit
         e.preventDefault();
+        //! Reset Error 
+        setRegisterError('');
+
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
-        console.log('from Register...',email, password);
+        console.log("from Register...", email, password);
         //! Create User
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
@@ -16,6 +22,7 @@ const Register = () => {
             })
             .catch((error) => {
                 console.error(error);
+                setRegisterError(error.message);
             });
     };
 
@@ -30,6 +37,8 @@ const Register = () => {
                     <br />
                     <input className="btn btn-secondary mb-4 w-3/4" type="submit" value="Register" />
                 </form>
+                {/* //!Showing The Error Message */}
+                {registerError && <p className="text-red-700">{registerError}</p>}
             </div>
         </div>
     );
