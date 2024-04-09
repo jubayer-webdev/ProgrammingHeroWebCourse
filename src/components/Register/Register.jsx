@@ -28,7 +28,7 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                console.log("from Register user...",user);
 
                 //! set success
                 setSuccess("User Created Successfully.");

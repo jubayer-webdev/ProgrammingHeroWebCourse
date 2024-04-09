@@ -6,11 +6,11 @@ const HeroRegister = () => {
         e.preventDefault();
         const email = e.target.name_email.value;
         const password = e.target.name_password.value;
-        console.log('from HeroRegister...',email, password);
+        console.log("from HeroRegister...", email, password);
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result.user);
+                console.log("from HeroRegister user...", result.user);
             })
             .catch((error) => {
                 console.error(error);
