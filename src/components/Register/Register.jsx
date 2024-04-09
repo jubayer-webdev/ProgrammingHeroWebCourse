@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const [registerError, setRegisterError] = useState("");
     const [success, setSuccess] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleRegister = (e) => {
         //! prevent reload the page when click on submit
@@ -51,7 +53,9 @@ const Register = () => {
                 <form onSubmit={handleRegister}>
                     <input className="mb-4 w-3/4 py-2 px-4" type="email" placeholder="Email Address" name="emaiL" id="" required />
                     <br />
-                    <input className="mb-4 w-3/4 py-2 px-4" type="password" placeholder="Password" name="passworD" id="" required />
+                    <input className="mb-4 w-3/4 py-2 px-4" type={showPassword ? "text" : "password"} placeholder="Password" name="passworD" id="" required />
+                    {/* //!Toggle Eye Icon  */}
+                    <span onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</span>
                     <br />
                     <input className="btn btn-secondary mb-4 w-3/4" type="submit" value="Register" />
                 </form>
