@@ -4,7 +4,7 @@ const HeroRegister = () => {
         e.preventDefault();
         const email = e.target.name_email.value;
         const password = e.target.name_password.value;
-        
+
         console.log(email, password);
     }
 
