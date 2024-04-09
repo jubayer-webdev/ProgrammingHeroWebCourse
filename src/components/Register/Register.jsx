@@ -22,13 +22,16 @@ const Register = () => {
         if (password.length < 6) {
             setRegisterError("Password should be at least 6 characters or Longer");
             return;
+        } else if (!/[A-Z]/.test(password)) {
+            setRegisterError("Your password should have at least one Upper Case characters.");
+            return;
         }
 
         //! Create User
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const user = result.user;
-                console.log("from Register user...",user);
+                console.log("from Register user...", user);
 
                 //! set success
                 setSuccess("User Created Successfully.");
