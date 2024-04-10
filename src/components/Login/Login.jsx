@@ -50,6 +50,7 @@ const Login = () => {
         }
 
         //! Send Validation Email
+        //!https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#send_a_password_reset_email
         sendPasswordResetEmail(auth, email)
             .then(() => {
                 alert("Please Check Your Email...");
