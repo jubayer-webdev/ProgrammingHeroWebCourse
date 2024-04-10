@@ -1,11 +1,13 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
     const [registerError, setRegisterError] = useState("");
     const [success, setSuccess] = useState("");
+    //! https://react.dev/reference/react/useRef
+    const emailRef = useRef(null);
 
     const handleLogin = (e) => {
         //! prevent reload the page when click on submit
@@ -34,6 +36,29 @@ const Login = () => {
             });
     };
 
+    const handleForgetPassword = () => {
+        //! https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom
+        console.log("send reset email...", emailRef.current.value);
+
+        const email = emailRef.current.value;
+        if (!email) {
+            console.log("please provie an email.");
+            return;
+        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+            console.log("please write a valid email.");
+            return;
+        }
+
+        //! Send Validation Email
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("Please Check Your Email...");
+            })
+            .catch((error) => {
+                console.log("error form Login Reset Password...", error);
+            });
+    };
+
     return (
         //! https://daisyui.com/components/hero/
         <div className="hero min-h-screen bg-base-200">
@@ -48,7 +73,9 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                            {/* //! If you pass the ref object to React as a ref attribute to a JSX node, React will set its current property. */}
+                            {/* //!https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom */}
+                            <input ref={emailRef} type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -56,7 +83,7 @@ const Login = () => {
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">
+                                <a onClick={handleForgetPassword} href="#" className="label-text-alt link link-hover underline">
                                     Forgot password?
                                 </a>
                             </label>
@@ -73,7 +100,10 @@ const Login = () => {
                     {success && <p className="text-green-600">{success}</p>}
 
                     <p>
-                        New to this website? Please <Link to="/register" className="underline">Register</Link>
+                        New to this website? Please{" "}
+                        <Link to="/register" className="underline">
+                            Register
+                        </Link>
                     </p>
                 </div>
             </div>

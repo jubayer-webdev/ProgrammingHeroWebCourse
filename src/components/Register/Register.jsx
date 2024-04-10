@@ -30,7 +30,7 @@ const Register = () => {
             setRegisterError("Your password should have at least one Upper Case characters.");
             return;
         } else if (!accepted) {
-            setRegisterError('Please accept our terms and conditions!');
+            setRegisterError("Please accept our terms and conditions!");
             return;
         }
 
@@ -82,11 +82,17 @@ const Register = () => {
 
                 {/* //!Showing The Error Message */}
                 {registerError && <p className="text-red-700">{registerError}</p>}
-                
+
                 {/* //!Showing The Success Message */}
                 {success && <p className="text-green-600">{success}</p>}
 
-                <p>Already have an account? Please <Link to='/login' className="underline">Login</Link></p>
+                <p>
+                    Already have an account? Please
+                    <Link to="/login" className="underline">
+                        {" "}
+                        Login
+                    </Link>
+                </p>
             </div>
         </div>
     );
