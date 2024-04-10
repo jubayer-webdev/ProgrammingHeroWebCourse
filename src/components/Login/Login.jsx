@@ -4,19 +4,27 @@ import { useState } from "react";
 
 const Login = () => {
     const [registerError, setRegisterError] = useState("");
+    const [success, setSuccess] = useState("");
 
     const handleLogin = (e) => {
         //! prevent reload the page when click on submit
         e.preventDefault();
         //! Reset Error
         setRegisterError("");
+        //! Reset Success
+        setSuccess("");
 
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log("from Login...", email, password);
 
         signInWithEmailAndPassword(auth, email, password)
-            .then((result) => console.log("From Login user...", result.user))
+            .then((result) => {
+                console.log("From Login user...", result.user);
+
+                //! set success
+                setSuccess("User Logged in Successfully.");
+            })
             .catch((error) => {
                 console.error("From Login...", error);
 
@@ -56,8 +64,12 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+
                     {/* //!Showing The Error Message */}
                     {registerError && <p className="text-red-700">{registerError}</p>}
+
+                    {/* //!Showing The Success Message */}
+                    {success && <p className="text-green-600">{success}</p>}
                 </div>
             </div>
         </div>

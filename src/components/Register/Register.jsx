@@ -78,8 +78,10 @@ const Register = () => {
                     <br />
                     <input className="btn btn-secondary mb-4 w-full" type="submit" value="Register" />
                 </form>
+
                 {/* //!Showing The Error Message */}
                 {registerError && <p className="text-red-700">{registerError}</p>}
+                
                 {/* //!Showing The Success Message */}
                 {success && <p className="text-green-600">{success}</p>}
             </div>
