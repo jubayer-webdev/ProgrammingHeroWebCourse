@@ -18,7 +18,8 @@ const Register = () => {
 
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
-        console.log("from Register...", email, password);
+        const accepted = e.target.terms.checked;
+        console.log("from Register...", email, password, accepted);
 
         // console.log(typeof password);
         if (password.length < 6) {
@@ -26,6 +27,9 @@ const Register = () => {
             return;
         } else if (!/[A-Z]/.test(password)) {
             setRegisterError("Your password should have at least one Upper Case characters.");
+            return;
+        } else if (!accepted) {
+            setRegisterError('Please accept our terms and conditions!');
             return;
         }
 
@@ -56,7 +60,20 @@ const Register = () => {
                     <div className="mb-4 relative">
                         <input className="w-full py-2 px-4" type={showPassword ? "text" : "password"} placeholder="Password" name="passworD" id="" required />
                         {/* //!Toggle Eye Icon  */}
-                        <span className="absolute top-3 right-2" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</span>
+                        <span className="absolute top-3 right-2" onClick={() => setShowPassword(!showPassword)}>
+                            {showPassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
+                    </div>
+                    <br />
+                    {/* //! Terms and Conditions */}
+                    <div>
+                        <input type="checkbox" name="terms" id="teerrmmss" />
+                        <label className="ml-2" htmlFor="teerrmmss">
+                            Accept our
+                            <a href="" className="underline">
+                                Terms and Conditions
+                            </a>
+                        </label>
                     </div>
                     <br />
                     <input className="btn btn-secondary mb-4 w-full" type="submit" value="Register" />
