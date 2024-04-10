@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [registerError, setRegisterError] = useState("");
@@ -70,6 +71,10 @@ const Login = () => {
 
                     {/* //!Showing The Success Message */}
                     {success && <p className="text-green-600">{success}</p>}
+
+                    <p>
+                        New to this website? Please <Link to="/register" className="underline">Register</Link>
+                    </p>
                 </div>
             </div>
         </div>
