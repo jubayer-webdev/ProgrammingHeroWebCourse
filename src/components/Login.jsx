@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
 const Login = () => {
-    const handleLogin = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
 
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
     };
+
     return (
         //! https://daisyui.com/components/hero/
         <div className="hero min-h-screen bg-base-200">
@@ -17,7 +18,7 @@ const Login = () => {
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     {/* //!Form */}
-                    <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
