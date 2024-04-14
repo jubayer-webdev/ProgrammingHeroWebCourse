@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -21,7 +21,7 @@ const Register = () => {
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
         const accepted = e.target.terms.checked;
-        console.log("from Register...",name, email, password, accepted);
+        console.log("from Register...", name, email, password, accepted);
 
         // console.log(typeof password);
         if (password.length < 6) {
@@ -43,6 +43,19 @@ const Register = () => {
 
                 //! set success
                 setSuccess("User Created Successfully.");
+
+                //! update profile
+                //! https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#update_a_users_profile
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: "https://example.com/jane-q-user/profile.jpg",
+                })
+                    .then(() => {
+                        console.log("profile updated");
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
 
                 //! send verification email
                 //! https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#send_a_user_a_verification_email
