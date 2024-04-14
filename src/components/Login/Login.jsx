@@ -26,7 +26,14 @@ const Login = () => {
                 console.log("From Login user...", result.user);
 
                 //! set success
-                setSuccess("User Logged in Successfully.");
+                // setSuccess("User Logged in Successfully.");
+
+                //! without verify google account user will not logged in
+                if (result.user.emailVerified) {
+                    setSuccess("User Logged in Successfully.");
+                } else {
+                    alert('Please verify your email address.')
+                }
             })
             .catch((error) => {
                 console.error("From Login...", error);
