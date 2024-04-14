@@ -17,10 +17,11 @@ const Register = () => {
         //! Reset Success
         setSuccess("");
 
+        const name = e.target.NamE.value;
         const email = e.target.emaiL.value;
         const password = e.target.passworD.value;
         const accepted = e.target.terms.checked;
-        console.log("from Register...", email, password, accepted);
+        console.log("from Register...",name, email, password, accepted);
 
         // console.log(typeof password);
         if (password.length < 6) {
@@ -62,6 +63,9 @@ const Register = () => {
             <div className="mx-auto md:w-1/2 border">
                 <h2 className="text-3xl mb-8">Please Register</h2>
                 <form onSubmit={handleRegister}>
+                    {/* //!add input field */}
+                    <input className="mb-4 w-full py-2 px-4" type="text" placeholder="Your name" name="NamE" id="" required />
+                    <br />
                     <input className="mb-4 w-full py-2 px-4" type="email" placeholder="Email Address" name="emaiL" id="" required />
                     <br />
                     <div className="mb-4 relative">
