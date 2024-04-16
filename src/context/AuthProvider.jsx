@@ -11,14 +11,17 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
+        // setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     const signInUser = (email, password) => {
+        // setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logOut = () => {
+        // setLoading(true);
         return signOut(auth);
     };
 
@@ -31,6 +34,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
 
             console.log("observing current user inside useEffect of AuthProvider", currentUser);
+            console.log("after setLoading loading = ", loading);
         });
         // console.log(typeof unSubscribe);
         console.log("unSubscribe...", unSubscribe);

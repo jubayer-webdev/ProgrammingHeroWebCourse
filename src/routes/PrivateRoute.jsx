@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
 
+    console.log(loading);
     if (loading) {
         //!https://daisyui.com/components/loading/
         return (
@@ -16,6 +17,8 @@ const PrivateRoute = ({ children }) => {
             </>
         );
     }
+
+    console.log(loading);
 
     if (user) {
         return children;
