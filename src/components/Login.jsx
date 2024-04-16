@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 const Login = () => {
     const authInfo = useContext(AuthContext);
-    const { signInUser } = authInfo;
+    const { signInUser, signInWithGoogle } = authInfo;
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -18,6 +18,20 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user);
                 e.target.reset();
+
+                //! https://reactrouter.com/en/main/hooks/use-navigate#usenavigate
+                navigate("/");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
+    //! google popup
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                console.log(result);
 
                 //! https://reactrouter.com/en/main/hooks/use-navigate#usenavigate
                 navigate("/");
@@ -62,8 +76,14 @@ const Login = () => {
                     <p>
                         New to Here? Please{" "}
                         <Link to="/register">
-                            <button className="btn btn-ghost">Register</button>
+                            <button className="btn btn-link">Register</button>
                         </Link>{" "}
+                    </p>
+                    {/* //! Google Login */}
+                    <p>
+                        <button onClick={handleGoogleSignIn} className="btn btn-ghost">
+                            Google
+                        </button>
                     </p>
                 </div>
             </div>
