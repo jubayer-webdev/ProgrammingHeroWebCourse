@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -17,6 +17,11 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
+    const logOut = () => {
+        return signOut(auth);
+    };
+
+    //todo: observe auth state change
     //! https://react.dev/reference/react/useEffect#connecting-to-an-external-system
     useEffect(() => {
         //! https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#get_the_currently_signed-in_user
@@ -25,15 +30,20 @@ const AuthProvider = ({ children }) => {
 
             console.log("observing current user inside useEffect of AuthProvider", currentUser);
         });
-        console.log(typeof unSubscribe);
-        console.log('unSubscribe...',unSubscribe);
+        // console.log(typeof unSubscribe);
+        console.log("unSubscribe...", unSubscribe);
 
         return () => {
             unSubscribe();
-        }
+        };
     }, []);
 
-    const authInfo = { user, createUser, signInUser };
+    const authInfo = {
+        user,
+        createUser,
+        signInUser,
+        logOut,
+    };
     // console.log(props.children);
     // console.log(children);
 
