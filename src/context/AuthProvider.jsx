@@ -8,6 +8,7 @@ export const AuthContext = createContext(null);
 // const AuthProvider = (props) => {
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -27,6 +28,7 @@ const AuthProvider = ({ children }) => {
         //! https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#get_the_currently_signed-in_user
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setLoading(false);
 
             console.log("observing current user inside useEffect of AuthProvider", currentUser);
         });
@@ -40,6 +42,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signInUser,
         logOut,
