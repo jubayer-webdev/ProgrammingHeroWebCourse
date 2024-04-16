@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 
 const Register = () => {
     const authInfo = useContext(AuthContext);
     console.log("authInfo...", authInfo);
     const { createUser } = authInfo;
+
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -20,6 +22,9 @@ const Register = () => {
             .then((result) => {
                 console.log(result.user);
                 e.target.reset();
+
+                //! https://reactrouter.com/en/main/hooks/use-navigate#usenavigate
+                navigate("/");
             })
             .catch((error) => {
                 console.error(error);
