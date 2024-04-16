@@ -9,7 +9,7 @@ const Navbar = () => {
         logOut()
             .then(() => {
                 console.log("user logged out successfully.");
-                console.log('loading = ',loading);
+                console.log("loading = ", loading);
             })
             .catch((error) => {
                 console.error(error);
@@ -30,6 +30,16 @@ const Navbar = () => {
             <li>
                 <NavLink to="/orders">Orders</NavLink>
             </li>
+            {user && (
+                <>
+                    <li>
+                        <NavLink to="/profile">Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/dashboard'>Dashboard</NavLink>
+                    </li>
+                </>
+            )}
         </>
     );
 
