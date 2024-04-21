@@ -11,7 +11,7 @@ const RootLayout = () => {
         //! send new data to server
         //! https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data
         fetch("http://localhost:5000/users", {
-            method: "POST", // or 'PUT'
+            method: "POST", //(case insensitive) or 'PUT'
             headers: {
                 "Content-Type": "application/json",
             },
