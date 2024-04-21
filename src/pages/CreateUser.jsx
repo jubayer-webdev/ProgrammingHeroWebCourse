@@ -1,4 +1,4 @@
-const CreateAndDeleteUser = () => {
+const CreateUser = () => {
     const handleAddUser = (event) => {
         event.preventDefault();
 
@@ -43,4 +43,4 @@ const CreateAndDeleteUser = () => {
     );
 };
 
-export default CreateAndDeleteUser;
+export default CreateUser;

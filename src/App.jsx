@@ -3,7 +3,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Users from "./pages/Users";
-import CreateAndDeleteUser from "./pages/CreateAndDeleteUser";
+import CreateUser from "./pages/CreateUser";
 
 const router = createBrowserRouter([
     {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <CreateAndDeleteUser></CreateAndDeleteUser>,
+                element: <CreateUser></CreateUser>,
             },
             {
                 path: "/users",
