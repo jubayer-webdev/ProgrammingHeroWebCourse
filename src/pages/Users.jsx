@@ -20,11 +20,11 @@ const Users = () => {
 
     return (
         <div>
-            <h2>total users: {users.length}</h2>
+            <h2 className="text-5xl">total users: {users.length}</h2>
             <div>
                 {users.map((user) => (
-                    <p key={user._id}>
-                        {user.name} : {user.email} ---- {user._id} <button onClick={() => handleDeleteUser(user._id)}>X</button>
+                    <p key={user._id} className="mt-5">
+                        {user.name} : {user.email} ---- {user._id} <button onClick={() => handleDeleteUser(user._id)} className="btn btn-sm btn-warning">X</button>
                     </p>
                 ))}
             </div>

@@ -29,15 +29,15 @@ const CreateAndDeleteUser = () => {
     };
     return (
         <div>
-            <h1>Simple CRUD</h1>
+            <h1 className="text-6xl mb-7">Simple CRUD</h1>
 
             {/* //!create form */}
             <form onSubmit={handleAddUser}>
-                <input type="text" name="name" id="" />
+                <input className="mb-2 p-2" placeholder="Your name" type="text" name="name" id="" />
                 <br />
-                <input type="email" name="email" id="" />
+                <input className="mb-2 p-2" placeholder="Your email" type="email" name="email" id="" />
                 <br />
-                <input type="submit" value="Add User" />
+                <input className="btn btn-success" type="submit" value="Add User" />
             </form>
         </div>
     );
