@@ -25,12 +25,18 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
+        //! https://www.mongodb.com/docs/drivers/node/v4.1/usage-examples/insertOne/#example
+        const database = client.db("usersDB");
+        const userCollection = database.collection("users");
+
         //! create a route for post
         app.post('/users', async (req, res) => {
             const user = req.body;
-            console.log('new user backend',user);
-        })
+            console.log('new user backend =', user);
+            const result = await userCollection.insertOne(user);
 
+            res.send(result);
+        })
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
