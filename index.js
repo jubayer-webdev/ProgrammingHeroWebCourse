@@ -29,6 +29,7 @@ async function run() {
         const database = client.db("usersDB");
         const userCollection = database.collection("users");
 
+        //! Find/Read all documents
         app.get('/users', async (req, res) => {
             //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
             const cursor = userCollection.find();
@@ -38,6 +39,7 @@ async function run() {
 
         //! create a route for post
         //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/
+        //! Insert just one document
         app.post('/users', async (req, res) => {
             const user = req.body;
             console.log('new user backend =', user);
@@ -47,6 +49,7 @@ async function run() {
         })
 
         //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
+        //! Delete just one document
         app.delete('/users/:id', async (req, res) => {
             const id = req.params.id;
             console.log('please delete from database', id);
