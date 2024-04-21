@@ -29,6 +29,13 @@ async function run() {
         const database = client.db("usersDB");
         const userCollection = database.collection("users");
 
+        app.get('/users', async (req, res) => {
+            //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
+            const cursor = userCollection.find();
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
         //! create a route for post
         app.post('/users', async (req, res) => {
             const user = req.body;
