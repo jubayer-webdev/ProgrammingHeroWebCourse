@@ -42,7 +42,7 @@ async function run() {
             const id = req.params.iidd;
             const query = { _id: new ObjectId(id) };
             const user = await userCollection.findOne(query);
-            
+
             res.send(user);
         })
 
@@ -54,6 +54,24 @@ async function run() {
             console.log('new user backend =', user);
             const result = await userCollection.insertOne(user);
 
+            res.send(result);
+        })
+
+        //! https://expressjs.com/en/starter/basic-routing.html
+        app.put('/users/:idany', async (req, res) => {
+            const id = req.params.idany;
+            const updatedUser = req.body;
+            console.log('server side updatedUser =', updatedUser);
+            //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/updateOne/
+            const filter = { _id: new ObjectId(id) };
+            const options = { upsert: true };
+            const updateUser = {
+                $set: {
+                    name: updatedUser.name,
+                    email: updatedUser.email
+                },
+            };
+            const result = await userCollection.updateOne(filter, updateUser, options);
             res.send(result);
         })
 
