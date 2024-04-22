@@ -98,7 +98,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('SIMPLE CURD IS RUNNING...');
+    res.send('SIMPLE CRUD IS RUNNING...');
 })
 
 app.listen(port, () => {

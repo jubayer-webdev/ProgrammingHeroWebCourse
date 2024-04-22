@@ -1,5 +1,5 @@
 {
-    "name": "simple-curd-server",
+    "name": "simple-crud-server",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
