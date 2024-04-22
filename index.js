@@ -37,6 +37,7 @@ async function run() {
             res.send(result);
         })
         //* Find/Read just one document
+        //todo: it is for <Update/> element, will be called when: loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`), is invoke
         //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/
         app.get('/users/:iidd', async (req, res) => {
             const id = req.params.iidd;
@@ -46,9 +47,9 @@ async function run() {
             res.send(user);
         })
 
+        //* Insert just one document
         //* create a route for post
         //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/
-        //* Insert just one document
         app.post('/users', async (req, res) => {
             const user = req.body;
             console.log('new user backend =', user);
@@ -57,6 +58,7 @@ async function run() {
             res.send(result);
         })
 
+        //* Update just one document
         //! https://expressjs.com/en/starter/basic-routing.html
         app.put('/users/:idany', async (req, res) => {
             const id = req.params.idany;
@@ -75,8 +77,8 @@ async function run() {
             res.send(result);
         })
 
-        //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
         //* Delete just one document
+        //! https://www.mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
         app.delete('/users/:id', async (req, res) => {
             const id = req.params.id;
             console.log('please delete from database', id);
