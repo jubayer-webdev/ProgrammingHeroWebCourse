@@ -1,6 +1,6 @@
 # Github Link
 
--   [Click Her](https://github.com/ProgrammingHero1/coffee-store-server)
+-   [Click Here](https://github.com/ProgrammingHero1/coffee-store-server)
 
 ## Setup
 
@@ -31,7 +31,6 @@ npm install express cors mongodb dotenv
 in package.json file add
 
 ```
-
  "start": "node index.js",
 ```
 
@@ -42,7 +41,6 @@ in "scripts":{}
 Create .gitignore file and add
 
 ```
-
 node_modules
 ```
 
@@ -63,7 +61,6 @@ blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on th
 add in index.js file
 
 ```
-
 const cors = require('cors');
 // middleware
 app.use(cors());
@@ -73,7 +70,7 @@ app.use(cors());
 
 ### From: 54-8 Video
 
--   [post data from client side.](https://developer.mozilla.org/en-US/docs/Web/API/fetch#options)
+-   [Post data from client side.](https://developer.mozilla.org/en-US/docs/Web/API/fetch#options)
 
 -   [To solve the erroe: express request body is undefined.](https://stackoverflow.com/a/55610690/23363732)
 
