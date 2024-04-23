@@ -1,3 +1,7 @@
+# Github Link
+
+-   [Click Here](https://github.com/ProgrammingHero1/coffee-store-client)
+
 ## Setup
 
 ### Step 1:
@@ -11,3 +15,11 @@
 ### Step 3:
 
 -   [Install daisyUI as a Tailwind CSS plugin](https://daisyui.com/docs/install/)
+
+### Step 4:
+
+it is not recommended
+
+-   [Turning off eslint rule for a specific line](https://stackoverflow.com/a/27732264/23363732)
+
+it is recommended -- add (node: true), in .eslintrc.cjs file in env:
