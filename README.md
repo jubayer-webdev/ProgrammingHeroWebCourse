@@ -44,6 +44,10 @@ Create .gitignore file and add
 node_modules
 ```
 
+### Setup dotenv
+
+-   [dotenv](https://www.npmjs.com/package/dotenv)
+
 # Article / Resources
 
 ### From 54-6 Video
