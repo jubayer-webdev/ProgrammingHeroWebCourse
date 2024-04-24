@@ -1,5 +1,47 @@
+import Swal from "sweetalert2";
+
 const CoffeeCard = ({ coffee }) => {
-    const { name, quantity, supplier, taste, category, details, photo } = coffee;
+    const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
+
+    const handleDelete = (id) => {
+        console.log(id);
+
+        // https://sweetalert2.github.io/#examples
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire({
+                //     title: "Deleted!",
+                //     text: "Your file has been deleted.",
+                //     icon: "success",
+                // });
+                //!------------------- customize start --------------
+                // https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376
+                fetch(`http://localhost:5000/coffees/${id}`, {
+                    method: "DeletE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Coffee has been deleted.",
+                                icon: "success",
+                            });
+                        }
+                    });
+                //!------------------- customize end ----------------
+            }
+        });
+    };
 
     return (
         <div className="card card-side shadow-xl bg-[#F5F4F1]">
@@ -18,7 +60,9 @@ const CoffeeCard = ({ coffee }) => {
                     <div className="join join-vertical space-y-3">
                         <button className="btn btn-square btn-info  btn-outline">View</button>
                         <button className="btn btn-square btn-accent btn-outline">Edit</button>
-                        <button className="btn btn-square btn-error btn-outline">X</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-square btn-error btn-outline">
+                            X
+                        </button>
                     </div>
                 </div>
             </div>

@@ -33,3 +33,8 @@ Post data from client side.
 SweetAlert2
 
 -   [DOWNLOAD & INSTALL](https://sweetalert2.github.io/#download)
+
+COMPLETE GUIDE FOR USING FETCH (DELETE)
+PROMISE VERSION
+
+-   [fetch delete json data PROMISE VERSION](https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376)
