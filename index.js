@@ -48,6 +48,15 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result);
         })
+        //* Find/Read just one document
+        // https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/
+        //todo: it is for <UpdateCoffee/> element, will be called when: loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.iid}`), is invoke
+        app.get('/coffees/:idddd', async (req, res) => {
+            const id = req.params.idddd;
+            const query = { _id: new ObjectId(id) };
+            const result = await coffeeCollection.findOne(query);
+            res.send(result);
+        })
 
         //* Insert just one document
         // https://expressjs.com/en/starter/basic-routing.html
