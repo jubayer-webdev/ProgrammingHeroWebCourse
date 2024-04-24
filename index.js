@@ -33,8 +33,22 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
-        
+        // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
+        const database = client.db("coffeeDB");
+        const coffeeCollection = database.collection('coffee');
+
+
         //!----------------CRUD Start  -----------
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.post('/coffees', async (req, res) => {
+            const newCoffee = req.body;
+            console.log(newCoffee);
+
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
+            //! send data to MongoDB
+            const result = await coffeeCollection.insertOne(newCoffee);
+            res.send(result);
+        })
         //!----------------CRUD  End  ------------
 
 
