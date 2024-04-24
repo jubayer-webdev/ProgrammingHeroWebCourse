@@ -38,3 +38,7 @@ COMPLETE GUIDE FOR USING FETCH (DELETE)
 PROMISE VERSION
 
 -   [fetch delete json data PROMISE VERSION](https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376)
+
+Simple PUT request with a JSON body using fetch
+
+-   [fetch put json data](https://jasonwatmore.com/post/2021/09/20/fetch-http-put-request-examples)
