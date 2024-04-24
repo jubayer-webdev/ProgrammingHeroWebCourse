@@ -34,7 +34,7 @@ const AddCoffee = () => {
                     // https://sweetalert2.github.io/#download
                     Swal.fire({
                         title: "Success",
-                        text: "User Added Successfully",
+                        text: "Coffee Added Successfully",
                         icon: "success",
                         confirmButtonText: "Cool",
                     });
