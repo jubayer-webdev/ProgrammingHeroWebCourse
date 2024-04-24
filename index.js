@@ -70,6 +70,29 @@ async function run() {
             res.send(result);
         })
 
+        //* Update just one document
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.put('/coffees/:idname', async (req, res) => {
+            const id = req.params.idname;
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/updateOne/
+            const filter = { _id: new ObjectId(id) };
+            const option = { upsert: true };
+            const updatedCoffee = req.body;
+            const currentCoffee = {
+                $set: {
+                    name: updatedCoffee.name,
+                    quantity: updatedCoffee.quantity,
+                    supplier: updatedCoffee.supplier,
+                    taste: updatedCoffee.taste,
+                    category: updatedCoffee.category,
+                    details: updatedCoffee.details,
+                    photo: updatedCoffee.photo
+                }
+            }
+            const result = await coffeeCollection.updateOne(filter,currentCoffee, option);
+            res.send(result);
+        })
+
         //* Delete just one document
         // https://expressjs.com/en/starter/basic-routing.html
         app.delete('/coffees/:id', async (req, res) => {
