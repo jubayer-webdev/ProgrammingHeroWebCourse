@@ -35,7 +35,7 @@ async function run() {
 
         // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
         const database = client.db("coffeeDB");
-        const coffeeCollection = database.collection('coffee');
+        const coffeeCollection = database.collection('coffees');
 
 
         //!----------------CRUD Start  -----------
