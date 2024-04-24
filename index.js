@@ -3,7 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -60,6 +60,17 @@ async function run() {
             const result = await coffeeCollection.insertOne(newCoffee);
             res.send(result);
         })
+
+        //* Delete just one document
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.delete('/coffees/:id', async (req, res) => {
+            const id = req.params.id;
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
+            const query = { _id: new ObjectId(id) };
+            const result = await coffeeCollection.deleteOne(query);
+            res.send(result);
+        })
+
         //!----------------CRUD  End  ------------
 
 
