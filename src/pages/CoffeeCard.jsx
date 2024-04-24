@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
@@ -59,7 +60,11 @@ const CoffeeCard = ({ coffee }) => {
                     {/* https://daisyui.com/components/join/ */}
                     <div className="join join-vertical space-y-3">
                         <button className="btn btn-square btn-info  btn-outline">View</button>
-                        <button className="btn btn-square btn-accent btn-outline">Edit</button>
+
+                        <Link to={`updateCoffee/${_id}`}>
+                            <button className="btn btn-square btn-accent btn-outline">Edit</button>
+                        </Link>
+
                         <button onClick={() => handleDelete(_id)} className="btn btn-square btn-error btn-outline">
                             X
                         </button>
