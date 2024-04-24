@@ -23,3 +23,9 @@ it is not recommended
 -   [Turning off eslint rule for a specific line](https://stackoverflow.com/a/27732264/23363732)
 
 it is recommended -- add (node: true), in .eslintrc.cjs file in env:
+
+# Resources / Articles
+
+Post data from client side.
+
+-   [Supplying request options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options)

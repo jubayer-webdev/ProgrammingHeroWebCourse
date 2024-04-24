@@ -14,6 +14,22 @@ const AddCoffee = () => {
 
         const newCoffee = { name, quantity, supplier, taste, category, details, photo };
         console.log(newCoffee);
+
+        //! send data to the server
+        // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options
+        fetch("http://localhost:5000/coffees", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(newCoffee),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("response data = ", data);
+
+                // form.reset();
+            });
     };
 
     return (
