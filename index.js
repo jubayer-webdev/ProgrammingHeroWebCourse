@@ -39,6 +39,17 @@ async function run() {
 
 
         //!----------------CRUD Start  -----------
+        //* Find/Read all documents
+        // https://expressjs.com/en/starter/basic-routing.html
+        //? will be called when: loader: () => fetch("http://localhost:5000/coffees"), is invoke
+        app.get('/coffees', async (req, res) => {
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
+            const cursor = coffeeCollection.find();
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
+        //* Insert just one document
         // https://expressjs.com/en/starter/basic-routing.html
         app.post('/coffees', async (req, res) => {
             const newCoffee = req.body;
