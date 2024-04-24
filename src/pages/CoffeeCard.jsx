@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = (propAny) => {
+    console.log(propAny);
+
+    const { coffee, coffees, setCoffees } = propAny;
     const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
 
     const handleDelete = (id) => {
@@ -37,6 +40,9 @@ const CoffeeCard = ({ coffee }) => {
                                 text: "Your Coffee has been deleted.",
                                 icon: "success",
                             });
+                            //! to show remaining coffee in Home.jsx immediately
+                            const remaining = coffees.filter((coffee) => coffee._id !== id);
+                            setCoffees(remaining);
                         }
                     });
                 //!------------------- customize end ----------------
