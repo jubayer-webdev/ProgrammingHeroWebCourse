@@ -29,3 +29,7 @@ it is recommended -- add (node: true), in .eslintrc.cjs file in env:
 Post data from client side.
 
 -   [Supplying request options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options)
+
+SweetAlert2
+
+-   [DOWNLOAD & INSTALL](https://sweetalert2.github.io/#download)

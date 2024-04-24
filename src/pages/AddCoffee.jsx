@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddCoffee = () => {
     const handleAddCoffee = (event) => {
         event.preventDefault();
@@ -27,8 +29,16 @@ const AddCoffee = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log("response data = ", data);
-
                 // form.reset();
+                if (data.insertedId) {
+                    // https://sweetalert2.github.io/#download
+                    Swal.fire({
+                        title: "Success",
+                        text: "User Added Successfully",
+                        icon: "success",
+                        confirmButtonText: "Cool",
+                    });
+                }
             });
     };
 
