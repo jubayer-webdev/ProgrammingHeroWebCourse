@@ -25,6 +25,7 @@ const UpdateCoffee = () => {
 
         //! put data to the server
         // https://jasonwatmore.com/post/2021/09/20/fetch-http-put-request-examples
+        // combination of POST and DELETE
         fetch(`http://localhost:5000/coffees/${_id}`, {
             method: "PUT",
             headers: {

@@ -42,3 +42,7 @@ PROMISE VERSION
 Simple PUT request with a JSON body using fetch
 
 -   [fetch put json data](https://jasonwatmore.com/post/2021/09/20/fetch-http-put-request-examples)
+
+    React eslint error missing in props validation
+
+-   [React eslint error missing in props validation](https://stackoverflow.com/a/64707357/23363732)

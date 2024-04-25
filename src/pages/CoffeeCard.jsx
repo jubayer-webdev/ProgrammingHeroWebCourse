@@ -5,7 +5,7 @@ const CoffeeCard = (propAny) => {
     console.log(propAny);
 
     const { coffee, coffees, setCoffees } = propAny;
-    const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
+    const { _id, name, quantity, supplier, taste, photo } = coffee;
 
     const handleDelete = (id) => {
         console.log(id);
