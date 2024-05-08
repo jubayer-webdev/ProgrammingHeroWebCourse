@@ -1,9 +1,11 @@
+import Navbar from "../components/Navbar";
+
 //! It is our RootLayout
 const Main = () => {
     return (
         <div>
             {/*//! Navbar  */}
-            <h1>Testing...</h1>
+            <Navbar />
 
             {/*//! Outlet */}
 

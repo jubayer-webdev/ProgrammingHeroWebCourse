@@ -1,4 +1,4 @@
-//! https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/providers/AuthProvider.jsx
+//! https://github.com/shakilahmedatik/soloSphere-resources/blob/main/provider/AuthProvider.jsx
 
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
