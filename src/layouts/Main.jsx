@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 //! It is our RootLayout
@@ -8,6 +9,7 @@ const Main = () => {
             <Navbar />
 
             {/*//! Outlet */}
+            <Outlet />
 
             {/*//! Footer */}
         </div>

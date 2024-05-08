@@ -4,6 +4,7 @@
 import { useContext } from "react";
 import logo from "../assets/images/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const Navbar = () => {
 
                     {!user && (
                         <li>
-                            <div>Login</div>
+                            <Link to='/login'>Login</Link>
                         </li>
                     )}
                 </ul>
