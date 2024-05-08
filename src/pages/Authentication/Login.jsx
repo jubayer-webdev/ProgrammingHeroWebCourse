@@ -12,6 +12,7 @@ const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/Authentication/Login.jsx
     //! Google SignIn
     const handleGoogleSignIn = async () => {
         try {
@@ -25,6 +26,25 @@ const Login = () => {
     };
 
     //! Email Password SignIn
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const pass = form.password.value;
+        console.log({ email, pass });
+
+        try {
+            //User Login
+            const result = await signIn(email, pass);
+            console.log(result);
+            navigate("/");
+            toast.success("Signin Successful");
+        } catch (err) {
+            console.log(err);
+            toast.error(err?.message);
+        }
+    };
 
     return (
         <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
@@ -66,7 +86,7 @@ const Login = () => {
                     </div>
 
                     {/*//! Form Start */}
-                    <form>
+                    <form onSubmit={handleSignIn}>
                         <div className="mt-4">
                             <label className="block mb-2 text-sm font-medium text-gray-600 " htmlFor="LoggingEmailAddress">
                                 Email Address
