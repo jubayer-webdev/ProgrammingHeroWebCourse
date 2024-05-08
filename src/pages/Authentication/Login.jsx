@@ -1,5 +1,5 @@
-//! https://merakiui.com/components/application-ui/sign-in-and-registration
-//! https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/Login.jsx
+// https://merakiui.com/components/application-ui/sign-in-and-registration
+// https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/Login.jsx
 
 import { Link, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/images/login.jpg";
@@ -49,6 +49,7 @@ const Login = () => {
     return (
         <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
             <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
+                {/*//! Background Image */}
                 <div
                     className="hidden bg-cover bg-center lg:block lg:w-1/2"
                     style={{
