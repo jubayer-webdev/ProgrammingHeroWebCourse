@@ -1,4 +1,4 @@
-Resources:
+# Resources:
 
 -   [Github Link](https://github.com/shakilahmedatik/soloSphere-resources/tree/main)
 
@@ -14,3 +14,17 @@ Resources:
 -   [React-Hot-Toast](https://react-hot-toast.com/)
 -   [date-fns](https://date-fns.org/)
 -   [axios](https://axios-http.com/docs/intro)
+
+# Some Important Command
+
+Create Vite
+
+```
+npm create vite@latest
+```
+
+Install using packages
+
+```
+npm i react-router-dom firebase axios react-tabs react-hot-toast swiper date-fns
+```
