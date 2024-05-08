@@ -2,6 +2,8 @@
 //! https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/Login.jsx
 
 import { Link } from "react-router-dom";
+import bgImg from "../../assets/images/login.jpg";
+import logo from "../../assets/images/logo.png";
 
 const Login = () => {
     return (
@@ -10,13 +12,13 @@ const Login = () => {
                 <div
                     className="hidden bg-cover bg-center lg:block lg:w-1/2"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')`,
+                        backgroundImage: `url(${bgImg})`,
                     }}
                 ></div>
 
                 <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
                     <div className="flex justify-center mx-auto">
-                        <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" />
+                        <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
                     </div>
 
                     <p className="mt-3 text-xl text-center text-gray-600 ">Welcome back!</p>
