@@ -37,6 +37,7 @@ const client = new MongoClient(uri, {
 //! Almost i have spend 01:30:00 hour to fix this error 🙂
 //! https://stackoverflow.com/a/69069376/23363732
 const ObjectId = require('mongodb').ObjectId;
+// const { ObjectId } = require('mongodb'); (it is also correct)
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
