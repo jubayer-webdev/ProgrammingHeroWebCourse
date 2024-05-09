@@ -1,0 +1,74 @@
+[
+    {
+        "job_title": "Responsive Website Design",
+        "category": "Web Development",
+        "deadline": "2024-06-15",
+        "description": "Design a responsive website for a tech startup showcasing their products and services.",
+        "min_price": 1000,
+        "max_price": 1500,
+        "buyer_email": "example1@example.com"
+    },
+    {
+        "job_title": "Logo Redesign",
+        "category": "Graphics Design",
+        "deadline": "2024-07-10",
+        "description": "Redesign our company logo to make it more modern and appealing.",
+        "min_price": 300,
+        "max_price": 500,
+        "buyer_email": "example2@example.com"
+    },
+    {
+        "job_title": "SEO Optimization",
+        "category": "Digital Marketing",
+        "deadline": "2024-06-30",
+        "description": "Improve our website's SEO to increase organic traffic and search engine rankings.",
+        "min_price": 800,
+        "max_price": 1200,
+        "buyer_email": "example3@example.com"
+    },
+    {
+        "job_title": "E-commerce Website Development",
+        "category": "Web Development",
+        "deadline": "2024-07-25",
+        "description": "Build an e-commerce website for a fashion brand with smooth navigation and secure payment gateway.",
+        "min_price": 1500,
+        "max_price": 2000,
+        "buyer_email": "example4@example.com"
+    },
+    {
+        "job_title": "Brand Identity Package",
+        "category": "Graphics Design",
+        "deadline": "2024-07-20",
+        "description": "Create a complete brand identity package including logo, business card, and letterhead design.",
+        "min_price": 500,
+        "max_price": 800,
+        "buyer_email": "example5@example.com"
+    },
+    {
+        "job_title": "Social Media Marketing Campaign",
+        "category": "Digital Marketing",
+        "deadline": "2024-08-05",
+        "description": "Plan and execute a social media marketing campaign to promote a new product launch.",
+        "min_price": 1000,
+        "max_price": 1500,
+        "buyer_email": "example6@example.com"
+    },
+    {
+        "job_title": "Custom Wordpress Theme",
+        "category": "Web Development",
+        "deadline": "2024-08-15",
+        "description": "Develop a custom Wordpress theme for a blog focusing on travel and lifestyle.",
+        "min_price": 800,
+        "max_price": 1200,
+        "buyer_email": "example7@example.com"
+    },
+    {
+        "job_title": "Brochure Design",
+        "category": "Graphics Design",
+        "deadline": "2024-08-10",
+        "description": "Design a visually appealing brochure for a real estate agency highlighting their services.",
+        "min_price": 400,
+        "max_price": 600,
+        "buyer_email": "example8@example.com"
+    }
+]
