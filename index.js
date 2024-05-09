@@ -19,6 +19,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+
+app.get('/', (req, res) => {
+    res.send('soloSphere server is Running...');
+})
 //! Connected to Server (Express js)
 app.listen(port, () => {
     console.log(`soloSphere server is running on port ${port} , go to the http://localhost:${port}`)
