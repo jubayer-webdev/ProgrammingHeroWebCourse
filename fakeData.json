@@ -1,5 +1,6 @@
 [
     {
+        "generate_fakeData_in_ChatGPT": "make a fake json data consisting 8 data in total. Each data will any of these three category: Web Development, Graphics Design, Digital Marketing. Each data will contain these properties as well job_title, category, deadline, description, min_price, max_price, buyer_email.",
         "job_title": "Responsive Website Design",
         "category": "Web Development",
         "deadline": "2024-06-15",
