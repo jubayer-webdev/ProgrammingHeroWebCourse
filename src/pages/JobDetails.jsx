@@ -7,7 +7,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const JobDetails = () => {
     const job = useLoaderData();
-    const { _id, job_title, description, min_price, max_price, category, deadline } = job || {};
+    const { job_title, description, min_price, max_price, category, deadline } = job || {};
 
     const { user } = useContext(AuthContext);
 
