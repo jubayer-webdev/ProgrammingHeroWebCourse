@@ -34,7 +34,9 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
-
+//! Almost i have spend 01:30:00 hour to fix this error 🙂
+//! https://stackoverflow.com/a/69069376/23363732
+const ObjectId = require('mongodb').ObjectId;
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -46,6 +48,7 @@ async function run() {
 
 
         //!----------------CRUD Start  -----------
+
         // Get all jobs data from database
         //* Find/Read all documents
         // https://expressjs.com/en/starter/basic-routing.html
@@ -54,6 +57,20 @@ async function run() {
             const result = await jobsCollection.find().toArray();
             res.send(result);
         })
+
+        // Get a single job data from db using job id
+        //* Find/Read just one document
+        // https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/
+        app.get('/job/:id', async (req, res) => {
+            const id = req.params.id;
+            //! Almost i have spend 01:30:00 hour to fix this error 🙂
+            const query = { _id: new ObjectId(id) };
+            // const query = { category: "Web Development" };
+            console.log(query);
+            const result = await jobsCollection.findOne(query);
+            res.send(result);
+        })
+
         //!----------------CRUD  End  ------------
 
 
