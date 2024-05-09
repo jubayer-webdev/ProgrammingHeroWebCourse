@@ -1,8 +1,9 @@
+import Carousel from "../components/Carousel";
 
 const Home = () => {
     return (
-        <div>
-            
+        <div className="container px-4 mx-auto">
+            <Carousel />
         </div>
     );
 };
