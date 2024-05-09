@@ -1,8 +1,20 @@
+/* eslint-disable react/prop-types */
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import JobCard from "./JobCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const TabCategories = () => {
+    const [jobs, setJobs] = useState([]);
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/jobs`);
+            setJobs(data);
+        };
+        getData();
+    }, []);
+
     return (
         <Tabs>
             <div>
@@ -19,19 +31,36 @@ const TabCategories = () => {
 
                 {/*//! 1st */}
                 <TabPanel>
-                    <h2>
-                        <JobCard />
-                    </h2>
+                    {/* https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/components/TabCategories.jsx */}
+                    <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {jobs
+                            .filter((j) => j.category === "Web Development")
+                            .map((job) => (
+                                <JobCard key={job._id} job={job} />
+                            ))}
+                    </div>
                 </TabPanel>
 
                 {/*//! 2st */}
                 <TabPanel>
-                    <h2>Content 2</h2>
+                    <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {jobs
+                            .filter((j) => j.category === "Graphics Design")
+                            .map((job) => (
+                                <JobCard key={job._id} job={job} />
+                            ))}
+                    </div>
                 </TabPanel>
 
                 {/*//! 3rd */}
                 <TabPanel>
-                    <h2>Content 3</h2>
+                    <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {jobs
+                            .filter((j) => j.category === "Digital Marketing")
+                            .map((job) => (
+                                <JobCard key={job._id} job={job} />
+                            ))}
+                    </div>
                 </TabPanel>
             </div>
         </Tabs>
