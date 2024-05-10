@@ -104,7 +104,7 @@ async function run() {
             const query = { "buyer.email": email }
             const result = await jobsCollection.find(query).toArray()
             res.send(result)
-        })
+        }) 
 
 
         //!----------------CRUD  End  ------------
