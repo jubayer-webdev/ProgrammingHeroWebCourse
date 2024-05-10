@@ -99,12 +99,23 @@ async function run() {
         //get all jobs posted by a specific user
         //* Find/Read all documents --- READ(R) Operation -------
         app.get('/jobs/:email', async (req, res) => {
-            const email = req.params.email
-            // const query = { buyer.email: email } it is not correct
-            const query = { "buyer.email": email }
-            const result = await jobsCollection.find(query).toArray()
-            res.send(result)
-        }) 
+            const email = req.params.email;
+            // const query = { buyer.email: email }; it is not correct
+            const query = { "buyer.email": email };
+            const result = await jobsCollection.find(query).toArray();
+            res.send(result);
+        })
+
+        // delete a job data from db
+        //* Delete just one document --- DELETE(D) Operation -------
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.delete('/job/:id', async (req, res) => {
+            const id = req.params.id;
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
+            const query = { _id: new ObjectId(id) };
+            const result = await jobsCollection.deleteOne(query);
+            res.send(result);
+        })
 
 
         //!----------------CRUD  End  ------------
