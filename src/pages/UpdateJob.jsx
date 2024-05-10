@@ -127,6 +127,7 @@ const UpdateJob = () => {
                     </div>
                 </form>
                 {/* //! Form End */}
+                
             </section>
         </div>
     );
