@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const MyPostedJobs = () => {
     const { user } = useContext(AuthContext);
     // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/MyPostedJobs.jsx
-    const [jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState([]); 
 
     useEffect(() => {
         getData();
