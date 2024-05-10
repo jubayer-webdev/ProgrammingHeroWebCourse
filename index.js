@@ -86,6 +86,15 @@ async function run() {
             const result = await bidsCollection.insertOne(bidData);
             res.send(result);
         })
+        // Save a job data in database
+        app.post('/job', async (req, res) => {
+            const jobData = req.body;
+
+            //! send data to MongoDB
+            const result = await jobsCollection.insertOne(jobData);
+            res.send(result);
+        })
+
 
         //!----------------CRUD  End  ------------
 
