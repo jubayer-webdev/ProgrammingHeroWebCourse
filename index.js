@@ -117,6 +117,24 @@ async function run() {
             res.send(result);
         })
 
+        // update a job in
+        //* Update just one  --- UPDATE(U) Operation -------
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.put('/job/:id', async (req, res) => {
+            const id = req.params.id;
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/updateOne/
+            const jobData = req.body;
+            const query = { _id: new ObjectId(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    ...jobData,
+                },
+            }
+            const result = await jobsCollection.updateOne(query, updateDoc, options);
+            res.send(result);
+        })
+
 
         //!----------------CRUD  End  ------------
 
