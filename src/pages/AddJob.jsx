@@ -1,12 +1,14 @@
 // https://merakiui.com/components/application-ui/forms
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/AddJob.jsx
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddJob = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const { user } = useContext(AuthContext);
 
     return (
         <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
@@ -22,11 +24,12 @@ const AddJob = () => {
                             <input id="job_title" name="job_title" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
                         </div>
 
+                        {/* //! Email */}
                         <div>
                             <label className="text-gray-700 " htmlFor="emailAddress">
                                 Email Address
                             </label>
-                            <input id="emailAddress" type="email" name="email" disabled className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
+                            <input id="emailAddress" type="email" name="email" disabled defaultValue={user?.email} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
                         </div>
                         <div className="flex flex-col gap-2 ">
                             <label className="text-gray-700">Deadline</label>
@@ -35,6 +38,7 @@ const AddJob = () => {
                             <DatePicker className="border p-2 rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />
                         </div>
 
+                        {/*//! Category */}
                         <div className="flex flex-col gap-2 ">
                             <label className="text-gray-700 " htmlFor="category">
                                 Category
@@ -45,6 +49,8 @@ const AddJob = () => {
                                 <option value="Digital Marketing">Digital Marketing</option>
                             </select>
                         </div>
+
+                        {/*//! Minimum Price  */}
                         <div>
                             <label className="text-gray-700 " htmlFor="min_price">
                                 Minimum Price
@@ -52,6 +58,7 @@ const AddJob = () => {
                             <input id="min_price" name="min_price" type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
                         </div>
 
+                        {/*//! Maximum Price */}
                         <div>
                             <label className="text-gray-700 " htmlFor="max_price">
                                 Maximum Price
