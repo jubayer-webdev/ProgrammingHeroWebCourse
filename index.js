@@ -34,6 +34,8 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
+
+//! Error: const query = { _id: new objectid(id) }; ^ referenceerror: objectid is not defined
 //! Almost i have spend 01:30:00 hour to fix this error 🙂
 //! https://stackoverflow.com/a/69069376/23363732
 const ObjectId = require('mongodb').ObjectId;
@@ -51,7 +53,7 @@ async function run() {
         //!----------------CRUD Start  -----------
 
         // Get all jobs data from database
-        //* Find/Read all documents
+        //* Find/Read all documents --- READ(R) Operation -------
         // https://expressjs.com/en/starter/basic-routing.html
         app.get('/jobs', async (req, res) => {
             // https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
@@ -60,7 +62,7 @@ async function run() {
         })
 
         // Get a single job data from db using job id
-        //* Find/Read just one document
+        //* Find/Read just one document --- READ(R) Operation -------
         // https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/
         app.get('/job/:id', async (req, res) => {
             const id = req.params.id;
@@ -69,6 +71,19 @@ async function run() {
             // const query = { category: "Web Development" };
             console.log(query);
             const result = await jobsCollection.findOne(query);
+            res.send(result);
+        })
+
+        // Save a bid data in database
+        //* Insert just one document --- CREATE(C) Operation -------
+        // https://expressjs.com/en/starter/basic-routing.html
+        app.post('/bid', async (req, res) => {
+            const bidData = req.body;
+            // console.log(bidData);return;
+
+            // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
+            //! send data to MongoDB
+            const result = await bidsCollection.insertOne(bidData);
             res.send(result);
         })
 
