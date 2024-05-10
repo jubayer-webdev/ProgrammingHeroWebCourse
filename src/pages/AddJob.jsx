@@ -1,7 +1,13 @@
 // https://merakiui.com/components/application-ui/forms
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/AddJob.jsx
 
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const AddJob = () => {
+    const [startDate, setStartDate] = useState(new Date());
+
     return (
         <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
             <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
@@ -25,7 +31,8 @@ const AddJob = () => {
                         <div className="flex flex-col gap-2 ">
                             <label className="text-gray-700">Deadline</label>
 
-                            {/* Date Picker Input Field */}
+                            {/*//!Date Picker Input Field */}
+                            <DatePicker className="border p-2 rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />
                         </div>
 
                         <div className="flex flex-col gap-2 ">
