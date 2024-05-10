@@ -11,14 +11,14 @@ import toast from "react-hot-toast";
 
 const JobDetails = () => {
     const job = useLoaderData();
-    const { _id, job_title, description, min_price, max_price, category, deadline, buyer_email } = job || {};
+    const { _id, job_title, description, min_price, max_price, category, deadline, buyer } = job || {};
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
 
     const handleFormSubmission = async (e) => {
         e.preventDefault();
 
-        if (user?.email === buyer_email) return toast.error("Action not permitted!");
+        if (user?.email === buyer?.email) return toast.error("Action not permitted! You can't bid your won post");
 
         const form = e.target;
         const jobId = _id;
@@ -33,7 +33,7 @@ const JobDetails = () => {
         const email = user?.email;
         // const buyer_email = buyer_email;
         const status = "Pending";
-        const bidData = { jobId, price, deadline, comment, email, job_title, category, buyer_email, status };
+        const bidData = { jobId, price, deadline, comment, email, buyer_email: buyer?.email, job_title, category, buyer, status };
 
         console.table(bidData);
 
@@ -51,10 +51,11 @@ const JobDetails = () => {
             {/* //! Job Details */}
             <div className="flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]">
                 <div className="flex items-center justify-between">
-                    <span className="text-sm font-light text-gray-800 ">Deadline: {deadline}</span>
+                    <span className="text-sm font-light text-gray-800 ">Deadline: {new Date(deadline).toLocaleString()}</span>
                     <span className="px-4 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full ">{category}</span>
                 </div>
 
+                {/*//! Buyer Information  */}
                 <div>
                     <h1 className="mt-2 text-3xl font-semibold text-gray-800 ">{job_title}</h1>
 
@@ -62,11 +63,11 @@ const JobDetails = () => {
                     <p className="mt-6 text-sm font-bold text-gray-600 ">Buyer Details:</p>
                     <div className="flex items-center gap-5">
                         <div>
-                            <p className="mt-2 text-sm  text-gray-600 ">Name: Jhankar Vai.</p>
-                            <p className="mt-2 text-sm  text-gray-600 ">Email: jhankar@mahbub.com</p>
+                            <p className="mt-2 text-sm  text-gray-600 ">Name: {buyer?.name}.</p>
+                            <p className="mt-2 text-sm  text-gray-600 ">Email: {buyer?.email}</p>
                         </div>
                         <div className="rounded-full object-cover overflow-hidden w-14 h-14">
-                            <img src="" alt="" />
+                            <img src={buyer?.photo} alt="" />
                         </div>
                     </div>
                     <p className="mt-6 text-lg font-bold text-gray-600 ">
