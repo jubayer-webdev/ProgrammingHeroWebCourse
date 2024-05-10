@@ -28,3 +28,9 @@ Install using packages
 ```
 npm i react-router-dom firebase axios react-tabs react-hot-toast swiper date-fns
 ```
+
+[react-datepicker](https://www.npmjs.com/package/react-datepicker)
+
+```
+npm i react-datepicker
+```

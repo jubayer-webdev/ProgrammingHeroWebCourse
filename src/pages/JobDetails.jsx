@@ -7,9 +7,26 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const JobDetails = () => {
     const job = useLoaderData();
-    const { job_title, description, min_price, max_price, category, deadline } = job || {};
+    const { _id, job_title, description, min_price, max_price, category, deadline, buyer_email } = job || {};
 
     const { user } = useContext(AuthContext);
+
+    const handleFormSubmission = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const jobId = _id;
+        const price = parseFloat(form.price.value);
+        // const deadline =
+        const comment = form.comment.value;
+        // const email = form.email.value;
+        const email = user?.email;
+        // const buyer_email = buyer_email;
+        const status = "Pending";
+        const bidData = { jobId, price, deadline, comment, email, job_title, category, buyer_email, status };
+
+        console.table(bidData);
+    };
 
     return (
         <div className="flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto ">
@@ -44,7 +61,7 @@ const JobDetails = () => {
                 <h2 className="text-lg font-semibold text-gray-700 capitalize ">Place A Bid</h2>
 
                 {/* //! From Start */}
-                <form>
+                <form onSubmit={handleFormSubmission}>
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div>
                             <label className="text-gray-700 " htmlFor="price">
