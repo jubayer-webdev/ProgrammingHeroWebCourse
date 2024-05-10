@@ -87,12 +87,23 @@ async function run() {
             res.send(result);
         })
         // Save a job data in database
+        //* Insert just one document --- CREATE(C) Operation -------
         app.post('/job', async (req, res) => {
             const jobData = req.body;
 
             //! send data to MongoDB
             const result = await jobsCollection.insertOne(jobData);
             res.send(result);
+        })
+
+        //get all jobs posted by a specific user
+        //* Find/Read all documents --- READ(R) Operation -------
+        app.get('/jobs/:email', async (req, res) => {
+            const email = req.params.email
+            // const query = { buyer.email: email } it is not correct
+            const query = { "buyer.email": email }
+            const result = await jobsCollection.find(query).toArray()
+            res.send(result)
         })
 
 
