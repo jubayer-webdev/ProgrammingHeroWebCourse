@@ -86,6 +86,7 @@ async function run() {
             const result = await bidsCollection.insertOne(bidData);
             res.send(result);
         })
+        
         // Save a job data in database
         //* Insert just one document --- CREATE(C) Operation -------
         app.post('/job', async (req, res) => {
