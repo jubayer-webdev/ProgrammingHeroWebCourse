@@ -1,9 +1,12 @@
 // https://merakiui.com/components/application-ui/forms
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/JobDetails.jsx
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 const JobDetails = () => {
     const job = useLoaderData();
@@ -11,21 +14,31 @@ const JobDetails = () => {
 
     const { user } = useContext(AuthContext);
 
+    const [startDate, setStartDate] = useState(new Date());
+
     const handleFormSubmission = async (e) => {
         e.preventDefault();
 
         const form = e.target;
         const jobId = _id;
         const price = parseFloat(form.price.value);
-        // const deadline =
+        const deadline = startDate;
         const comment = form.comment.value;
-        // const email = form.email.value;
+        // const email = form.email.value; or
         const email = user?.email;
         // const buyer_email = buyer_email;
         const status = "Pending";
         const bidData = { jobId, price, deadline, comment, email, job_title, category, buyer_email, status };
 
         console.table(bidData);
+
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/bid`, bidData);
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+            console.log("Hi i am error...", error.message);
+        }
     };
 
     return (
@@ -86,7 +99,8 @@ const JobDetails = () => {
                         <div className="flex flex-col gap-2 ">
                             <label className="text-gray-700">Deadline</label>
 
-                            {/* Date Picker Input Field */}
+                            {/*//!Date Picker Input Field */}
+                            <DatePicker className="border p-2 rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />
                         </div>
                     </div>
 
