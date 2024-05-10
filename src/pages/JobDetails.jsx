@@ -7,6 +7,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
     const job = useLoaderData();
@@ -19,9 +20,15 @@ const JobDetails = () => {
     const handleFormSubmission = async (e) => {
         e.preventDefault();
 
+        if (user?.email === buyer_email) return toast.error("Action not permitted!");
+
         const form = e.target;
         const jobId = _id;
         const price = parseFloat(form.price.value);
+        // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/JobDetails.jsx
+        if (price < parseFloat(min_price)) return toast.error("Offer more or at least equal to Minimum Price.");
+        else if (price > parseFloat(max_price)) return toast.error("Offer less or at least equal to Maximum Price.");
+
         const deadline = startDate;
         const comment = form.comment.value;
         // const email = form.email.value; or
