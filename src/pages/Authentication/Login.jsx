@@ -7,6 +7,7 @@ import logo from "../../assets/images/logo.png";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
     const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext);
@@ -22,7 +23,20 @@ const Login = () => {
     //! Google SignIn
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle();
+            const result = await signInWithGoogle();
+            console.log("result.user = ", result.user);
+
+            //! --------------JWT Start------------
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                {
+                    email: result?.user?.email,
+                },
+                { withCredentials: true }
+            );
+            console.log("jwt token =", data);
+            //! --------------JWT End------------
+
             toast.success("Signin Successful");
             // navigate("/");
             navigate(from, { replace: true });
