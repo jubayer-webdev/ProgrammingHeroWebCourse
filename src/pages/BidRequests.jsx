@@ -20,6 +20,8 @@ const BidRequests = () => {
     // console.log(bids);
 
     const handleStatus = async (id, prevStatus, status) => {
+        if (prevStatus === status) return console.log("Sry vai... PrevStatus === status");
+
         const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
 
         console.log(data);
