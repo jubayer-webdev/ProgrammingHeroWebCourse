@@ -17,7 +17,15 @@ const BidRequests = () => {
         const { data } = await axios(`${import.meta.env.VITE_API_URL}/bid-requests/${user?.email}`);
         setBids(data);
     };
-    console.log(bids);
+    // console.log(bids);
+
+    const handleStatus = async (id, prevStatus, status) => {
+        const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
+
+        console.log(data);
+        // Refresh UI
+        getData();
+    };
 
     return (
         <section className="container px-4 mx-auto pt-12">
@@ -116,11 +124,7 @@ const BidRequests = () => {
                                             <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div className="flex items-center gap-x-6">
                                                     {/*//! Accept Button: In Progress */}
-                                                    <button
-                                                        // onClick={() => handleStatus(bid._id, bid.status, "In Progress")}
-                                                        disabled={bid.status === "Complete"}
-                                                        className="disabled:cursor-not-allowed text-gray-500 transition-colors duration-200   hover:text-red-500 focus:outline-none"
-                                                    >
+                                                    <button onClick={() => handleStatus(bid._id, bid.status, "In Progress")} disabled={bid.status === "Complete"} className="disabled:cursor-not-allowed text-gray-500 transition-colors duration-200   hover:text-red-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                                             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                                         </svg>
