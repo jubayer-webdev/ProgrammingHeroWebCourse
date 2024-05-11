@@ -34,3 +34,19 @@ npm i react-router-dom firebase axios react-tabs react-hot-toast swiper date-fns
 ```
 npm i react-datepicker
 ```
+
+[how to change last commit message after push](https://stackoverflow.com/a/20853093/23363732)
+
+Just say:
+
+```
+
+git commit --amend -m "New commit message"
+```
+
+and then
+
+```
+git push --force
+or, git push -f
+```
