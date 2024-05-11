@@ -58,7 +58,16 @@ const Login = () => {
         try {
             //User Login
             const result = await signIn(email, pass);
-            console.log(result);
+            //! --------------JWT Start------------
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                {
+                    email: result?.user?.email,
+                },
+                { withCredentials: true }
+            );
+            console.log("jwt token =", data);
+            //! --------------JWT End------------
             // navigate("/");
             navigate(from, { replace: true });
             toast.success("Signin Successful");
