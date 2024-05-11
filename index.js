@@ -3,6 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
 const port = process.env.PORT || 9000;
@@ -53,12 +54,19 @@ async function run() {
         //! JWT generate
         app.post('/jwt', async (req, res) => {
             const user = req.body;
-            console.log('Dynamic token for this user----->', user);
+            // console.log('Dynamic token for this user----->', user);
             const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
                 expiresIn: '365d',
             });
             // const token = 'hardcoded token';
-            res.send({ token });
+            // res.send({ token });
+            res
+                .cookie('token', token, {
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === 'production',
+                    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+                })
+                .send({ success: true })
         })
 
 
