@@ -1,7 +1,7 @@
 // https://merakiui.com/components/application-ui/sign-in-and-registration
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/Login.jsx
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/images/login.jpg";
 import logo from "../../assets/images/logo.png";
 import { useContext } from "react";
@@ -11,6 +11,8 @@ import toast from "react-hot-toast";
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || "/";
 
     // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/Authentication/Login.jsx
     //! Google SignIn
@@ -18,7 +20,8 @@ const Login = () => {
         try {
             await signInWithGoogle();
             toast.success("Signin Successful");
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
         } catch (err) {
             console.log(err);
             toast.error(err?.message);
@@ -38,7 +41,8 @@ const Login = () => {
             //User Login
             const result = await signIn(email, pass);
             console.log(result);
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
             toast.success("Signin Successful");
         } catch (err) {
             console.log(err);

@@ -1,7 +1,7 @@
 // https://merakiui.com/components/application-ui/sign-in-and-registration
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/Registration.jsx
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/images/register.jpg";
 import logo from "../../assets/images/logo.png";
 import { useContext } from "react";
@@ -13,12 +13,16 @@ const Register = () => {
     const navigate = useNavigate();
     const { signInWithGoogle, createUser, updateUserProfile, user, setUser } = useContext(AuthContext);
 
+    const location = useLocation();
+    const from = location.state || "/";
+
     //! Google SignIn
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle();
             toast.success("SignIn Successful");
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
         } catch (err) {
             console.log(err);
             toast.error(err?.message);
@@ -42,7 +46,8 @@ const Register = () => {
             console.log(result);
             await updateUserProfile(name, photo);
             setUser({ ...user, photoURL: photo, displayName: name });
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
             toast.success("SignUp Successful");
         } catch (err) {
             console.log(err);
