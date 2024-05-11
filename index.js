@@ -86,7 +86,7 @@ async function run() {
             const result = await bidsCollection.insertOne(bidData);
             res.send(result);
         })
-        
+
         // Save a job data in database
         //* Insert just one document --- CREATE(C) Operation -------
         app.post('/job', async (req, res) => {
@@ -133,6 +133,16 @@ async function run() {
                 },
             }
             const result = await jobsCollection.updateOne(query, updateDoc, options);
+            res.send(result);
+        })
+
+
+        // get all bids for a user by email from 
+        //* Find/Read all documents --- READ(R) Operation -------
+        app.get('/my-bids/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email };
+            const result = await bidsCollection.find(query).toArray();
             res.send(result);
         })
 
