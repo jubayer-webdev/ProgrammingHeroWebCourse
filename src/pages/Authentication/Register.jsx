@@ -4,14 +4,18 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/images/register.jpg";
 import logo from "../../assets/images/logo.png";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
     // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/Authentication/Register.jsx
     const navigate = useNavigate();
-    const { signInWithGoogle, createUser, updateUserProfile, user, setUser } = useContext(AuthContext);
+    const { signInWithGoogle, createUser, updateUserProfile, user, setUser, loading } = useContext(AuthContext);
+    // prevent to go register page when user is login
+    useEffect(() => {
+        if (user) return navigate("/");
+    }, [navigate, user]);
 
     const location = useLocation();
     const from = location.state || "/";
@@ -55,6 +59,7 @@ const Register = () => {
         }
     };
 
+    if (user || loading) return;
     return (
         <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
             <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
