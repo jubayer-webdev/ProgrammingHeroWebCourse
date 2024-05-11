@@ -2,6 +2,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
 const port = process.env.PORT || 9000;
@@ -48,6 +49,17 @@ async function run() {
         const database = client.db("soloSphere");
         const jobsCollection = database.collection('jobs');
         const bidsCollection = database.collection('bids');
+
+        //! JWT generate
+        app.post('/jwt', async (req, res) => {
+            const user = req.body;
+            console.log('Dynamic token for this user----->', user);
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+                expiresIn: '365d',
+            });
+            // const token = 'hardcoded token';
+            res.send({ token });
+        })
 
 
         //!----------------CRUD Start  -----------
@@ -154,7 +166,7 @@ async function run() {
             res.send(result);
         })
 
-        // Update Bid status
+        // Update Bid status (In Progress, Complete, Rejected)
         //* Update just one(patch)  --- UPDATE(U) Operation -------
         app.patch('/bid/:id', async (req, res) => {
             const id = req.params.id;
