@@ -7,6 +7,7 @@ import logo from "../../assets/images/logo.png";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Register = () => {
     // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/Authentication/Register.jsx
@@ -47,9 +48,23 @@ const Register = () => {
         try {
             //2. User Registration
             const result = await createUser(email, pass);
-            console.log(result);
+            // console.log(result);
             await updateUserProfile(name, photo);
-            setUser({ ...user, photoURL: photo, displayName: name });
+            // setUser({ ...user, photoURL: photo, displayName: name });
+            //! Optimistic UI Update
+            setUser({ ...result?.user, photoURL: photo, displayName: name });
+
+            //! --------------JWT Start------------
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                {
+                    email: result?.user?.email,
+                },
+                { withCredentials: true }
+            );
+            console.log("jwt token =", data);
+            //! --------------JWT End------------
+
             // navigate("/");
             navigate(from, { replace: true });
             toast.success("SignUp Successful");
