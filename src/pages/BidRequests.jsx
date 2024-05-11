@@ -20,12 +20,13 @@ const BidRequests = () => {
     // console.log(bids);
 
     const handleStatus = async (id, prevStatus, status) => {
+        console.log(id, prevStatus, status);
         if (prevStatus === status) return console.log("Sry vai... PrevStatus === status");
 
         const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
 
         console.log(data);
-        // Refresh UI
+        // Refresh/Update UI
         getData();
     };
 
@@ -133,11 +134,7 @@ const BidRequests = () => {
                                                     </button>
 
                                                     {/*//! Reject Button */}
-                                                    <button
-                                                        // onClick={() => handleStatus(bid._id, bid.status, "Rejected")}
-                                                        disabled={bid.status === "Complete"}
-                                                        className="disabled:cursor-not-allowed text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none"
-                                                    >
+                                                    <button onClick={() => handleStatus(bid._id, bid.status, "Rejected")} disabled={bid.status === "Complete"} className="disabled:cursor-not-allowed text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                                             <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
                                                         </svg>
