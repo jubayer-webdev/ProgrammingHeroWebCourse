@@ -31,14 +31,15 @@ const verifyToken = (req, res, next) => {
     if (!token) return res.status(401).send({ message: 'unauthorized access' });
 
     if (token) {
-        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedEmail) => {
+        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
             if (err) {
                 console.log(err);
                 // return res.status(401).send({ message: 'unauthorized access' });
             }
-            console.log('decodedEmail =', decodedEmail);
-
-            req.user = decodedEmail;
+            console.log('decoded =', decoded);
+            // This is bracket notation
+            // req['user'] = decoded; 
+            req.user = decoded;
             next();
         })
     }
@@ -75,9 +76,9 @@ async function run() {
 
         //! JWT generate
         app.post('/jwt', async (req, res) => {
-            const user = req.body;
-            // console.log('Dynamic token for this user----->', user);
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+            const loggedInUserEmail = req.body;
+            // console.log('Dynamic token for this loggedInUserEmail----->', loggedInUserEmail);
+            const token = jwt.sign(loggedInUserEmail, process.env.ACCESS_TOKEN_SECRET, {
                 expiresIn: '365d',
             });
             // const token = 'hardcoded token';
