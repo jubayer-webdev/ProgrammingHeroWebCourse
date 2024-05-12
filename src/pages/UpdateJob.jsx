@@ -43,7 +43,7 @@ const UpdateJob = () => {
         };
 
         try {
-            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/job/${_id}`, jobData);
+            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/job/${_id}`, jobData, { withCredentials: true });
             console.log(data);
             toast.success("Job Data Updated Successfully!");
             navigate("/my-posted-jobs");
@@ -71,7 +71,7 @@ const UpdateJob = () => {
 
                         {/* //! Email Address */}
                         <div>
-                            <label className="text-gray-700 " htmlFor="emailAddress">
+                            <label className="text-gray-700" htmlFor="emailAddress">
                                 Email Address
                             </label>
                             <input id="emailAddress" type="email" name="email" disabled defaultValue={user?.email} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
@@ -127,7 +127,6 @@ const UpdateJob = () => {
                     </div>
                 </form>
                 {/* //! Form End */}
-                
             </section>
         </div>
     );
