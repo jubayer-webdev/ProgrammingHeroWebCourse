@@ -11,6 +11,7 @@ import useAuth from "../hooks/useAuth";
 const MyPostedJobs = () => {
     //! Custom Hooks
     const axiosSecure = useAxiosSecure();
+    // console.log("axiosSecure =", axiosSecure);
     // const { user } = useContext(AuthContext);
     //! Using Custom Hooks
     const { user } = useAuth();
@@ -24,6 +25,7 @@ const MyPostedJobs = () => {
     const getData = async () => {
         // const { data } = await axios(`${import.meta.env.VITE_API_URL}/jobs/${user?.email}`, { withCredentials: true });
         const { data } = await axiosSecure(`/jobs/${user?.email}`);
+        console.log("data =", data);
         setJobs(data);
     };
 
