@@ -21,6 +21,7 @@ const corsOptions = {
 //! middleware
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 // ---------------------------START MongoDB ------------------------ // 
 
@@ -133,6 +134,8 @@ async function run() {
         //get all jobs posted by a specific user
         //* Find/Read all documents --- READ(R) Operation -------
         app.get('/jobs/:email', async (req, res) => {
+            const token = req.cookies?.token;
+            console.log('from /jobs/:email, token =', token);
             const email = req.params.email;
             // const query = { buyer.email: email }; it is not correct
             const query = { "buyer.email": email };
