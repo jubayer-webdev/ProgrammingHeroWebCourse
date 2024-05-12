@@ -1,17 +1,17 @@
 // https://merakiui.com/components/application-ui/forms
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/AddJob.jsx
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import useAuth from "../hooks/useAuth";
 
 const AddJob = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     // https://github.com/shakilahmedatik/soloSphere-session/blob/main/client/src/pages/AddJob.jsx
@@ -25,7 +25,7 @@ const AddJob = () => {
         const category = form.category.value;
         const min_price = parseFloat(form.min_price.value);
         const max_price = parseFloat(form.max_price.value);
-        if(min_price > max_price)return toast.error("Minimum Price can not greater than Maximum Price");
+        if (min_price > max_price) return toast.error("Minimum Price can not greater than Maximum Price");
 
         const description = form.description.value;
 
@@ -42,7 +42,7 @@ const AddJob = () => {
                 photo: user?.photoURL,
             },
         };
-        
+
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/job`, jobData);
             console.log(data);
