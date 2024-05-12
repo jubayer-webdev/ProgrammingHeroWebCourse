@@ -14,6 +14,7 @@
 -   [React-Hot-Toast](https://react-hot-toast.com/)
 -   [date-fns](https://date-fns.org/)
 -   [axios](https://axios-http.com/docs/intro)
+-   [TanStack Query](https://tanstack.com/query/latest)
 
 # Some Important Command
 
