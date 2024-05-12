@@ -136,6 +136,16 @@ async function run() {
         app.get('/jobs/:email', async (req, res) => {
             const token = req.cookies?.token;
             console.log('from /jobs/:email, token =', token);
+            //! Decode the token
+            if (token) {
+                jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decoded) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('decoded ', decoded);
+                })
+            }
+
             const email = req.params.email;
             // const query = { buyer.email: email }; it is not correct
             const query = { "buyer.email": email };
