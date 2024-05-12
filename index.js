@@ -23,6 +23,27 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
+//! verify jwt middleware
+const verifyToken = (req, res, next) => {
+    const token = req.cookies?.token;
+    // console.log('from verifyToken, token =', token);
+
+    if (!token) return res.status(401).send({ message: 'unauthorized access' });
+
+    if (token) {
+        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedEmail) => {
+            if (err) {
+                console.log(err);
+                // return res.status(401).send({ message: 'unauthorized access' });
+            }
+            console.log('decodedEmail =', decodedEmail);
+
+            req.user = decodedEmail;
+            next();
+        })
+    }
+}
+
 // ---------------------------START MongoDB ------------------------ // 
 
 //! Connect to Cluster()
@@ -133,22 +154,35 @@ async function run() {
 
         //get all jobs posted by a specific user
         //* Find/Read all documents --- READ(R) Operation -------
-        app.get('/jobs/:email', async (req, res) => {
-            const token = req.cookies?.token;
-            console.log('from /jobs/:email, token =', token);
-            //! Decode the token
-            if (token) {
-                jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decoded) => {
-                    if (error) {
-                        return console.log(error);
-                    }
-                    console.log('decoded ', decoded);
-                })
-            }
+        app.get('/jobs/:email', verifyToken, async (req, res) => {
+            // const token = req.cookies?.token;
+            // console.log('from /jobs/:email, token =', token);
+            // //! Decode the token
+            // if (token) {
+            //     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decoded) => {
+            //         if (error) {
+            //             return console.log(error);
+            //         }
+            //         console.log('decoded ', decoded);
+            //     })
+            // }
 
-            const email = req.params.email;
-            // const query = { buyer.email: email }; it is not correct
-            const query = { "buyer.email": email };
+            //! //!------------- verifyToken Start -----------------
+            // const tokenData = req.user;
+            // console.log('tokenData =', tokenData);
+            //! From verifyToken
+            const tokenEmail = req.user.email;
+            // console.log('tokenEmail =', tokenEmail);
+
+            const loggedInEmail = req.params.email;
+            console.log('(/jobs/:email) loggedInEmail =', loggedInEmail);
+            if (tokenEmail !== loggedInEmail) {
+                return res.status(403).send({ message: 'forbidden access' });
+            }
+            //!------------- verifyToken End -----------------
+
+            // const query = { buyer.email: loggedInEmail }; it is not correct
+            const query = { "buyer.email": loggedInEmail };
             const result = await jobsCollection.find(query).toArray();
             res.send(result);
         })
@@ -167,10 +201,22 @@ async function run() {
         // update a job in
         //* Update just one  --- UPDATE(U) Operation -------
         // https://expressjs.com/en/starter/basic-routing.html
-        app.put('/job/:id', async (req, res) => {
+        app.put('/job/:id', verifyToken, async (req, res) => {
             const id = req.params.id;
             // https://www.mongodb.com/docs/drivers/node/current/usage-examples/updateOne/
             const jobData = req.body;
+
+            //!------------- verifyToken Start -----------------
+            const tokenEmail = req.user.email;
+            // console.log('tokenEmail =', tokenEmail);
+
+            const loggedInEmail = req.body.buyer.email;
+            console.log("('/job/:id') loggedInEmail =", loggedInEmail);
+            if (tokenEmail !== loggedInEmail) {
+                return res.status(403).send({ message: 'forbidden access' });
+            }
+            //!------------- verifyToken End -----------------
+
             const query = { _id: new ObjectId(id) };
             const options = { upsert: true };
             const updateDoc = {
@@ -185,17 +231,39 @@ async function run() {
 
         // get all bids for a user by email from 
         //* Find/Read all documents --- READ(R) Operation -------
-        app.get('/my-bids/:email', async (req, res) => {
-            const email = req.params.email;
-            const query = { email };
+        app.get('/my-bids/:email', verifyToken, async (req, res) => {
+            //!------------- verifyToken Start -----------------
+            const tokenEmail = req.user.email;
+            // console.log('tokenEmail =', tokenEmail);
+
+            const loggedInEmail = req.params.email;
+            console.log("('/my-bids/:email') loggedInEmail =", loggedInEmail);
+            if (tokenEmail !== loggedInEmail) {
+                return res.status(403).send({ message: 'forbidden access' });
+            }
+            //!------------- verifyToken End -----------------
+
+            //! This was bug
+            // const query = {loggedInEmail}; it is bug
+            const query = { email: loggedInEmail };
             const result = await bidsCollection.find(query).toArray();
             res.send(result);
         })
         //Get all bid requests from db for job owner
         //* Find/Read all documents --- READ(R) Operation -------
-        app.get('/bid-requests/:email', async (req, res) => {
-            const email = req.params.email;
-            const query = { 'buyer.email': email };
+        app.get('/bid-requests/:email', verifyToken, async (req, res) => {
+            //!------------- verifyToken Start -----------------
+            const tokenEmail = req.user.email;
+            // console.log('tokenEmail =', tokenEmail);
+
+            const loggedInEmail = req.params.email;
+            console.log("('/bid-requests/:email') loggedInEmail =", loggedInEmail);
+            if (tokenEmail !== loggedInEmail) {
+                return res.status(403).send({ message: 'forbidden access' });
+            }
+            //!------------- verifyToken End -----------------
+
+            const query = { 'buyer.email': loggedInEmail };
             const result = await bidsCollection.find(query).toArray();
             res.send(result);
         })
