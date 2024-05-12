@@ -24,7 +24,7 @@ Create Vite
 npm create vite@latest
 ```
 
-Install using packages
+Install necessary packages using in this project
 
 ```
 npm i react-router-dom firebase axios react-tabs react-hot-toast swiper date-fns
@@ -34,6 +34,12 @@ npm i react-router-dom firebase axios react-tabs react-hot-toast swiper date-fns
 
 ```
 npm i react-datepicker
+```
+
+[TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+
+````
+npm i @tanstack/react-query
 ```
 
 [how to change last commit message after push](https://stackoverflow.com/a/20853093/23363732)
@@ -51,3 +57,4 @@ and then
 git push --force
 or, git push -f
 ```
+````
