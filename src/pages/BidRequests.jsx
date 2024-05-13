@@ -3,7 +3,7 @@
 // import { useContext, useEffect, useState } from "react";
 // import { AuthContext } from "../provider/AuthProvider";
 // import axios from "axios";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -13,6 +13,7 @@ const BidRequests = () => {
     // const { user } = useContext(AuthContext);
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+    const queryClient = useQueryClient();
 
     //! ---------- Start (useQuery is use to get data in TanStack Query) -------------
     const {
@@ -23,7 +24,7 @@ const BidRequests = () => {
         error,
     } = useQuery({
         queryFn: () => getData(),
-        queryKey: ["bids"],
+        queryKey: ["bids", user?.email],
     });
     console.log("bids =", bids);
     console.log("isLoading =", isLoading);
@@ -54,8 +55,11 @@ const BidRequests = () => {
             console.log("Wow, data updated");
             toast.success("Updated Successfully");
             // refresh UI for latest data
-            refetch();
-            console.log('After refetch()');
+            // refetch();
+            console.log("After refetch()");
+
+            // Kothin
+            queryClient.invalidateQueries({ queryKey: ["bids"] });
         },
     });
     //! --------End   (useMutation is use to delete/post/patch data in TanStack Query) -------------
