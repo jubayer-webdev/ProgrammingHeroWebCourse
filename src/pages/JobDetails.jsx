@@ -8,8 +8,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const JobDetails = () => {
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     const job = useLoaderData();
     const { _id, job_title, description, min_price, max_price, category, deadline, buyer } = job || {};
@@ -39,7 +41,8 @@ const JobDetails = () => {
         console.table(bidData);
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/bid`, bidData);
+            // const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/bid`, bidData);
+            const { data } = await axiosSecure.post(`/bid`, bidData);
             console.log(data);
             toast.success("Bid Placed Successfully!");
             navigate("/my-bids");
