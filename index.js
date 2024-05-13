@@ -300,6 +300,20 @@ async function run() {
         })
 
 
+        //! For Pagination, Search, Sort
+
+        // Get all jobs data from database for  pagination
+        app.get('/all-jobs', async (req, res) => {
+            const result = await jobsCollection.find().toArray();
+            res.send(result);
+        })
+        // Get all jobs data count from database
+        app.get('/jobs-count', async (req, res) => {
+            // const result = await jobsCollection.estimatedDocumentCount();
+            const count = await jobsCollection.countDocuments();
+            res.send({ count });
+        })
+
         //!----------------CRUD  End  ------------
 
 
