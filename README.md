@@ -38,8 +38,14 @@ npm i react-datepicker
 
 [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview)
 
-````
+```
 npm i @tanstack/react-query
+```
+
+[TanStack Query Devtools](https://tanstack.com/query/latest/docs/framework/react/devtools#devtools)
+
+```
+npm i @tanstack/react-query-devtools
 ```
 
 [how to change last commit message after push](https://stackoverflow.com/a/20853093/23363732)
@@ -47,7 +53,6 @@ npm i @tanstack/react-query
 Just say:
 
 ```
-
 git commit --amend -m "New commit message"
 ```
 
@@ -57,4 +62,3 @@ and then
 git push --force
 or, git push -f
 ```
-````
