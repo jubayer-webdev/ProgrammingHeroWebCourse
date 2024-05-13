@@ -1,21 +1,44 @@
 // https://github.com/shakilahmedatik/soloSphere-resources/blob/main/pages/BidRequests.jsx
 
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
-import axios from "axios";
+// import { useContext, useEffect, useState } from "react";
+// import { AuthContext } from "../provider/AuthProvider";
+// import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import useAuth from "../hooks/useAuth";
 
 const BidRequests = () => {
     // similar to MyBids
-    const { user } = useContext(AuthContext);
-    const [bids, setBids] = useState([]);
+    // const { user } = useContext(AuthContext);
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
-    useEffect(() => {
-        getData();
-    }, [user]);
+    //! ---------- TanStack Query Start -------------
+    const {
+        data: bids = [],
+        isLoading,
+        refetch,
+        isError,
+        error,
+    } = useQuery({
+        queryFn: () => getData(),
+        queryKey: ["bids"],
+    });
+    console.log("bids =", bids);
+    console.log("isLoading =", isLoading);
+    //! ---------- TanStack Query End   -------------
+
+    // const [bids, setBids] = useState([]);
+
+    // useEffect(() => {
+    //     getData();
+    // }, [user]);
 
     const getData = async () => {
-        const { data } = await axios(`${import.meta.env.VITE_API_URL}/bid-requests/${user?.email}`, { withCredentials: true });
-        setBids(data);
+        // const { data } = await axios(`${import.meta.env.VITE_API_URL}/bid-requests/${user?.email}`, { withCredentials: true });
+        // setBids(data);
+        const { data } = await axiosSecure(`/bid-requests/${user?.email}`);
+        return data;
     };
     // console.log(bids);
 
@@ -23,12 +46,18 @@ const BidRequests = () => {
         console.log(id, prevStatus, status);
         if (prevStatus === status) return console.log("Sry vai... PrevStatus === status");
 
-        const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
+        // const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
+        const { data } = await axiosSecure.patch(`/bid/${id}`, { status });
 
         console.log(data);
         // Refresh/Update UI
         getData();
     };
+
+    if (isLoading) return <p>Data is still loading...</p>;
+    // if (isError || error) {
+    //     console.log(isError, error);
+    // }
 
     return (
         <section className="container px-4 mx-auto pt-12">
