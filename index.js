@@ -300,11 +300,23 @@ async function run() {
         })
 
 
-        //! For Pagination, Search, Sort
+        //! -------------- For Pagination, Search, Sort ---------------------
 
         // Get all jobs data from database for  pagination
         app.get('/all-jobs', async (req, res) => {
-            const result = await jobsCollection.find().toArray();
+            console.log('(/all-jobs)');
+            const sizePerPage = parseInt(req.query.sizePerPage);
+            const currentPage = parseInt(req.query.currentPage) - 1;
+            console.log('currentPage =', currentPage, 'sizePerPage =', sizePerPage);
+
+            // const result = await jobsCollection.find().toArray();
+            const result =
+                await jobsCollection
+                    .find()
+                    .skip(currentPage * sizePerPage)
+                    .limit(sizePerPage)
+                    .toArray();
+
             res.send(result);
         })
         // Get all jobs data count from database
