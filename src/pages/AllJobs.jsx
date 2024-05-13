@@ -6,17 +6,19 @@ import axios from "axios";
 
 const AllJobs = () => {
     const [itemsPerPage, setItemsPerPage] = useState(2);
+    const [currentPage, setCurrentPage] = useState(1);
     const [count, setCount] = useState(0);
 
     // -------------------------- Copy From TabCategories Start --------------------
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?currentPage=${currentPage}&sizePerPage=${itemsPerPage}`);
             setJobs(data);
+            // setCount(data.length);
         };
         getData();
-    }, []);
+    }, [currentPage, itemsPerPage]);
     // console.log(jobs);
     //  -------------------------- Copy From TabCategories End --------------------
     useEffect(() => {
@@ -27,9 +29,15 @@ const AllJobs = () => {
         getCount();
     }, []);
 
-    console.log(count);
+    // console.log("count =", count);
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
+
+    //!  handle pagination button
+    const handlePaginationButton = (value) => {
+        console.log(value);
+        setCurrentPage(value);
+    };
 
     return (
         <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
@@ -90,7 +98,7 @@ const AllJobs = () => {
 
                 {/* //! Pagination Numbers */}
                 {pages.map((btnNum) => (
-                    <button key={btnNum} className={`hidden px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}>
+                    <button onClick={() => handlePaginationButton(btnNum)} key={btnNum} className={`hidden ${currentPage === btnNum ? "bg-blue-500 text-white" : ""} px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}>
                         {btnNum}
                     </button>
                 ))}
