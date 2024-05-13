@@ -137,6 +137,21 @@ async function run() {
             const bidData = req.body;
             // console.log(bidData);return;
 
+            //! ------------- check if its a duplicate request START ----------------
+            // https://github.com/shakilahmedatik/soloSphere-complete/blob/main/server/index.js
+            const query = {
+                email: bidData.email,
+                jobId: bidData.jobId,
+            };
+            const alreadyApplied = await bidsCollection.findOne(query);
+            console.log('alreadyApplied doc =', alreadyApplied);
+            if (alreadyApplied) {
+                return res
+                    .status(400)
+                    .send('You have already placed a bid on this job.');
+            }
+            //! ------------- check if its a duplicate request END ------------------
+
             // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
             //! send data to MongoDB
             const result = await bidsCollection.insertOne(bidData);
@@ -272,6 +287,7 @@ async function run() {
         // Update Bid status (In Progress, Complete, Rejected)
         //* Update just one(patch)  --- UPDATE(U) Operation -------
         app.patch('/bid/:id', async (req, res) => {
+            console.log('(/bid/:id)');
             const id = req.params.id;
             const status = req.body;
             const query = { _id: new ObjectId(id) };
