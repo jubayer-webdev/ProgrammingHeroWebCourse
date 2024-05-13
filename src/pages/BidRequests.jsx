@@ -3,9 +3,10 @@
 // import { useContext, useEffect, useState } from "react";
 // import { AuthContext } from "../provider/AuthProvider";
 // import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const BidRequests = () => {
     // similar to MyBids
@@ -13,7 +14,7 @@ const BidRequests = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    //! ---------- TanStack Query Start -------------
+    //! ---------- Start (useQuery is use to get data in TanStack Query) -------------
     const {
         data: bids = [],
         isLoading,
@@ -26,7 +27,7 @@ const BidRequests = () => {
     });
     console.log("bids =", bids);
     console.log("isLoading =", isLoading);
-    //! ---------- TanStack Query End   -------------
+    //! ---------- End (useQuery is use to get data in TanStack Query)  -------------
 
     // const [bids, setBids] = useState([]);
 
@@ -38,21 +39,43 @@ const BidRequests = () => {
         // const { data } = await axios(`${import.meta.env.VITE_API_URL}/bid-requests/${user?.email}`, { withCredentials: true });
         // setBids(data);
         const { data } = await axiosSecure(`/bid-requests/${user?.email}`);
+        console.log("This is getData FUNCTION");
         return data;
     };
     // console.log(bids);
 
+    //! --------Start (useMutation is use to delete/post/patch data in TanStack Query) -------------
+    const { mutateAsync } = useMutation({
+        mutationFn: async ({ id, status }) => {
+            const { data } = await axiosSecure.patch(`/bid/${id}`, { status });
+            console.log("\n In useMutation data =", data);
+        },
+        onSuccess: () => {
+            console.log("Wow, data updated");
+            toast.success("Updated Successfully");
+            // refresh UI for latest data
+            refetch();
+            console.log('After refetch()');
+        },
+    });
+    //! --------End   (useMutation is use to delete/post/patch data in TanStack Query) -------------
+
     const handleStatus = async (id, prevStatus, status) => {
         console.log(id, prevStatus, status);
         if (prevStatus === status) return console.log("Sry vai... PrevStatus === status");
-
-        // const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
-        const { data } = await axiosSecure.patch(`/bid/${id}`, { status });
-
-        console.log(data);
-        // Refresh/Update UI
-        getData();
+        await mutateAsync({ id, status });
     };
+    // const handleStatus = async (id, prevStatus, status) => {
+    //     console.log(id, prevStatus, status);
+    //     if (prevStatus === status) return console.log("Sry vai... PrevStatus === status");
+
+    //     // const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/bid/${id}`, { status });
+    //     const { data } = await axiosSecure.patch(`/bid/${id}`, { status });
+
+    //     console.log(data);
+    //     // Refresh/Update UI
+    //     getData();
+    // };
 
     if (isLoading) return <p>Data is still loading...</p>;
     // if (isError || error) {
