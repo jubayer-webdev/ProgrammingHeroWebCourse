@@ -308,21 +308,32 @@ async function run() {
             const sizePerPage = parseInt(req.query.sizePerPage);
             const currentPage = parseInt(req.query.currentPage) - 1;
             console.log('currentPage =', currentPage, 'sizePerPage =', sizePerPage);
+            const filter = req.query.filter;
 
+            let query = {};
+            if (filter) query = { category: filter };
             // const result = await jobsCollection.find().toArray();
             const result =
                 await jobsCollection
-                    .find()
+                    .find(query)
                     .skip(currentPage * sizePerPage)
                     .limit(sizePerPage)
                     .toArray();
 
             res.send(result);
         })
+
         // Get all jobs data count from database
         app.get('/jobs-count', async (req, res) => {
+            console.log(('(/jobs-count)'));
+            const filter = req.query.filter;
+            console.log('filter =', filter);
+
+            let query = {};
+            if (filter) query = { category: filter };
             // const result = await jobsCollection.estimatedDocumentCount();
-            const count = await jobsCollection.countDocuments();
+            const count = await jobsCollection.countDocuments(query);
+            console.log(count);
             res.send({ count });
         })
 
