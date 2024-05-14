@@ -5,39 +5,44 @@ import JobCard from "../components/JobCard";
 import axios from "axios";
 
 const AllJobs = () => {
-    const [itemsPerPage, setItemsPerPage] = useState(2);
+    const [itemsPerPage, setItemsPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
     const [count, setCount] = useState(0);
+    const [filter, setFilter] = useState("");
 
     // -------------------------- Copy From TabCategories Start --------------------
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?currentPage=${currentPage}&sizePerPage=${itemsPerPage}`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?currentPage=${currentPage}&sizePerPage=${itemsPerPage}&filter=${filter}`);
             setJobs(data);
             // setCount(data.length);
         };
         getData();
-    }, [currentPage, itemsPerPage]);
+    }, [currentPage, filter, itemsPerPage]);
     // console.log(jobs);
     //  -------------------------- Copy From TabCategories End --------------------
     useEffect(() => {
         const getCount = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/jobs-count`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/jobs-count?filter=${filter}`);
             setCount(data.count);
         };
         getCount();
-    }, []);
+    }, [filter]);
 
-    // console.log("count =", count);
+    // console.log("total data number =", count);
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
+    // console.log("pages = ", pages.length);
 
     //!  handle pagination button
     const handlePaginationButton = (value) => {
-        console.log(value);
+        // console.log("currentPage =", value);
         setCurrentPage(value);
     };
+
+    // console.log("currentPage =", currentPage);
+    // console.log("numberOfPages =", numberOfPages);
 
     return (
         <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
@@ -45,7 +50,17 @@ const AllJobs = () => {
                 <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
                     {/* //! Filter By Web/Graphics/Marketing */}
                     <div>
-                        <select name="category" id="category" className="border p-4 rounded-lg">
+                        <select
+                            onChange={(e) => {
+                                setFilter(e.target.value);
+                                console.log("filter =", filter);
+                                setCurrentPage(1);
+                            }}
+                            name="category"
+                            id="category"
+                            value={filter}
+                            className="border p-4 rounded-lg"
+                        >
                             <option value="">Filter By Category</option>
                             <option value="Web Development">Web Development</option>
                             <option value="Graphics Design">Graphics Design</option>
