@@ -309,13 +309,17 @@ async function run() {
             const currentPage = parseInt(req.query.currentPage) - 1;
             console.log('currentPage =', currentPage, 'sizePerPage =', sizePerPage);
             const filter = req.query.filter;
+            const sort = req.query.sort;
 
             let query = {};
             if (filter) query = { category: filter };
+            // This is for sort
+            let options = {}
+            if (sort) options = { sort: { deadline: sort === 'asc' ? 1 : -1 } }
             // const result = await jobsCollection.find().toArray();
             const result =
                 await jobsCollection
-                    .find(query)
+                    .find(query, options)
                     .skip(currentPage * sizePerPage)
                     .limit(sizePerPage)
                     .toArray();
