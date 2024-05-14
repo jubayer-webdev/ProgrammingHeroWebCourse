@@ -44,6 +44,10 @@ const AllJobs = () => {
 
     // console.log("currentPage =", currentPage);
     // console.log("numberOfPages =", numberOfPages);
+    const handleReset = () => {
+        setFilter("");
+        setSort("");
+    };
 
     return (
         <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
@@ -97,7 +101,9 @@ const AllJobs = () => {
                     </div>
 
                     {/* //! Reset button */}
-                    <button className="btn">Reset</button>
+                    <button onClick={handleReset} className="btn">
+                        Reset
+                    </button>
                 </div>
 
                 {/* //! JobCard */}
