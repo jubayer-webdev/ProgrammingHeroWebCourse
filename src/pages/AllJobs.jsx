@@ -9,17 +9,18 @@ const AllJobs = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [count, setCount] = useState(0);
     const [filter, setFilter] = useState("");
+    const [sort, setSort] = useState("");
 
     // -------------------------- Copy From TabCategories Start --------------------
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?currentPage=${currentPage}&sizePerPage=${itemsPerPage}&filter=${filter}`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?currentPage=${currentPage}&sizePerPage=${itemsPerPage}&filter=${filter}&sort=${sort}`);
             setJobs(data);
             // setCount(data.length);
         };
         getData();
-    }, [currentPage, filter, itemsPerPage]);
+    }, [currentPage, filter, itemsPerPage, sort]);
     // console.log(jobs);
     //  -------------------------- Copy From TabCategories End --------------------
     useEffect(() => {
@@ -56,8 +57,8 @@ const AllJobs = () => {
                                 console.log("filter =", filter);
                                 setCurrentPage(1);
                             }}
-                            name="category"
-                            id="category"
+                            name="sort"
+                            id="sort"
                             value={filter}
                             className="border p-4 rounded-lg"
                         >
@@ -79,7 +80,16 @@ const AllJobs = () => {
 
                     {/* //! Sort By Deadline/Descending/Ascending */}
                     <div>
-                        <select name="category" id="category" className="border p-4 rounded-md">
+                        <select
+                            onChange={(e) => {
+                                setSort(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                            value={sort}
+                            name="sort"
+                            id="sort"
+                            className="border p-4 rounded-md"
+                        >
                             <option value="">Sort By Deadline</option>
                             <option value="dsc">Descending Order</option>
                             <option value="asc">Ascending Order</option>
