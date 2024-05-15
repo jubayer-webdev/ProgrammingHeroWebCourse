@@ -93,7 +93,7 @@ const AllJobs = () => {
                             <input
                                 onChange={(e) => {
                                     setSearch(e.target.value);
-                                    console.log('From SEARCH onChange');
+                                    console.log("From SEARCH onChange");
                                     setCurrentPage(1);
                                 }}
                                 // From Conceptual session
@@ -168,7 +168,12 @@ const AllJobs = () => {
                 ))}
 
                 {/* //! Next Button */}
-                <button disabled={currentPage === numberOfPages} onClick={() => handlePaginationButton(currentPage + 1)} className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-blue-500 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500">
+                <button
+                    /*disabled={currentPage === numberOfPages}*/
+                    disabled={currentPage >= numberOfPages}
+                    onClick={() => handlePaginationButton(currentPage + 1)}
+                    className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-blue-500 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
+                >
                     <div className="flex items-center -mx-1">
                         <span className="mx-1">Next</span>
 
