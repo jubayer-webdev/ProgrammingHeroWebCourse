@@ -45,11 +45,12 @@ warning: if you don't enough information in corsOptions then you will get 'cors'
 
 ### Step 2:
 
-You should also add a (vercel.json) file with appropriate configuration.(the file is in the current github link).
+You should also add a (vercel.json) file with appropriate configuration.
+([The file is in the current github link](https://github.com/Jame-boy/Milestone11_ConceptualSession1-2___soloSphere-server/blob/main/vercel.json)).
 
 ### Step 3:
 
-[Installing Vercel CLI](https://vercel.com/docs/cli#installing-vercel-cli)
+[Installing Vercel CLI](https://vercel.com/docs/cli#installing-vercel-cli)  
 (This is one time process. If you have already done it for any of your previous project. Now skip it.)
 
 ```
