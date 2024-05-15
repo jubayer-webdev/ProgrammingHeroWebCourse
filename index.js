@@ -134,6 +134,7 @@ async function run() {
         //* Insert just one document --- CREATE(C) Operation -------
         // https://expressjs.com/en/starter/basic-routing.html
         app.post('/bid', async (req, res) => {
+            console.log(('/bid'));
             const bidData = req.body;
             // console.log(bidData);return;
 
@@ -155,6 +156,15 @@ async function run() {
             // https://www.mongodb.com/docs/drivers/node/current/usage-examples/insertOne/#insert-a-document
             //! send data to MongoDB
             const result = await bidsCollection.insertOne(bidData);
+
+            //! update bid count in jobs collection
+            const updateDoc = {
+                $inc: { bid_count: 1 },
+            };
+            const jobQuery = { _id: new ObjectId(bidData.jobId) };
+            const updateBidCount = await jobsCollection.updateOne(jobQuery, updateDoc);
+            console.log(updateBidCount);
+
             res.send(result);
         })
 
