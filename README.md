@@ -65,7 +65,11 @@ or, git push -f
 
 # Bug Fixing
 
+### Bug 1
+
 -   [How to fix "This Set-Cookie was blocked due to user preferences" in Chrome?](https://stackoverflow.com/a/69075290/23363732)
+
+### Bug 2
 
 ![Firebase Hosting Setup Complete issue](https://i.postimg.cc/FR5D55p3/Capture.png)
 
