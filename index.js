@@ -310,9 +310,19 @@ async function run() {
             console.log('currentPage =', currentPage, 'sizePerPage =', sizePerPage);
             const filter = req.query.filter;
             const sort = req.query.sort;
+            const search = req.query.search;
 
-            let query = {};
-            if (filter) query = { category: filter };
+            //it was when search is not considered
+            // let query = {};
+            // if (filter) query = { category: filter };
+            //!search + filter
+            let query = {
+                job_title: { $regex: search, $options: 'i' },
+            }
+            if (filter) {
+                // query = { ...query, category: filter }; it is also ok
+                query.category = filter;
+            }
             // This is for sort
             let options = {}
             if (sort) options = { sort: { deadline: sort === 'asc' ? 1 : -1 } }
@@ -331,10 +341,20 @@ async function run() {
         app.get('/jobs-count', async (req, res) => {
             console.log(('(/jobs-count)'));
             const filter = req.query.filter;
-            console.log('filter =', filter);
+            const search = req.query.search;
+            console.log('filter =', filter, "search =", search);
 
-            let query = {};
-            if (filter) query = { category: filter };
+            //it was when search is not considered
+            // let query = {};
+            // if (filter) query = { category: filter };
+            //!search + filter
+            let query = {
+                job_title: { $regex: search, $options: 'i' },
+            }
+            if (filter) {
+                // query = { ...query, category: filter }; it is also ok
+                query.category = filter;
+            }
             // const result = await jobsCollection.estimatedDocumentCount();
             const count = await jobsCollection.countDocuments(query);
             console.log(count);
