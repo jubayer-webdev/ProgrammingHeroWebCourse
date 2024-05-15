@@ -26,6 +26,10 @@ const UpdateJob = () => {
         const category = form.category.value;
         const min_price = parseFloat(form.min_price.value);
         const max_price = parseFloat(form.max_price.value);
+        if (min_price < 1 || max_price < 1) {
+            toast.error("price should be a positive number");
+            return;
+        }
         const description = form.description.value;
 
         const jobData = {
