@@ -62,3 +62,11 @@ and then
 git push --force
 or, git push -f
 ```
+
+# Bug Fixing
+
+-   [How to fix "This Set-Cookie was blocked due to user preferences" in Chrome?](https://stackoverflow.com/a/69075290/23363732)
+
+![Firebase Hosting Setup Complete issue](https://i.postimg.cc/FR5D55p3/Capture.png)
+
+-   [Solve The issue](https://dev.to/chayti/firebase-hosting-setup-complete-issue-43cg)
