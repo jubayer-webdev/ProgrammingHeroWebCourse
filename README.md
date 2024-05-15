@@ -73,6 +73,8 @@ How to logout from vercel?
 vercel logout
 ```
 
+you can also login/logout from the Vercel CLI site.
+
 ### Step 5: (may be optional, on this project i didn't do it )
 
 Set environment variable on vercel (from .env file)
