@@ -99,17 +99,17 @@ const UpdateJob = () => {
                         {/* //!Minimum Price */}
                         <div>
                             <label className="text-gray-700 " htmlFor="min_price">
-                                Minimum Price
+                                Minimum Price<span className="text-red-400 font-bold">*</span>
                             </label>
-                            <input id="min_price" defaultValue={min_price} name="min_price" type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
+                            <input id="min_price" defaultValue={min_price} name="min_price" type="number" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
                         </div>
 
                         {/* //!Maximum Price */}
                         <div>
                             <label className="text-gray-700 " htmlFor="max_price">
-                                Maximum Price
+                                Maximum Price<span className="text-red-400 font-bold">*</span>
                             </label>
-                            <input id="max_price" defaultValue={max_price} name="max_price" type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
+                            <input id="max_price" defaultValue={max_price} name="max_price" type="number" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
                         </div>
                     </div>
 
