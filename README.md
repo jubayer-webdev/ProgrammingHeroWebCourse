@@ -145,9 +145,9 @@ vercel logout
 
 you can also login/logout from the Vercel CLI site.
 
-6. Deploy to Vercel
+7. Deploy to Vercel
 
-After doing the above instruction, then open the terminal with correct path and give the command,
+After doing the above instruction, then open the terminal with correct path and give the command below,
 then follow the commands, your server site will Deploy on vercel, inshaALLAH.
 
 ```bash
