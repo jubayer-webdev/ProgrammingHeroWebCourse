@@ -76,7 +76,11 @@ await client.db("admin").command({ ping: 1 });
 //Must remove "/" from your production URL
 app.use(
     cors({
-        origin: ["http://localhost:5173", "https://cardoctor-bd.web.app", "https://cardoctor-bd.firebaseapp.com"],
+        origin: [
+            "http://localhost:5173", 
+            "https://cardoctor-bd.web.app", 
+            "https://cardoctor-bd.firebaseapp.com"
+            ],
         credentials: true,
     })
 );
@@ -129,7 +133,7 @@ npm i -g vercel
 
 How to login vercel?
 
-```bash
+```shell
 vercel login
 ```
 
