@@ -8,7 +8,8 @@ const jwt = require('jsonwebtoken');
 
 const port = process.env.PORT || 8000;
 
-// middleware
+
+//! middleware
 const corsOptions = {
   origin: ['http://localhost:5173', 'http://localhost:5174'],
   credentials: true,
@@ -18,6 +19,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
+
 
 //! Verify Token Middleware
 const verifyToken = async (req, res, next) => {
@@ -36,6 +38,8 @@ const verifyToken = async (req, res, next) => {
   })
 }
 
+//! ********************************** MongoDB START ************************************
+
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.2ncikoy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 const client = new MongoClient(uri, {
@@ -44,7 +48,7 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
   },
-})
+});
 
 async function run() {
   try {
@@ -79,7 +83,32 @@ async function run() {
       }
     })
 
+
+    //! -----------------------------------CRUD START-------------------------------------
     //! Get all rooms from db
+    app.get('/rooms', async (req, res) => {
+      // const category = req.query.category;
+      // console.log(category);
+
+      // let query = {};
+      // if (category && category !== 'null') query = { category };
+      const result = await roomsCollection.find().toArray();
+
+      res.send(result);
+    })
+
+    //! Get a single room data from db using _id
+    app.get('/room/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await roomsCollection.findOne(query);
+
+      res.send(result);
+    })
+
+
+    //! -----------------------------------CRUD END--------------------------------------
+
 
     //! Send a ping to confirm a successful connection
     await client.db('admin').command({ ping: 1 })
@@ -89,6 +118,9 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+
+//! ********************************** MongoDB END **************************************
 
 app.get('/', (req, res) => {
   res.send('Hello from StayVista Server..')
