@@ -2,23 +2,36 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import Container from "../Shared/Container";
 import Heading from "../Shared/Heading";
+import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Shared/LoadingSpinner";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Rooms = () => {
-    const [rooms, setRooms] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const axiosSecure = useAxiosSecure();
+    // const [rooms, setRooms] = useState([]);
+    // const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch(`http://localhost:8000/rooms`)
-            .then((res) => res.json())
-            .then((data) => {
-                setRooms(data);
-                setLoading(false);
-            });
-    }, []);
+    //! TanStack Query
+    const query = useQuery({
+        queryKey: ["rooms"],
+        queryFn: async () => {
+            const { data } = await axiosSecure.get("/rooms");
+            return data;
+        },
+    });
+    const { data: rooms = [], isLoading } = query;
 
-    if (loading) return <LoadingSpinner />;
+    // useEffect(() => {
+    //     setLoading(true);
+    //     fetch(`http://localhost:8000/rooms`)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setRooms(data);
+    //             setLoading(false);
+    //         });
+    // }, []);
+
+    if (isLoading) return <LoadingSpinner />;
 
     return (
         <Container>
