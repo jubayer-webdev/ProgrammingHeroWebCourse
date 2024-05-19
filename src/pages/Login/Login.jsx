@@ -7,8 +7,11 @@ import { TbFidgetSpinner } from "react-icons/tb";
 
 const Login = () => {
     const navigate = useNavigate();
+
+    //! received data from PrivateRoute.jsx
     const location = useLocation();
     const from = location?.state || "/";
+
     const { signInWithGoogle, signIn, loading, setLoading, resetPassword } = useAuth();
     const [email, setEmail] = useState("");
 
