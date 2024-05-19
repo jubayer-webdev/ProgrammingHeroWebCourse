@@ -125,7 +125,7 @@ run().catch(console.dir);
 //! ********************************** MongoDB END **************************************
 
 app.get('/', (req, res) => {
-  res.send('Hello from StayVista Server..')
+  res.send('Hello from StayVista Server...git ')
 })
 
 app.listen(port, () => {
