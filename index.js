@@ -87,12 +87,13 @@ async function run() {
     //! -----------------------------------CRUD START-------------------------------------
     //! Get all rooms from db
     app.get('/rooms', async (req, res) => {
-      // const category = req.query.category;
-      // console.log(category);
+      const category = req.query.category;
+      console.log("('/rooms') =", category);
 
-      // let query = {};
-      // if (category && category !== 'null') query = { category };
-      const result = await roomsCollection.find().toArray();
+      let query = {};
+      // null is a string, not actual null(Query value always is string)
+      if (category && category !== 'null') query = { category };
+      const result = await roomsCollection.find(query).toArray();
 
       res.send(result);
     })
