@@ -30,7 +30,7 @@ const RoomDetails = () => {
 
             {room && (
                 <div className="max-w-screen-lg mx-auto">
-                    {/* Header */}
+                    {/* //! Header */}
                     <div className="flex flex-col gap-6">
                         <div>
                             <Heading title={room.title} subtitle={room.location} />
@@ -41,7 +41,7 @@ const RoomDetails = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
-                        {/* Room Info */}
+                        {/* //! Room Info */}
                         <div className="col-span-4 flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
                                 <div
@@ -78,7 +78,7 @@ const RoomDetails = () => {
                         </div>
 
                         <div className="md:col-span-3 order-first md:order-last mb-10">
-                            {/* RoomReservation */}
+                            {/* //! RoomReservation */}
                             <RoomReservation room={room} />
                         </div>
                     </div>
