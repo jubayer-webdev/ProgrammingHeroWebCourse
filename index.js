@@ -103,12 +103,13 @@ async function run() {
     app.post('/room', async (req, res) => {
       const roomData = req.body;
       const result = await roomsCollection.insertOne(roomData);
-      
+
       res.send(result);
     })
 
     //! get all rooms for host
     app.get('/my-listings/:email', async (req, res) => {
+      console.log("('/my-listings/:email')");
       const email = req.params.email;
 
       let query = { 'host.email': email };
