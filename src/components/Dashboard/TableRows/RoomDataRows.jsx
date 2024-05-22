@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
 import { format } from "date-fns";
 import { useState } from "react";
-import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-// import DeleteModal from "../../Modal/DeleteModal";
+import DeleteModal from "../../Modal/DeleteModal";
 
 const RoomDataRow = ({ room, handleDelete }) => {
     //! for delete modal
-    // let [isOpen, setIsOpen] = useState(false);
-    // const closeModal = () => {
-    //     setIsOpen(false);
-    // };
+    let [isOpen, setIsOpen] = useState(false);
+    const closeModal = () => {
+        setIsOpen(false);
+    };
 
     //! for update modal
     return (
@@ -56,14 +55,15 @@ const RoomDataRow = ({ room, handleDelete }) => {
                     <span aria-hidden="true" className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
                     <span className="relative">Delete</span>
                 </button>
+
                 {/* //! Delete modal */}
-                {/* <DeleteModal
+                <DeleteModal
                     //
                     isOpen={isOpen}
                     closeModal={closeModal}
                     handleDelete={handleDelete}
                     id={room?._id}
-                /> */}
+                />
             </td>
 
             {/* //! update */}

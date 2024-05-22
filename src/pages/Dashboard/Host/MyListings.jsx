@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 import RoomDataRow from "../../../components/Dashboard/TableRows/RoomDataRows";
+import toast from "react-hot-toast";
 
 const MyListings = () => {
     const { user } = useAuth();
@@ -23,26 +24,28 @@ const MyListings = () => {
     });
 
     //! delete
-    // const { mutateAsync } = useMutation({
-    //     mutationFn: async (id) => {
-    //         // const { data } = await axiosSecure.delete(`/room/${id}`);
-    //         // return data;
-    //     },
-    //     onSuccess: (data) => {
-    //         console.log(data);
-    //         refetch();
-    //         toast.success("Successfully deleted.");
-    //     },
-    // });
+    const { mutateAsync } = useMutation({
+        mutationFn: async (id) => {
+            const { data } = await axiosSecure.delete(`/room/${id}`);
+            return data;
+        },
+        // onSuccess: (data) is the above return data from mutationFn
+        onSuccess: (data) => {
+            console.log(data);
+            //refresh UI
+            refetch(); 
+            toast.success("Successfully deleted.");
+        },
+    });
 
     //! Handle Delete
     const handleDelete = async (id) => {
         console.log(id);
-        // try {
-        //     await mutateAsync(id);
-        // } catch (err) {
-        //     console.log(err);
-        // }
+        try {
+            await mutateAsync(id);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     if (isLoading) return <LoadingSpinner />;
