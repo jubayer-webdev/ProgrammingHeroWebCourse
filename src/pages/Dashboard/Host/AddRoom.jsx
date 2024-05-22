@@ -5,6 +5,10 @@ import { imageUpload } from "../../../api/utils";
 
 const AddRoom = () => {
     const { user } = useAuth();
+    //! https://www.geeksforgeeks.org/how-to-upload-image-and-preview-it-using-reactjs/
+    const [imagePreview, setImagePreview] = useState();
+    const [imageText, setImageText] = useState("Upload Image");
+
     const [dates, setDates] = useState({
         startDate: new Date(),
         endDate: new Date(),
@@ -70,11 +74,23 @@ const AddRoom = () => {
         }
     };
 
+    //!  handle image change
+    const handleImage = (image) => {
+        setImagePreview(URL.createObjectURL(image));
+        setImageText(image.name);
+    };
+
     return (
-        <div>
-            {/* Form */}
-            <AddRoomForm dates={dates} handleDates={handleDates} handleSubmit={handleSubmit} />
-        </div>
+        <AddRoomForm
+            //
+            dates={dates}
+            handleDates={handleDates}
+            handleSubmit={handleSubmit}
+            setImagePreview={setImagePreview}
+            imagePreview={imagePreview}
+            handleImage={handleImage}
+            imageText={imageText}
+        />
     );
 };
 
