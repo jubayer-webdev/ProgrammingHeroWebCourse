@@ -81,7 +81,7 @@ const RoomDataRow = ({ room, handleDelete }) => {
 
 RoomDataRow.propTypes = {
     room: PropTypes.object,
-    refetch: PropTypes.func,
+    handleDelete: PropTypes.func,
 };
 
 export default RoomDataRow;
