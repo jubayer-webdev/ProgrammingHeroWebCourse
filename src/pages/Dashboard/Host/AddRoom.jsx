@@ -2,15 +2,26 @@ import { useState } from "react";
 import AddRoomForm from "../../../components/Form/AddRoomForm";
 import useAuth from "../../../hooks/useAuth";
 import { imageUpload } from "../../../api/utils";
+import { Helmet } from "react-helmet-async";
+import { useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddRoom = () => {
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
     //! https://www.geeksforgeeks.org/how-to-upload-image-and-preview-it-using-reactjs/
     const [imagePreview, setImagePreview] = useState();
     const [imageText, setImageText] = useState("Upload Image");
 
     const [dates, setDates] = useState({
         startDate: new Date(),
+        // endDate: null,
         endDate: new Date(),
         key: "selectionKEY",
     });
@@ -21,11 +32,26 @@ const AddRoom = () => {
         console.log("Date range in AddRooms item =", item);
     };
 
+    //! TanStack Query
+    const { mutateAsync } = useMutation({
+        mutationFn: async (roomData) => {
+            const { data } = await axiosSecure.post(`/room`, roomData);
+            return data;
+        },
+        onSuccess: () => {
+            console.log("Data Saved Successfully");
+            toast.success("Room Added Successfully!");
+            navigate("/dashboard/my-listings");
+            setLoading(false);
+        },
+        // onError:
+    });
+
     //!   Form handler
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
-        // setLoading(true);
         const form = e.target;
 
         const location = form.location.value;
@@ -68,9 +94,12 @@ const AddRoom = () => {
             };
             console.table(roomData);
 
-            //!   Post request to server
+            //! Post request to server by using TanStack Query
+            await mutateAsync(roomData);
         } catch (err) {
             console.log(err);
+            toast.error(err.message);
+            setLoading(false);
         }
     };
 
@@ -81,16 +110,24 @@ const AddRoom = () => {
     };
 
     return (
-        <AddRoomForm
-            //
-            dates={dates}
-            handleDates={handleDates}
-            handleSubmit={handleSubmit}
-            setImagePreview={setImagePreview}
-            imagePreview={imagePreview}
-            handleImage={handleImage}
-            imageText={imageText}
-        />
+        <>
+            <Helmet>
+                <title>Add Room | Dashboard</title>
+            </Helmet>
+
+            {/* Form */}
+            <AddRoomForm
+                //
+                dates={dates}
+                handleDates={handleDates}
+                handleSubmit={handleSubmit}
+                setImagePreview={setImagePreview}
+                imagePreview={imagePreview}
+                handleImage={handleImage}
+                imageText={imageText}
+                loading={loading}
+            />
+        </>
     );
 };
 
