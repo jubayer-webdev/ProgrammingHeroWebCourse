@@ -1,4 +1,4 @@
-# b9-stayVista-starter-template
+# b9-stayVista-Project
 
 -   [b9-stayVista-starter-template](https://github.com/shakilahmedatik/b9-stayVista-starter-template)
 
@@ -6,6 +6,8 @@
 
 -   [Calender](https://hypeserver.github.io/react-date-range/#daterange)
 -   [React-Icons](https://react-icons.github.io/react-icons/search/#q=TbFidgetSpinner)
+-   [DeleteModal](https://headlessui.com/react/dialog)
+-   [differenceInCalendarDays](https://date-fns.org/v3.6.0/docs/differenceInCalendarDays)
 
 # [This Section is Copy Pest From](https://github.com/shakilahmedatik/b9-stayVista-starter-template)
 
