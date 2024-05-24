@@ -94,8 +94,19 @@ async function run() {
       const query = { email: user?.email };
 
       // check if user already exists in db
-      const isExist = await usersCollection.findOne(query)
-      if (isExist) return res.send(isExist);
+      const isExist = await usersCollection.findOne(query);
+      if (isExist) {
+        if (user.status === 'Requested') {
+          // if existing user try to change his role
+          const result = await usersCollection.updateOne(query, {
+            $set: { status: user?.status },
+          })
+          return res.send(result);
+        } else {
+          // if existing user login again
+          return res.send(isExist);
+        }
+      }
 
       // save user for the first time 
       const options = { upsert: true };
